@@ -1,3 +1,77 @@
 {
-  "extends": "next/core-web-vitals"
+    "extends": ["next/core-web-vitals"],
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["react", "@typescript-eslint"],
+    "rules": {
+        "quotes": [2, "double"],
+        "semi": ["error", "always"],
+        "prefer-const": "error",
+        "linebreak-style": "off",
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
+        "indent": [2, 4],
+        "react/jsx-filename-extension": [
+            2,
+            {
+                "extensions": [".js", ".jsx", ".tsx"]
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 80
+            }
+        ],
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "no-unused-vars": "warn",
+        "react/require-default-props": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/function-component-definition": "off",
+        "no-shadow": "off",
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-underscore-dangle": "off",
+        "no-console": "warn",
+        "react/button-has-type": "off",
+        "arrow-body-style": "off",
+        "object-curly-newline": "off",
+        "no-useless-concat": "off",
+        "object-shorthand": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "no-confusing-arrow": "off",
+        "implicit-arrow-linebreak": "off",
+        "function-paren-newline": "off",
+        "operator-linebreak": "off",
+        "no-param-reassign": "off",
+        "import/no-internal-modules": "off",
+        "react/jsx-props-no-spreading": "off",
+        "import/no-anonymous-default-export": "off",
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal",
+                    "parent",
+                    "sibling",
+                    "index",
+                    "object",
+                    "type"
+                ],
+                "newlines-between": "always-and-inside-groups"
+            }
+        ]
+    }
 }

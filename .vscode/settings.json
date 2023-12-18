@@ -1,0 +1,13 @@
+{
+    "i18n-ally.keystyle": "flat",
+    "stylelint.enable": true,
+    "css.validate": true,
+    "scss.validate": true,
+    "stylelint.validate": ["css", "scss"],
+    "stylelint.config": null,
+    "cSpell.words": ["linebreak", "инкремент"],
+    "javascript.format.enable": true,
+    "javascript.format.insertSpaceAfterCommaDelimiter": true,
+    "eslint.codeActionsOnSave.mode": "problems",
+    "eslint.codeActionsOnSave.rules": true
+}

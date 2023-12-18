@@ -1,0 +1,8 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "plugins": [],
+    "rules": {
+        "at-rule-empty-line-before": "always",
+        "selector-class-pattern": null
+    }
+}
