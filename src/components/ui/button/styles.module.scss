@@ -1,0 +1,70 @@
+.button {
+    height: 45px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    text-decoration: none;
+    border-radius: 22px;
+    background-color: var(--color-white);
+    font-size: 20px;
+    transition: color 0.3s, border-color 0.3s;
+    width: 382px;
+    
+
+    &.default {
+        color: var(--color-orange);
+        border: 1px solid var(--color-orange);
+
+        &:hover {
+            border: 1px solid var(--color-orange-light);
+            color: var(--color-orange-light);
+        }
+    }
+
+    &.gray {
+        color: var(--color-gray);
+        border: 1px solid var(--color-gray);
+    }
+
+    &.cart {
+        width: 362px;
+        height: 50px;
+        color: var(--color-orange);
+        border: 1px solid var(--color-orange);
+        padding-left: 15px;
+
+        svg {
+            margin-right: 15px;
+
+            & path {
+                transition: all 0.5s;
+            }
+        }
+
+        &:hover {
+            border: 1px solid var(--color-orange-light);
+            color: var(--color-orange-light);
+            
+            & svg path {
+                transition: all 0.5s;
+                fill: var(--color-orange-light);
+            }
+        }
+    }
+
+    &.small {
+        width: 280px;
+        height: 52px;
+        color: var(--color-orange);
+        border: 1px solid var(--color-orange);
+
+        &:hover {
+            border: 1px solid var(--color-orange-light);
+            color: var(--color-orange-light);
+        }
+    }
+}
