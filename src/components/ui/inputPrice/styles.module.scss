@@ -1,0 +1,20 @@
+.inputPrice {
+    width:125px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--color-gray);
+    color: var(--color-black-light);
+
+    &::placeholder {
+        color: var(--color-gray);
+      }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+      }
+}
