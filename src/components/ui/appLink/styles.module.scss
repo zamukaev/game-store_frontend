@@ -1,0 +1,31 @@
+.link{
+    text-decoration: none;
+    transition:all ease 0.3s;
+
+    svg{
+        transition:all ease 0.3s;
+    }
+
+    &:hover{
+        color: var(--color-orange-light);
+        transition:all ease 0.3s;
+
+            svg{
+                transition:all ease 0.3s;
+                fill: var(--color-orange-light);
+            }
+    }
+     
+}
+
+.default{
+     color: var(--color-black);
+}
+
+.primary{
+    color: var(--color-orange);
+}
+
+.secondary{
+    color: var(--color-orange-light);
+}

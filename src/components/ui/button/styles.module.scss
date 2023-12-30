@@ -39,6 +39,7 @@
 
         svg {
             margin-right: 15px;
+            fill:var(--color-orange) ;
 
             & path {
                 transition: all 0.5s;
@@ -65,6 +66,32 @@
         &:hover {
             border: 1px solid var(--color-orange-light);
             color: var(--color-orange-light);
+        }
+    }
+
+       &.clear{
+        width: fit-content;
+        height: fit-content;
+        background: none;
+        border-radius: 0;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        transition:all ease 0.3s;
+
+        svg{
+            transition:all ease 0.3s;
+        }
+
+        &:hover{
+            color: var(--color-orange-light);
+            transition:all ease 0.3s;
+
+            svg{
+                transition:all ease 0.3s;
+                fill: var(--color-orange-light);
+            }
         }
     }
 }

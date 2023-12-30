@@ -1,4 +1,8 @@
-import Button, { ButtonProps } from "./Button";
+
+
+import CartIcon from "@/components/shared/icons/cartIcon/CartIcon";
+
+import Button from "./Button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -18,9 +22,15 @@ export const Gray: Story = {
 };
 
 export const Cart: Story = {
-    render: () => <Button kind="cart">Добавить в корзину</Button>,
+    render: () => <Button kind="cart">
+        <CartIcon />
+        <p>Добавить в корзину</p>
+    </Button>,
 };
 
 export const Small: Story = {
     render: () => <Button kind="small">Перейти на главную</Button>,
+};
+export const Clear: Story = {
+    render: () => <Button kind="clear" >Перейти на главную</Button>,
 };
