@@ -9,8 +9,6 @@ import InputPrice from "@/components/ui/inputPrice/InputPrice";
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
 
-    console.log(price);
-
     return (
         <main className="main">
             <NavItem kind="cart" text="basket" href="/cart" />
