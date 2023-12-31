@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@storybook/addon-knobs": "^7.0.2",
+        "eslint-plugin-react-hooks": "^5.0.0-canary-c5b937576-20231219",
         "next": "13.5.6",
         "react": "^18",
         "react-dom": "^18",
