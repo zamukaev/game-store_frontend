@@ -7,7 +7,9 @@ import { NavItem } from "@/components/ui/navItem/NavItem";
 import InputPrice from "@/components/ui/inputPrice/InputPrice";
 
 export default function Home() {
+
     const [price, setPrice] = useState<number>(0);
+
 
     return (
         <main className="main">
@@ -18,7 +20,7 @@ export default function Home() {
                 <CartIcon />
                 <p>Перейти на главную</p>
             </Button>
-            <InputPrice
+                <InputPrice
                 placeholder="от 199"
                 value={price}
                 setValue={setPrice}
