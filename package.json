@@ -12,7 +12,7 @@
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "test": "jest"
+        "test:unit": "jest"
     },
     "dependencies": {
         "@storybook/addon-knobs": "^7.0.2",
