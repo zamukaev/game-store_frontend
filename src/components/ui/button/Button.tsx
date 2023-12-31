@@ -1,20 +1,18 @@
 import React, { ReactNode, ButtonHTMLAttributes, FC } from "react";
 
-import CartIcon from "../../shared/icons/cartIcon/CartIcon";
-
 import styles from "./styles.module.scss";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    className?: string;
     children: ReactNode;
-    kind?: "default" | "gray" | "cart" | "small";
+    kind?: "default" | "gray" | "cart" | "small" | "clear";
 }
 
-const Button: FC<ButtonProps> = ({ children, kind = "default", ...props }) => {
-    const className = `${styles.button} ${styles[kind] || ""}`;
+const Button: FC<ButtonProps> = ({ children, kind = "default", className, ...props }) => {
+    const cls = `${styles.button} ${styles[kind]} ${className}`;
 
     return (
-        <button className={className} {...props}>
-            {kind === "cart" && <CartIcon />}
+        <button className={cls} {...props}>
             {children}
         </button>
     );
