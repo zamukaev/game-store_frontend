@@ -1,19 +1,19 @@
-.rating{
-    display:flex;
+.rating {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.star{
+.star {
     display: inline-block;
 }
 
-.star svg{
+.star svg {
     margin-right: 5px;
 }
 
-.filled{
-      svg{
+.filled {
+    svg {
         fill: var(--color-orange);
-      }
+    }
 }

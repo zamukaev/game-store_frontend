@@ -3,7 +3,6 @@ import { fireEvent, render } from "@testing-library/react";
 
 import Rating from "./Rating";
 describe("Rating Component", () => {
-
     test("renders the component with the correct rating", () => {
         const { container } = render(<Rating rating={3} />);
         const stars = container.querySelectorAll(".star");

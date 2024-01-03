@@ -20,4 +20,3 @@ export const LoginIcon: Story = {
 export const Favorites: Story = {
     render: () => <NavItem kind="favorites" text="some text" />,
 };
-

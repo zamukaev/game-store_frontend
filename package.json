@@ -10,6 +10,8 @@
         "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "npx stylelint \"**/*.scss\"",
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
+        "prettier": "npx prettier . --cache",
+        "prettier:fix": "npx prettier . --write",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "test": "jest"

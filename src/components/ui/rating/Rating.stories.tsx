@@ -10,7 +10,6 @@ export default meta;
 type Story = StoryObj<typeof Rating>;
 
 export const RatingEmpty: Story = {
-
     render: () => <Rating rating={0} />,
 };
 
@@ -21,4 +20,3 @@ export const RatingThreePoints: Story = {
 export const RatingFivePoints: Story = {
     render: () => <Rating rating={5} />,
 };
-

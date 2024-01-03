@@ -11,9 +11,10 @@
     border-radius: 22px;
     background-color: var(--color-white);
     font-size: 20px;
-    transition: color 0.3s, border-color 0.3s;
+    transition:
+        color 0.3s,
+        border-color 0.3s;
     width: 382px;
-    
 
     &.default {
         color: var(--color-orange);
@@ -44,7 +45,7 @@
 
         svg {
             margin-right: 15px;
-            fill:var(--color-orange) ;
+            fill: var(--color-orange);
 
             & path {
                 transition: all 0.5s;
@@ -54,7 +55,7 @@
         &:hover {
             border: 1px solid var(--color-orange-light);
             color: var(--color-orange-light);
-            
+
             & svg path {
                 transition: all 0.5s;
                 fill: var(--color-orange-light);
@@ -74,7 +75,7 @@
         }
     }
 
-       &.clear{
+    &.clear {
         width: fit-content;
         height: fit-content;
         background: none;
@@ -83,20 +84,10 @@
         padding: 0;
         margin: 0;
         font-size: 16px;
-        transition:all ease 0.3s;
+        transition: all ease 0.3s;
 
-        svg{
-            transition:all ease 0.3s;
-        }
-
-        &:hover{
-            color: var(--color-orange-light);
-            transition:all ease 0.3s;
-
-            svg{
-                transition:all ease 0.3s;
-                fill: var(--color-orange-light);
-            }
+        svg {
+            transition: all ease 0.3s;
         }
     }
 }
