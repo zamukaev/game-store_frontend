@@ -5,11 +5,12 @@ import CartIcon from "@/components/shared/icons/cartIcon/CartIcon";
 import Button from "@/components/ui/button/Button";
 import { NavItem } from "@/components/ui/navItem/NavItem";
 import InputPrice from "@/components/ui/inputPrice/InputPrice";
+import Rating from "@/components/ui/rating/Rating";
 
 export default function Home() {
 
     const [price, setPrice] = useState<number>(0);
-
+    const [rating, setRating] = useState<number>(0);
 
     return (
         <main className="main">
@@ -20,11 +21,15 @@ export default function Home() {
                 <CartIcon />
                 <p>Перейти на главную</p>
             </Button>
-                <InputPrice
+            <Button kind="gray">
+                <p>Выйти из аккаутна</p>
+            </Button>
+            <InputPrice
                 placeholder="от 199"
                 value={price}
                 setValue={setPrice}
             />
+            <Rating rating={rating} setRating={setRating} isEditable={true} />
         </main>
     );
 }
