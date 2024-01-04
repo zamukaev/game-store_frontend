@@ -13,7 +13,9 @@ describe("NavItem Component", () => {
     });
     test("NavItem onClick handler is called", () => {
         const onClickMock = jest.fn();
-        const { getByText } = render(<NavItem kind="favorites" text="Favorites" onClick={onClickMock} />);
+        const { getByText } = render(
+            <NavItem kind="favorites" text="Favorites" onClick={onClickMock} />
+        );
 
         fireEvent.click(getByText("Favorites"));
 

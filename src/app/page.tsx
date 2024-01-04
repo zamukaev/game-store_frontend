@@ -6,16 +6,23 @@ import Button from "@/components/ui/button/Button";
 import { NavItem } from "@/components/ui/navItem/NavItem";
 import InputPrice from "@/components/ui/inputPrice/InputPrice";
 import Rating from "@/components/ui/rating/Rating";
+import Counter from "@/components/ui/counter/Counter";
+import RadioButton from "@/components/ui/radioButton/RadioButton";
+import RadioGroup from "@/components/ui/radioGroup/RadioGroup";
 
 export default function Home() {
-
     const [price, setPrice] = useState<number>(0);
     const [rating, setRating] = useState<number>(0);
+    const [count, setCount] = useState(0);
 
     return (
         <main className="main">
             <NavItem kind="cart" text="basket" href="/cart" />
-            <NavItem kind="login" text="login" onClick={() => console.log("modal true")} />
+            <NavItem
+                kind="login"
+                text="login"
+                onClick={() => console.log("modal true")}
+            />
             <NavItem kind="favorites" text="favorites" href="/favorites" />
             <Button kind="cart">
                 <CartIcon />
@@ -30,6 +37,9 @@ export default function Home() {
                 setValue={setPrice}
             />
             <Rating rating={rating} setRating={setRating} isEditable={true} />
+
+            <Counter count={count} setCount={setCount} />
+            <RadioGroup />
         </main>
     );
 }

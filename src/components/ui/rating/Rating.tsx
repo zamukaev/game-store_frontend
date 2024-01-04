@@ -10,24 +10,25 @@ import StarIcon from "@/components/shared/icons/starIcon/StarIcon";
 
 import styles from "./styles.module.scss";
 
-interface RatingProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface RatingProps
+    extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     isEditable?: boolean;
     rating: number;
     setRating?: (rating: number) => void;
 }
 
 const Rating: FC<RatingProps> = (props): JSX.Element => {
-    const {
-        rating,
-        isEditable,
-        setRating
-    } = props;
+    const { rating, isEditable, setRating } = props;
 
-    const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
+    const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
+        new Array(5).fill(<></>)
+    );
 
     const constructRating = (currentRating: number) => {
         const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
-            const cls = `${styles.star} ${(i < currentRating) ? styles.filled : ""}`;
+            const cls = `${styles.star} ${
+                i < currentRating ? styles.filled : ""
+            }`;
             return (
                 <span
                     key={i}
@@ -38,7 +39,6 @@ const Rating: FC<RatingProps> = (props): JSX.Element => {
                 >
                     <StarIcon />
                 </span>
-
             );
         });
         setRatingArray(updatedArray);
@@ -65,14 +65,10 @@ const Rating: FC<RatingProps> = (props): JSX.Element => {
     return (
         <ul role="list" className={styles.rating}>
             {ratingArray.map((r, i) => (
-                <li
-                    key={i}
-                >
-                    {r}
-                </li>))}
+                <li key={i}>{r}</li>
+            ))}
         </ul>
     );
 };
 
 export default Rating;
-

@@ -20,12 +20,7 @@ export interface NavItemProps {
 }
 
 export const NavItem: React.FC<NavItemProps> = (props) => {
-    const {
-        text,
-        kind,
-        href,
-        onClick,
-    } = props;
+    const { text, kind, href, onClick } = props;
     const className = `${styles.navItem}`;
 
     const getIcon = () => {
@@ -53,18 +48,25 @@ export const NavItem: React.FC<NavItemProps> = (props) => {
 
     return (
         <>
-            {
-                href ?
-                    <AppLink href={href} theme={AppLinkTheme.DEFAULT} className={className}>
-                        {getIcon()}
-                        <p>{text && text}</p>
-                    </AppLink>
-                    :
-                    <Button kind="clear" onClick={openModalHandler} className={className}>
-                        {getIcon()}
-                        <p>{text && text}</p>
-                    </Button>
-            }
+            {href ? (
+                <AppLink
+                    href={href}
+                    theme={AppLinkTheme.DEFAULT}
+                    className={className}
+                >
+                    {getIcon()}
+                    <p>{text && text}</p>
+                </AppLink>
+            ) : (
+                <Button
+                    kind="clear"
+                    onClick={openModalHandler}
+                    className={className}
+                >
+                    {getIcon()}
+                    <p>{text && text}</p>
+                </Button>
+            )}
         </>
     );
 };
