@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 
 import Rating from "./Rating";

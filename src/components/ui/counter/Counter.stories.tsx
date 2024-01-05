@@ -1,5 +1,3 @@
-import CartIcon from "@/components/shared/icons/cartIcon/CartIcon";
-
 import Counter from "./Counter";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -13,12 +11,12 @@ type Story = StoryObj<typeof Counter>;
 
 export const DefaultCount: Story = {
     args: {
-        count: 0,
+        initialCount: 0,
     },
 };
 
 export const CountWithValue: Story = {
     args: {
-        count: 5,
+        initialCount: 5,
     },
 };

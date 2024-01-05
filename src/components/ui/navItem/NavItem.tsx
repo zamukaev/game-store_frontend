@@ -55,7 +55,7 @@ export const NavItem: React.FC<NavItemProps> = (props) => {
                     className={className}
                 >
                     {getIcon()}
-                    <p>{text && text}</p>
+                    <p className={styles.text}>{text && text}</p>
                 </AppLink>
             ) : (
                 <Button
@@ -64,7 +64,7 @@ export const NavItem: React.FC<NavItemProps> = (props) => {
                     className={className}
                 >
                     {getIcon()}
-                    <p>{text && text}</p>
+                    <p className={styles.text}>{text && text}</p>
                 </Button>
             )}
         </>

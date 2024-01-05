@@ -2,18 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s;
 }
 
 .star {
     display: inline-block;
+    transition: all 0.3s;
 }
 
 .star svg {
     margin-right: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .filled {
+    transition: all 0.3s;
+
     svg {
+        transition: all 0.3s;
         fill: var(--color-orange);
     }
 }

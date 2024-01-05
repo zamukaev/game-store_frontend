@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable no-duplicate-selectors */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -59,4 +61,53 @@ textarea {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 50px;
+}
+
+.horizontal-slider {
+    width: 300px;
+}
+
+.example-thumb {
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: var(--color-white);
+    border: 2px solid var(--color-orange);
+    border-radius: 100%;
+    display: block;
+    box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+    transition: box-shadow 0.3s;
+
+    &:hover {
+        box-shadow: 0 -1px 5px 0 #ff8b37;
+        transition: box-shadow 0.3s;
+    }
+}
+
+.example-track {
+    position: relative;
+    background: var(--color-gray-light);
+    border-radius: 10px;
+}
+
+.example-track.example-track-1 {
+    background: var(--color-orange);
+}
+
+.horizontal-slider .example-track {
+    top: 20px;
+    height: 2px;
+}
+
+.horizontal-slider .example-thumb {
+    top: 12px;
+    width: 18px;
+    outline: none;
+    height: 18px;
+    line-height: 38px;
+}
+
+.example-thumb.active {
+    box-shadow: 0 0 5px 0 #ff8b37;
 }

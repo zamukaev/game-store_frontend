@@ -16,7 +16,13 @@ export const PrimaryRadio: Story = {
 };
 export const SecondaryRadio: Story = {
     render: () => (
-        <RadioButton theme={RadioTheme.SECONDARY} id="1" name="filter" text="hello" value="hello" />
+        <RadioButton
+            theme={RadioTheme.SECONDARY}
+            id="1"
+            name="filter"
+            text="hello"
+            value="hello"
+        />
     ),
 };
 export const CheckedRadio: Story = {

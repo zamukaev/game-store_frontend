@@ -7,7 +7,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
     kind?: "default" | "gray" | "cart" | "small" | "clear" | "card";
 }
-
+//
 const Button: FC<ButtonProps> = ({
     children,
     kind = "default",

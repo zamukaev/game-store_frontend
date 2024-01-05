@@ -11,7 +11,10 @@ import StarIcon from "@/components/shared/icons/starIcon/StarIcon";
 import styles from "./styles.module.scss";
 
 interface RatingProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    extends DetailedHTMLProps<
+        HTMLAttributes<HTMLUListElement>,
+        HTMLUListElement
+    > {
     isEditable?: boolean;
     rating: number;
     setRating?: (rating: number) => void;
