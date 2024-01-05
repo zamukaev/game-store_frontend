@@ -47,3 +47,12 @@ jobs:
             - name: prettier fix
               run: npm run prettier:fix
               continue-on-error: false
+
+            - name: Push changes
+              if: success()
+              run: |
+                  git config --local user.email "ex3l4nt@gmail.com"
+                  git config --local user.name "ihopeyoucanfly"
+                  git add .
+                  git commit -m "Pipeline passed [skip ci]"
+                  git push
