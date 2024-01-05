@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    cursor: pointer;
 
     &:last-child {
         margin-left: 0;
@@ -16,6 +17,7 @@
         position: relative;
         transition: all 0.2s ease;
         color: var(--color-gray);
+        padding-left: 8px;
 
         &::before,
         &::after {
@@ -33,7 +35,7 @@
             height: 18px;
             width: 18px;
             background: var(--color-gray-light);
-            left: -20px;
+            left: -18px;
             top: calc(50% - 9px);
         }
 
@@ -47,7 +49,7 @@
             height: 16px;
             width: 16px;
             background: var(--color-white);
-            left: -19px;
+            left: -17px;
             top: calc(50% - 8px);
         }
     }
@@ -57,7 +59,7 @@
             height: 18px;
             width: 18px;
             background: var(--color-orange);
-            left: -20px;
+            left: -18px;
             top: calc(50% - 9px);
         }
 
@@ -65,7 +67,7 @@
             height: 10px;
             width: 10px;
             background: var(--color-white);
-            left: -16px;
+            left: -14px;
             top: calc(50% - 5px);
         }
     }

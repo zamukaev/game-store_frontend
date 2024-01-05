@@ -17,13 +17,13 @@ export default function Home() {
 
     return (
         <main className="main">
-            <NavItem kind="cart" text="basket" href="/cart" />
+            <NavItem kind="cart" text="Корзина" href="/cart" />
             <NavItem
                 kind="login"
-                text="login"
+                text="Войти"
                 onClick={() => console.log("modal true")}
             />
-            <NavItem kind="favorites" text="favorites" href="/favorites" />
+            <NavItem kind="favorites" text="Избранное" href="/favorites" />
             <Button kind="cart">
                 <CartIcon />
                 <p>Перейти на главную</p>
@@ -38,7 +38,7 @@ export default function Home() {
             />
             <Rating rating={rating} setRating={setRating} isEditable={true} />
 
-            <Counter count={count} setCount={setCount} />
+            <Counter initialCount={count} />
             <RadioGroup />
         </main>
     );

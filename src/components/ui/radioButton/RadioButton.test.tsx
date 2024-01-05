@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, getByRole, screen, render } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 
 import RadioButton from "./RadioButton";
 describe("RadioButton Component", () => {
@@ -11,7 +11,14 @@ describe("RadioButton Component", () => {
     });
     test("RadioButton renders text correctly", () => {
         render(
-            <RadioButton id="1" text="hello" checked role="radio" name="name" value="hello" />
+            <RadioButton
+                id="1"
+                text="hello"
+                checked
+                role="radio"
+                name="name"
+                value="hello"
+            />
         );
         const radioBtn = screen.getByRole("radio");
         expect(screen.getByTestId("title")).toHaveTextContent("hello");

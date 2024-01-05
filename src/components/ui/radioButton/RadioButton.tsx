@@ -30,6 +30,7 @@ const RadioButton: FC<RadioButtonProps> = (props) => {
         ...otherProps
     } = props;
     const cls = `${styles.radio} ${styles[theme]} ${className}`;
+
     const optionChangeHandle = (value: string) => {
         if (changeHandler) {
             changeHandler(value);

@@ -1,7 +1,6 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import Minus from "@/components/shared/icons/minus/Minus";
-
 import Plus from "@/components/shared/icons/plus/Plus";
 
 import Button from "../button/Button";
@@ -9,31 +8,21 @@ import Button from "../button/Button";
 import styles from "./styles.module.scss";
 
 interface CounterProps {
-    count: number;
-    setCount?: (value: any) => void;
+    initialCount?: number;
 }
 
-const Counter: FC<CounterProps> = (props): JSX.Element => {
-    const { count, setCount } = props;
+const Counter: FC<CounterProps> = ({ initialCount = 0 }): JSX.Element => {
+    const [count, setCount] = useState(initialCount);
 
-    const additionCountHandler = () => {
-        if (setCount) {
-            setCount((prev: number) => prev + 1);
-        }
-    };
-
-    const discriminationCountHandler = () => {
-        if (count > 0 && setCount) {
-            setCount((prev: number) => prev - 1);
-        }
-    };
+    const increment = () => setCount((prevCount) => prevCount + 1);
+    const decrement = () => setCount((prevCount) => Math.max(0, prevCount - 1));
 
     return (
         <div data-testid="counter" className={styles.counter}>
             <Button
                 data-testid="decrement"
-                className={styles.item}
-                onClick={discriminationCountHandler}
+                className={styles.itemDecrement}
+                onClick={decrement}
                 kind="clear"
             >
                 <Minus />
@@ -41,8 +30,8 @@ const Counter: FC<CounterProps> = (props): JSX.Element => {
             <span data-testid="value-title">{count}</span>
             <Button
                 data-testid="increment"
-                className={styles.item}
-                onClick={additionCountHandler}
+                className={styles.itemIncrement}
+                onClick={increment}
                 kind="clear"
             >
                 <Plus />
