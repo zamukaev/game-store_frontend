@@ -49,11 +49,7 @@ jobs:
               if: always()
               continue-on-error: false
 
-            - name: prettier
+            - name: prettier fix
               run: npm run prettier:fix
               if: always()
               continue-on-error: false
-
-            - name: Deploy (if all previous steps passed)
-              run: ./deploy-script.sh
-              if: always() && !failure()
