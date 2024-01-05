@@ -10,12 +10,8 @@ export default meta;
 type Story = StoryObj<typeof Switcher>;
 
 export const UnToggledSwitcher: Story = {
-    render: () => (
-        <Switcher isToggled={false} />
-    ),
+    render: () => <Switcher isToggled={false} />,
 };
 export const ToggledSwitcher: Story = {
-    render: () => (
-        <Switcher isToggled={true} />
-    ),
+    render: () => <Switcher isToggled={true} />,
 };

@@ -55,17 +55,17 @@ textarea {
 }
 
 .main {
-    height: 100vh;
     color: var(--color-black);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 50px;
+    gap:10px;
 }
 
 .horizontal-slider {
     width: 300px;
+    top:80px;
 }
 
 .example-thumb {

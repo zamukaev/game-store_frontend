@@ -5,17 +5,13 @@ import CartIcon from "@/components/shared/icons/cartIcon/CartIcon";
 
 import styles from "./styles.module.scss";
 
-
 interface Props {
     className?: string;
     onClick?: () => void;
 }
 
 const Card: FC<Props> = (props) => {
-    const {
-        className = "",
-        onClick
-    } = props;
+    const { className = "", onClick } = props;
 
     const cls = `${styles.card} ${className}`;
 
@@ -26,10 +22,14 @@ const Card: FC<Props> = (props) => {
     };
 
     return (
-        <Button data-testid="card" className={cls} onClick={clickHandle} kind="card">
+        <Button
+            data-testid="card"
+            className={cls}
+            onClick={clickHandle}
+            kind="card"
+        >
             <CartIcon />
         </Button>
-
     );
 };
 
