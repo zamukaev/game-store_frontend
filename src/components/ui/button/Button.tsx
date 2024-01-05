@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     children: ReactNode;
-    kind?: "default" | "gray" | "cart" | "small" | "clear";
+    kind?: "default" | "gray" | "cart" | "small" | "clear" | "card";
 }
 
 const Button: FC<ButtonProps> = ({

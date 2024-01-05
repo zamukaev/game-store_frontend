@@ -7,13 +7,15 @@ import { NavItem } from "@/components/ui/navItem/NavItem";
 import InputPrice from "@/components/ui/inputPrice/InputPrice";
 import Rating from "@/components/ui/rating/Rating";
 import Counter from "@/components/ui/counter/Counter";
-import RadioButton from "@/components/ui/radioButton/RadioButton";
 import RadioGroup from "@/components/ui/radioGroup/RadioGroup";
+import Card from "@/components/ui/card/Card";
+import Switcher from "@/components/ui/switcher/Switcher";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
     const [rating, setRating] = useState<number>(0);
     const [count, setCount] = useState(0);
+    const [isToggled, setIsToggled] = useState(false);
 
     return (
         <main className="main">
@@ -40,6 +42,12 @@ export default function Home() {
 
             <Counter count={count} setCount={setCount} />
             <RadioGroup />
+            <Card />
+            <Switcher
+                isToggled={isToggled}
+                onToggle={() => setIsToggled(!isToggled)}
+            />
+            <SliderRange />
         </main>
     );
 }
