@@ -8,12 +8,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     kind?: "default" | "gray" | "cart" | "small" | "clear";
 }
 
-const Button: FC<ButtonProps> = ({
-    children,
-    kind = "default",
-    className,
-    ...props
-}) => {
+const Button: FC = ({ children, kind = "default", className, ...props }) => {
     const cls = `${styles.button} ${styles[kind]} ${className}`;
 
     return (
