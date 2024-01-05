@@ -50,7 +50,7 @@ jobs:
               continue-on-error: false
 
             - name: prettier
-              run: npm run prettier
+              run: npm run prettier:fix
               if: always()
               continue-on-error: false
 
