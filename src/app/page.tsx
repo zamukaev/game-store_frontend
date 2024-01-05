@@ -9,6 +9,7 @@ import Rating from "@/components/ui/rating/Rating";
 import Counter from "@/components/ui/counter/Counter";
 import RadioButton from "@/components/ui/radioButton/RadioButton";
 import RadioGroup from "@/components/ui/radioGroup/RadioGroup";
+import Range from "@/components/ui/range/Range";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -40,6 +41,7 @@ export default function Home() {
 
             <Counter initialCount={count} />
             <RadioGroup />
+            <Range />
         </main>
     );
 }
