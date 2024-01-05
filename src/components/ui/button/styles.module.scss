@@ -11,9 +11,7 @@
     border-radius: 22px;
     background-color: var(--color-white);
     font-size: 20px;
-    transition:
-        color 0.3s,
-        border-color 0.3s;
+    transition:color 0.3s,border-color 0.3s;
     width: 382px;
 
     &.default {
@@ -82,12 +80,33 @@
         border-radius: 0;
         border: 0;
         padding: 0;
-        margin: 0;
-        font-size: 16px;
+        margin: 0;   font-size: 16px;
         transition: all ease 0.3s;
 
         svg {
             transition: all ease 0.3s;
         }
     }
+
+    &.card{
+        width: 54px;
+        height:44px;
+        border: 1px solid var(--color-orange);
+        border-radius:25px;
+        transition: all cubic-bezier(0.165, 0.84, 0.44, 1) ease;
+
+        svg{
+            transition: all 0.3s ease;
+            fill: var(--color-orange);
+        }
+
+        &:hover{
+             border: 1px solid var(--color-orange-light);
+
+              svg{
+                fill: var(--color-orange-light);
+             }
+        }
+    }
 }
+

@@ -1,0 +1,40 @@
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+}
+
+.switch .item {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  inset: 0;
+  transition: background-color 0.2s ease;
+}
+
+.switch .item::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.switch input[type="checkbox"]:checked + .item::before {
+  transform: translateX(25px);
+  background-color: var(--color-white);
+}
+
+.switch input[type="checkbox"]:checked + .item {
+  background-color: var(--color-black-light);
+}
