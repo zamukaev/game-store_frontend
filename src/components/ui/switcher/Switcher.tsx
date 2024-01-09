@@ -18,7 +18,7 @@ const Switcher: FC<SwitcherProps> = (props) => {
     const cls = `${styles.switch} ${className}`;
     return (
         <label className={cls}>
-            <input type="checkbox" checked={isToggled} onChange={onToggle} {...otherProps} />
+            <input type="checkbox" defaultChecked={isToggled} onChange={onToggle} {...otherProps} />
             <span className={styles.item} />
         </label>
     );
