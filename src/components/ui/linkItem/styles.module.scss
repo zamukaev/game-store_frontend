@@ -1,36 +1,36 @@
-.linkItem{
-    svg{
+.linkItem {
+    svg {
         margin-right: 10px;
     }
 }
 
-.email{
-    &:hover{
-        svg{
+.email {
+    &:hover {
+        svg {
             fill: var(--color-orange);
         }
     }
 }
 
-.instagram{
-    &:hover{
-        svg{
+.instagram {
+    &:hover {
+        svg {
             stroke: var(--color-orange);
         }
     }
 }
 
-.telefon{
-    &:hover{
-        svg{
+.telefon {
+    &:hover {
+        svg {
             stroke: var(--color-orange);
         }
     }
 }
 
-.whatsapp{
-    &:hover{
-        svg{
+.whatsapp {
+    &:hover {
+        svg {
             stroke: var(--color-orange);
         }
     }

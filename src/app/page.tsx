@@ -11,7 +11,9 @@ import RadioGroup from "@/components/ui/radioGroup/RadioGroup";
 import Range from "@/components/ui/range/Range";
 import Card from "@/components/ui/card/Card";
 import Switcher from "@/components/ui/switcher/Switcher";
-import Notification, { NotificationTheme } from "@/components/ui/notification/Notification";
+import Notification, {
+    NotificationTheme,
+} from "@/components/ui/notification/Notification";
 import AppLink, { AppLinkTheme } from "@/components/ui/appLink/AppLink";
 import EmailIcon from "@/components/shared/icons/email/EmailIcon";
 
@@ -57,10 +59,7 @@ export default function Home() {
                 onToggle={() => setIsToggled(!isToggled)}
             />
             <Range />
-            <Notification
-                visible={visible}
-                setVisible={setVisible}
-            >
+            <Notification visible={visible} setVisible={setVisible}>
                 Вход прошел успешно!
             </Notification>
             <Notification
@@ -70,10 +69,26 @@ export default function Home() {
             >
                 Произошла ошибка с сервером!
             </Notification>
-            <LinkItem url="tel:+7 (391) 205-09-77" kind={Kind.TELEFON} text="+7 (391) 205-09-77" />
-            <LinkItem url="http://instagram" kind={Kind.INSTAGRAM} text="Instagram" />
-            <LinkItem url="mailto:emailname@mail.com" kind={Kind.EMAIL} text="emailname@mail.com" />
-            <LinkItem url="+7(391)205-09-77" kind={Kind.WHATSAPP} text="WhatsApp" />
+            <LinkItem
+                url="tel:+7 (391) 205-09-77"
+                kind={Kind.TELEFON}
+                text="+7 (391) 205-09-77"
+            />
+            <LinkItem
+                url="http://instagram"
+                kind={Kind.INSTAGRAM}
+                text="Instagram"
+            />
+            <LinkItem
+                url="mailto:emailname@mail.com"
+                kind={Kind.EMAIL}
+                text="emailname@mail.com"
+            />
+            <LinkItem
+                url="+7(391)205-09-77"
+                kind={Kind.WHATSAPP}
+                text="WhatsApp"
+            />
         </main>
     );
 }

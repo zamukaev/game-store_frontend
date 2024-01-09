@@ -12,7 +12,7 @@ export enum Kind {
     INSTAGRAM = "instagram",
     TELEFON = "telefon",
     EMAIL = "email",
-    WHATSAPP = "whatsapp"
+    WHATSAPP = "whatsapp",
 }
 interface LinkItemProps {
     classNames?: string;
@@ -22,25 +22,21 @@ interface LinkItemProps {
 }
 
 const LinkItem: FC<LinkItemProps> = (props) => {
-    const {
-        classNames,
-        text,
-        url = "",
-        kind = "",
-    } = props;
+    const { classNames, text, url = "", kind = "" } = props;
     const cls = `${styles.linkItem} ${styles[kind]} ${classNames}`;
 
     const getIcon = () => {
         switch (kind) {
-        case "instagram":
-            return <InstagramIcon stroke="black" />;
-        case "telefon":
-            return <TelefonIcon stroke="black" />;
-        case "email":
-            return <EmailIcon fill="black" />;
-        case "whatsapp":
-            return <WhatsAppIcon stroke="black" />;
-        default: null;
+            case "instagram":
+                return <InstagramIcon stroke="black" />;
+            case "telefon":
+                return <TelefonIcon stroke="black" />;
+            case "email":
+                return <EmailIcon fill="black" />;
+            case "whatsapp":
+                return <WhatsAppIcon stroke="black" />;
+            default:
+                null;
         }
     };
 

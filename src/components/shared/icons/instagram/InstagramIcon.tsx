@@ -12,15 +12,21 @@ const InstagrammIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
             {...props}
         >
             <path
-
                 fillRule="evenodd"
                 clipRule="evenodd"
-                d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
             <path
-
                 fillRule="evenodd"
                 clipRule="evenodd"
-                d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
             <rect
                 x="11"
                 y="5"

@@ -8,8 +8,7 @@ import styles from "./styles.module.scss";
 
 export enum NotificationTheme {
     SUCCESSFUL = "success",
-    FAILED = "failed"
-
+    FAILED = "failed",
 }
 
 interface NotificationProps {
@@ -30,7 +29,9 @@ const Notification: FC<NotificationProps> = (props) => {
         setVisible,
     } = props;
 
-    const cls = `${styles.notification} ${styles[theme]} ${visible && styles.visible} ${className}`;
+    const cls = `${styles.notification} ${styles[theme]} ${
+        visible && styles.visible
+    } ${className}`;
 
     const visibleHandle = () => {
         if (setVisible) {

@@ -5,16 +5,16 @@
     justify-content: center;
     cursor: pointer;
 
-    svg{
+    svg {
         margin-right: 0;
     }
 
-    &:hover{
-            svg {
+    &:hover {
+        svg {
             transition: all ease 0.3s;
             fill: var(--color-orange-light);
         }
-    }  
+    }
 }
 
 .text {

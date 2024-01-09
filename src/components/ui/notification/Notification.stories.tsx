@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Notification>;
 export const Success: Story = {
     args: {
         visible: true,
-        children: "some text"
+        children: "some text",
     },
 };
 
@@ -20,6 +20,6 @@ export const Failed: Story = {
     args: {
         visible: true,
         theme: NotificationTheme.FAILED,
-        children: "some text"
+        children: "some text",
     },
 };
