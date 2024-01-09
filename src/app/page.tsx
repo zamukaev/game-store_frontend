@@ -22,7 +22,6 @@ import LinkItem, { Kind } from "@/components/ui/linkItem/LinkItem";
 import SearchInput from "@/components/ui/searchInput/SearchInput";
 import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
 
-
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
     const [rating, setRating] = useState<number>(0);
@@ -103,7 +102,6 @@ export default function Home() {
             />
             <ReviewInput label="Недостатки" placeholder="Что не понравилось" />
             <ReviewInput label="Комментарий" placeholder="Другие впечатления" />
-
         </main>
     );
 }

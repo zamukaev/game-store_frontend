@@ -28,7 +28,9 @@ const Notification: FC<NotificationProps> = (props) => {
         setVisible,
     } = props;
 
-    const cls = `${styles.notification} ${styles[theme]} ${visible && styles.visible} ${className}`;
+    const cls = `${styles.notification} ${styles[theme]} ${
+        visible && styles.visible
+    } ${className}`;
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const visibleHandle = () => {
