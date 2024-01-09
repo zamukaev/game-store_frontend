@@ -15,7 +15,7 @@ const Switcher: FC<SwitcherProps> = (props) => {
         <label className={cls}>
             <input
                 type="checkbox"
-                checked={isToggled}
+                defaultChecked={isToggled}
                 onChange={onToggle}
                 {...otherProps}
             />

@@ -4,6 +4,17 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    svg {
+        margin-right: 0;
+    }
+
+    &:hover {
+        svg {
+            transition: all ease 0.3s;
+            fill: var(--color-orange-light);
+        }
+    }
 }
 
 .text {

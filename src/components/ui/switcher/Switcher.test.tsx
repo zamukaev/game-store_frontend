@@ -1,5 +1,5 @@
 import React from "react";
-import { screen, render } from "@testing-library/react";
+import { screen, render, fireEvent } from "@testing-library/react";
 
 import Switcher from "./Switcher";
 describe("Switcher Component", () => {
@@ -8,13 +8,15 @@ describe("Switcher Component", () => {
         expect(container).toBeInTheDocument();
     });
     test("Switcher is Toggled", () => {
-        render(<Switcher role="checkbox" isToggled={true} />);
+        render(<Switcher role="checkbox" />);
         const switcher = screen.getByRole("checkbox");
+        fireEvent.change(switcher, { target: { checked: true } });
         expect(switcher).toBeChecked();
     });
     test("Switcher is UnToggled", () => {
-        render(<Switcher role="checkbox" isToggled={false} />);
+        render(<Switcher role="checkbox" />);
         const switcher = screen.getByRole("checkbox");
+        fireEvent.change(switcher, { target: { checked: false } });
         expect(switcher).not.toBeChecked();
     });
 });
