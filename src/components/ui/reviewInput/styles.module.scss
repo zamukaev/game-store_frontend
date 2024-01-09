@@ -1,0 +1,35 @@
+.form {
+    background: var(--color-gray-extra-light);
+    padding: 15px 20px 30px;
+    border-radius: 10px;
+    width: 500px;
+    display: flex;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+
+    &:hover {
+        fill: var(--color-white);
+        filter: drop-shadow(0 0 5px rgb(0 0 0 / 10%));
+        background: var(--color-white);
+    }
+}
+
+.input {
+    background: none;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    color: var(--color-black);
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: var(--color-gray);
+    }
+}
+
+.label {
+    color: var(--color-gray);
+}

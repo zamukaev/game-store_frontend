@@ -16,10 +16,12 @@ import Notification, {
 } from "@/components/ui/notification/Notification";
 import AppLink, { AppLinkTheme } from "@/components/ui/appLink/AppLink";
 import EmailIcon from "@/components/shared/icons/email/EmailIcon";
-
 import InstagramIcon from "@/components/shared/icons/instagram/InstagramIcon";
 import TelefonIcon from "@/components/shared/icons/telefon/TelefonIcon";
 import LinkItem, { Kind } from "@/components/ui/linkItem/LinkItem";
+import SearchInput from "@/components/ui/searchInput/SearchInput";
+import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
+
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -27,6 +29,10 @@ export default function Home() {
     const [count, setCount] = useState(0);
     const [isToggled, setIsToggled] = useState(false);
     const [visible, setVisible] = useState(true);
+
+    const onSearch = (query: string) => {
+        console.log(query);
+    };
 
     return (
         <main className="main">
@@ -58,7 +64,7 @@ export default function Home() {
                 isToggled={isToggled}
                 onToggle={() => setIsToggled(!isToggled)}
             />
-            <Range />
+
             <Notification visible={visible} setVisible={setVisible}>
                 Вход прошел успешно!
             </Notification>
@@ -89,6 +95,15 @@ export default function Home() {
                 kind={Kind.WHATSAPP}
                 text="WhatsApp"
             />
+            {/* <Range /> */}
+            <SearchInput onSearch={onSearch} placeholder="Поиск товара" />
+            <ReviewInput
+                label="Достоинства"
+                placeholder="Что вам понравилось"
+            />
+            <ReviewInput label="Недостатки" placeholder="Что не понравилось" />
+            <ReviewInput label="Комментарий" placeholder="Другие впечатления" />
+
         </main>
     );
 }

@@ -28,20 +28,22 @@ const Range = () => {
     };
 
     return (
-        <ReactSlider
-            className="horizontal-slider"
-            thumbClassName="example-thumb"
-            trackClassName="example-track"
-            defaultValue={[0, 30000]}
-            ariaLabel={["Lower thumb", "Upper thumb"]}
-            ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
-            pearling
-            minDistance={10}
-            onAfterChange={(e) => onChange(e)}
-            value={value}
-            max={priceTo}
-            data-testid="range"
-        />
+        <div>
+            <ReactSlider
+                className="horizontal-slider"
+                thumbClassName="example-thumb"
+                trackClassName="example-track"
+                defaultValue={[0, 30000]}
+                ariaLabel={["Lower thumb", "Upper thumb"]}
+                ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
+                pearling
+                minDistance={10}
+                onAfterChange={(e) => onChange(e)}
+                value={value}
+                max={priceTo}
+                data-testid="range"
+            />
+        </div>
     );
 };
 
