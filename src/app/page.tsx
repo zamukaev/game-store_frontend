@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { Tooltip } from "react-tooltip";
 
 import CartIcon from "@/components/shared/icons/cartIcon/CartIcon";
 import Button from "@/components/ui/button/Button";
@@ -13,6 +14,7 @@ import Card from "@/components/ui/card/Card";
 import Switcher from "@/components/ui/switcher/Switcher";
 import SearchInput from "@/components/ui/searchInput/SearchInput";
 import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
+import UserInput from "@/components/ui/userInput/UserInput";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -30,7 +32,6 @@ export default function Home() {
             <NavItem
                 kind="login"
                 text="Войти"
-                onClick={() => console.log("modal true")}
             />
             <NavItem kind="favorites" text="Избранное" href="/favorites" />
             <Button kind="cart">
@@ -46,7 +47,6 @@ export default function Home() {
                 setValue={setPrice}
             />
             <Rating rating={rating} setRating={setRating} isEditable={true} />
-
             <Counter initialCount={count} />
             <RadioGroup />
             <Card />
@@ -55,6 +55,9 @@ export default function Home() {
                 onToggle={() => setIsToggled(!isToggled)}
             />
             {/* <Range /> */}
+            <UserInput kind="password" />
+            <UserInput kind="number" />
+            <UserInput kind="username" />
             <SearchInput onSearch={onSearch} placeholder="Поиск товара" />
             <ReviewInput
                 label="Достоинства"

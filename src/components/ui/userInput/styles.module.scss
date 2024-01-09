@@ -1,0 +1,42 @@
+.form {
+    padding: 32px 20px 10px;
+    border-radius: 10px;
+    width: 336px;
+    display: flex;
+    border: 1px solid var(--color-gray-light);
+}
+
+.input {
+    background: none;
+    border: none;
+    font-size: 18px;
+    width: 100%;
+    color: var(--color-black);
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: var(--color-gray);
+    }
+}
+
+.label {
+    font-size: 14px;
+    position: relative;
+    color: var(--color-gray);
+    top: 30px;
+    right: -20px;
+    padding-top: 10px;
+}
+
+.icon {
+    position: relative;
+    top: -8px;
+    cursor: pointer;
+}
+
+.tooltip {
+    max-width: 180px;
+}
