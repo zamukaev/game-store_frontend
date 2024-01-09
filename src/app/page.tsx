@@ -12,6 +12,7 @@ import Range from "@/components/ui/range/Range";
 import Card from "@/components/ui/card/Card";
 import Switcher from "@/components/ui/switcher/Switcher";
 import SearchInput from "@/components/ui/searchInput/SearchInput";
+import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -53,8 +54,14 @@ export default function Home() {
                 isToggled={isToggled}
                 onToggle={() => setIsToggled(!isToggled)}
             />
-            <Range />
+            {/* <Range /> */}
             <SearchInput onSearch={onSearch} placeholder="Поиск товара" />
+            <ReviewInput
+                label="Достоинства"
+                placeholder="Что вам понравилось"
+            />
+            <ReviewInput label="Недостатки" placeholder="Что не понравилось" />
+            <ReviewInput label="Комментарий" placeholder="Другие впечатления" />
         </main>
     );
 }
