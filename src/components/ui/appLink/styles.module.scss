@@ -1,24 +1,22 @@
 .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     transition: all ease 0.3s;
 
     svg {
         transition: all ease 0.3s;
     }
-
-    &:hover {
-        color: var(--color-orange-light);
-        transition: all ease 0.3s;
-
-        svg {
-            transition: all ease 0.3s;
-            fill: var(--color-orange-light);
-        }
-    }
 }
 
 .default {
     color: var(--color-black);
+
+    &:hover {
+        color: var(--color-orange-light);
+        transition: all ease 0.3s;
+    }
 }
 
 .primary {
