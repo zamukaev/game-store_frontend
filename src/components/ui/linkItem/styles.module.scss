@@ -1,0 +1,37 @@
+.linkItem{
+    svg{
+        margin-right: 10px;
+    }
+}
+
+.email{
+    &:hover{
+        svg{
+            fill: var(--color-orange);
+        }
+    }
+}
+
+.instagram{
+    &:hover{
+        svg{
+            stroke: var(--color-orange);
+        }
+    }
+}
+
+.telefon{
+    &:hover{
+        svg{
+            stroke: var(--color-orange);
+        }
+    }
+}
+
+.whatsapp{
+    &:hover{
+        svg{
+            stroke: var(--color-orange);
+        }
+    }
+}
