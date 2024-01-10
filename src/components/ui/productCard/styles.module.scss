@@ -1,10 +1,26 @@
 .product {
+    width: 257px;
+
     &__header {
         display: flex;
         justify-content: space-between;
 
-        &_productTypes {
-            
+        &_types {
+            display: flex;
+            gap: 8px;
+        }
+    }
+
+    &__footer {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &_prices {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
     }
 }
@@ -17,4 +33,26 @@
         transition: all ease 0.3s;
         fill: var(--color-orange-light);
     }
+}
+
+.image {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.oldPrice {
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: line-through;
+    color: var(--color-green);
 }

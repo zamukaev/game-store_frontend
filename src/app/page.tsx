@@ -24,6 +24,7 @@ import SearchInput from "@/components/ui/searchInput/SearchInput";
 import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
 import UserInput from "@/components/ui/userInput/UserInput";
 import ProductCard from "@/components/ui/productCard/ProductCard";
+import ProductType from "@/components/ui/productType/ProductType";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -46,7 +47,10 @@ export default function Home() {
         hit: true,
         inStock: false,
         discount: true,
-        urlImages: ["fake_image1.jpg", "fake_image2.jpg"],
+        urlImages: [
+            // eslint-disable-next-line max-len
+            "https://c.dns-shop.ru/thumb/st1/fit/500/500/b0d0d7cf9ef6a88765bbffa11e8a2a65/bc1311aa320af2e639161b8f6b03f01d7f1d915c9186421f8472626fcad1195a.jpg",
+        ],
         reviews: ["Good product!", "Not worth the price."],
     };
 
