@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from "react";
 
-const Favorites: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+const FavoritesIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     return (
         <svg
             width="20"
@@ -20,4 +20,4 @@ const Favorites: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     );
 };
 
-export default Favorites;
+export default FavoritesIcon;

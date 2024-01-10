@@ -23,6 +23,7 @@ import LinkItem, { Kind } from "@/components/ui/linkItem/LinkItem";
 import SearchInput from "@/components/ui/searchInput/SearchInput";
 import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
 import UserInput from "@/components/ui/userInput/UserInput";
+import ProductCard from "@/components/ui/productCard/ProductCard";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -35,13 +36,24 @@ export default function Home() {
         console.log(query);
     };
 
+    const mockProduct = {
+        title: "Apple MacBook Pro 14 (M3 10C CPU, 8C GPU, 2023) 8 ГБ, 512 ГБ SSD, «серый космос»",
+        desc: "This is a fake product description",
+        characteristic: "Fake characteristic",
+        category: "Fake Category",
+        price: 120000,
+        oldPrice: 130000,
+        hit: true,
+        inStock: false,
+        discount: true,
+        urlImages: ["fake_image1.jpg", "fake_image2.jpg"],
+        reviews: ["Good product!", "Not worth the price."],
+    };
+
     return (
         <main className="main">
             <NavItem kind="cart" text="Корзина" href="/cart" />
-            <NavItem
-                kind="login"
-                text="Войти"
-            />
+            <NavItem kind="login" text="Войти" />
             <NavItem kind="favorites" text="Избранное" href="/favorites" />
             <Button kind="cart">
                 <CartIcon />
@@ -50,6 +62,7 @@ export default function Home() {
             <Button kind="gray">
                 <p>Выйти из аккаутна</p>
             </Button>
+            <ProductCard product={mockProduct} />
             <InputPrice
                 placeholder="от 199"
                 value={price}

@@ -4,7 +4,7 @@ import React from "react";
 
 import CartIcon from "@/components/shared/icons/cartIcon/CartIcon";
 import LoginIcon from "@/components/shared/icons/loginIcon/LoginIcon";
-import Favorites from "@/components/shared/icons/favoritesIcon/Favorites";
+import FavoritesIcon from "@/components/shared/icons/favoritesIcon/Favorites";
 
 import Button from "@/components/ui/button/Button";
 
@@ -30,7 +30,7 @@ export const NavItem: React.FC<NavItemProps> = (props) => {
             case "login":
                 return <LoginIcon fill="black" />;
             case "favorites":
-                return <Favorites fill="black" />;
+                return <FavoritesIcon fill="black" />;
             default:
                 null;
         }

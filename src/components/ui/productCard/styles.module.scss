@@ -1,0 +1,20 @@
+.product {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+        &_productTypes {
+            
+        }
+    }
+}
+
+.favoriteIcon {
+    transition: all ease 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        transition: all ease 0.3s;
+        fill: var(--color-orange-light);
+    }
+}
