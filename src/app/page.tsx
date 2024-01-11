@@ -14,13 +14,14 @@ import Switcher from "@/components/ui/switcher/Switcher";
 import Notification, {
     NotificationTheme,
 } from "@/components/ui/notification/Notification";
-import AppLink, { AppLinkTheme } from "@/components/ui/appLink/AppLink";
-import EmailIcon from "@/components/shared/icons/email/EmailIcon";
-import InstagramIcon from "@/components/shared/icons/instagram/InstagramIcon";
-import TelefonIcon from "@/components/shared/icons/telefon/TelefonIcon";
 import LinkItem, { Kind } from "@/components/ui/linkItem/LinkItem";
 import SearchInput from "@/components/ui/searchInput/SearchInput";
 import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
+
+import ProductType, {
+    ProductTypeTheme,
+} from "@/components/ui/productType/ProductType";
+import Scores from "@/components/ui/scores/Scores";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -94,6 +95,12 @@ export default function Home() {
                 kind={Kind.WHATSAPP}
                 text="WhatsApp"
             />
+            <Scores rating={4} />
+            <Sorting />
+            <ProductType theme={ProductTypeTheme.HIT}>Hit</ProductType>
+            <ProductType theme={ProductTypeTheme.PROMOTION}>
+                Promotion
+            </ProductType>
             {/* <Range /> */}
             <SearchInput onSearch={onSearch} placeholder="Поиск товара" />
             <ReviewInput
