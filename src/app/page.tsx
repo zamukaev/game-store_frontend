@@ -96,7 +96,6 @@ export default function Home() {
                 text="WhatsApp"
             />
             <Scores rating={4} />
-            <Sorting />
             <ProductType theme={ProductTypeTheme.HIT}>Hit</ProductType>
             <ProductType theme={ProductTypeTheme.PROMOTION}>
                 Promotion
