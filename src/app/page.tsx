@@ -18,9 +18,6 @@ import LinkItem, { Kind } from "@/components/ui/linkItem/LinkItem";
 import SearchInput from "@/components/ui/searchInput/SearchInput";
 import ReviewInput from "@/components/ui/reviewInput/ReviewInput";
 
-import ProductType, {
-    ProductTypeTheme,
-} from "@/components/ui/productType/ProductType";
 import Scores from "@/components/ui/scores/Scores";
 
 export default function Home() {
@@ -96,10 +93,6 @@ export default function Home() {
                 text="WhatsApp"
             />
             <Scores rating={4} />
-            <ProductType theme={ProductTypeTheme.HIT}>Hit</ProductType>
-            <ProductType theme={ProductTypeTheme.PROMOTION}>
-                Promotion
-            </ProductType>
             {/* <Range /> */}
             <SearchInput onSearch={onSearch} placeholder="Поиск товара" />
             <ReviewInput
