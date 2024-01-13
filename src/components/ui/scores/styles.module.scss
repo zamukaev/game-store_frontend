@@ -1,0 +1,19 @@
+.scores {
+    display: flex;
+
+    .item {
+        &:not(:last-child) {
+            margin-right: 5px;
+        }
+
+        svg {
+            stroke: var(--color-orange);
+        }
+    }
+
+    .filled {
+        svg {
+            fill: var(--color-orange);
+        }
+    }
+}
