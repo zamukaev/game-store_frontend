@@ -23,6 +23,7 @@ import ProductCard from "@/components/ui/productCard/ProductCard";
 import ProductType from "@/components/ui/productType/ProductType";
 
 import Scores from "@/components/ui/scores/Scores";
+import ProductCardLarge from "@/components/ui/productCardLarge/ProductCardLarge";
 
 export default function Home() {
     const [price, setPrice] = useState<number>(0);
@@ -65,6 +66,7 @@ export default function Home() {
                 <p>Выйти из аккаутна</p>
             </Button>
             <ProductCard product={mockProduct} />
+            <ProductCardLarge product={mockProduct} />
             <InputPrice
                 placeholder="от 199"
                 value={price}

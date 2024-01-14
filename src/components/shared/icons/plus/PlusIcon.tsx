@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from "react";
 
-const Plus: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+const PlusIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     return (
         <svg
             width="10"
@@ -16,4 +16,4 @@ const Plus: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     );
 };
 
-export default Plus;
+export default PlusIcon;

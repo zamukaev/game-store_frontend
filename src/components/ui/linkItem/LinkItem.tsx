@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import InstagramIcon from "@/components/shared/icons/instagram/InstagramIcon";
-import TelefonIcon from "@/components/shared/icons/telefon/TelefonIcon";
+import PhoneIcon from "@/components/shared/icons/phone/PhoneIcon";
 import EmailIcon from "@/components/shared/icons/email/EmailIcon";
 import WhatsAppIcon from "@/components/shared/icons/whatsApp/WhatsAppIcon";
 import AppLink from "@/components/ui/appLink/AppLink";
@@ -30,7 +30,7 @@ const LinkItem: FC<LinkItemProps> = (props) => {
             case "instagram":
                 return <InstagramIcon stroke="black" />;
             case "telefon":
-                return <TelefonIcon stroke="black" />;
+                return <PhoneIcon stroke="black" />;
             case "email":
                 return <EmailIcon fill="black" />;
             case "whatsapp":
