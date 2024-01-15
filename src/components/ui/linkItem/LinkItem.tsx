@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 
 export enum Kind {
     INSTAGRAM = "instagram",
-    TELEFON = "telefon",
+    PHONE = "phone",
     EMAIL = "email",
     WHATSAPP = "whatsapp",
 }
@@ -30,8 +30,8 @@ const LinkItem: FC<LinkItemProps> = (props) => {
 
         case "instagram":
             return <InstagramIcon stroke="black" />;
-        case "telefon":
-            return <TelefonIcon stroke="black" />;
+        case "phone":
+            return <PhoneIcon stroke="black" />;
         case "email":
             return <EmailIcon fill="black" />;
         case "whatsapp":

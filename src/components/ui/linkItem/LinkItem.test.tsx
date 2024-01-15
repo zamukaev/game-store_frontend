@@ -27,11 +27,11 @@ describe("NavItem Component", () => {
         );
         expect(getByTestId("linkItem")).toHaveClass("instagram");
     });
-    test("NavItem renders with the class telefon", () => {
+    test("NavItem renders with the class phone", () => {
         const { getByTestId } = render(
-            <LinkItem kind={Kind.TELEFON} text="some text" />
+            <LinkItem kind={Kind.PHONE} text="some text" />
         );
-        expect(getByTestId("linkItem")).toHaveClass("telefon");
+        expect(getByTestId("linkItem")).toHaveClass("phone");
     });
     test("NavItem renders with the class whatsapp", () => {
         const { getByTestId } = render(

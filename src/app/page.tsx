@@ -99,7 +99,7 @@ export default function Home() {
 
             <LinkItem
                 url="tel:+7 (391) 205-09-77"
-                kind={Kind.TELEFON}
+                kind={Kind.PHONE}
                 text="+7 (391) 205-09-77"
             />
             <LinkItem

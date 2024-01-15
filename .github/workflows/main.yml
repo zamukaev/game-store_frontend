@@ -26,24 +26,24 @@ jobs:
 
             - name: build production project
               run: npm run build
-              if: always()
+              continue-on-error: false
 
             - name: linting typescript
               run: npm run lint:ts
-              if: always()
+              continue-on-error: false
 
             - name: linting css
               run: npm run lint:scss
-              if: always()
+              continue-on-error: false
 
             - name: unit testing
               run: npm run test:unit
-              if: always()
+              continue-on-error: false
 
             - name: build storybook
               run: npm run build-storybook
-              if: always()
+              continue-on-error: false
 
             - name: prettier fix
               run: npm run prettier:fix
-              if: always()
+              continue-on-error: false
