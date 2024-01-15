@@ -1,0 +1,46 @@
+.filters{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .price{
+        margin-bottom: 20px;
+
+        .title{
+            color: var(--color-black);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .inputs{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .priceItem{
+                margin-right: 10px;
+            }
+        }
+
+       
+    }
+
+     .options{
+        margin-top: 20px;
+
+           .promotion,.hits,.InStock{
+                margin-bottom: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .title{
+                    font-weight: 500;
+                }
+           } 
+
+           .hits{
+            margin-bottom: 30px;
+           }
+        }
+}

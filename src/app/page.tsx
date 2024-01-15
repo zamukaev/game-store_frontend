@@ -22,6 +22,10 @@ import UserInput from "@/components/ui/userInput/UserInput";
 import ProductCard from "@/components/ui/productCard/ProductCard";
 import ProductType from "@/components/ui/productType/ProductType";
 
+
+
+import Sorting from "@/components/ui/sorting/Sorting";
+import Filters from "@/components/ui/filters/Filters";
 import Scores from "@/components/ui/scores/Scores";
 
 export default function Home() {
@@ -66,6 +70,7 @@ export default function Home() {
             </Button>
             <ProductCard product={mockProduct} />
             <InputPrice
+                type="priceFrom"
                 placeholder="от 199"
                 value={price}
                 setValue={setPrice}
@@ -89,6 +94,7 @@ export default function Home() {
             >
                 Произошла ошибка с сервером!
             </Notification>
+
             <LinkItem
                 url="tel:+7 (391) 205-09-77"
                 kind={Kind.TELEFON}
@@ -111,6 +117,9 @@ export default function Home() {
             />
             <Scores rating={4} />
             {/* <Range /> */}
+
+            <Sorting />
+
             <UserInput kind="password" />
             <UserInput kind="number" />
             <UserInput kind="username" />
@@ -121,6 +130,8 @@ export default function Home() {
             />
             <ReviewInput label="Недостатки" placeholder="Что не понравилось" />
             <ReviewInput label="Комментарий" placeholder="Другие впечатления" />
+
+            <Filters />
         </main>
     );
 }
