@@ -34,61 +34,61 @@ const UserInput: FC<UserInputProps> = ({ kind }) => {
 
     const getIcon = () => {
         switch (kind) {
-            case "number":
-                return (
-                    <HelpIcon
-                        data-tooltip-id="help"
-                        data-tooltip-content="Телефон в формате: 7 000 000 00 00"
-                        data-tooltip-place="top"
-                    />
-                );
-            case "password":
-                if (openedEye) {
-                    return <EyeOpenIcon onClick={toggleEye} />;
-                } else {
-                    return <EyeClosedIcon onClick={toggleEye} />;
-                }
-            case "username":
-                return (
-                    <EditIcon
-                        onClick={() => setDisabledEdit(false)}
-                        data-tooltip-id="username"
-                        data-tooltip-content="Изменить имя"
-                        data-tooltip-place="top"
-                    />
-                );
-            default:
-                null;
+        case "number":
+            return (
+                <HelpIcon
+                    data-tooltip-id="help"
+                    data-tooltip-content="Телефон в формате: 7 000 000 00 00"
+                    data-tooltip-place="top"
+                />
+            );
+        case "password":
+            if (openedEye) {
+                return <EyeOpenIcon onClick={toggleEye} />;
+            } else {
+                return <EyeClosedIcon onClick={toggleEye} />;
+            }
+        case "username":
+            return (
+                <EditIcon
+                    onClick={() => setDisabledEdit(false)}
+                    data-tooltip-id="username"
+                    data-tooltip-content="Изменить имя"
+                    data-tooltip-place="top"
+                />
+            );
+        default:
+            null;
         }
     };
 
     const returnLabel = () => {
         switch (kind) {
-            case "number":
-                return "Телефон";
-            case "password":
-                return "Пароль";
-            case "username":
-                return "Имя";
-            default:
-                null;
+        case "number":
+            return "Телефон";
+        case "password":
+            return "Пароль";
+        case "username":
+            return "Имя";
+        default:
+            null;
         }
     };
 
     const returnInputType = () => {
         switch (kind) {
-            case "number":
-                return "tel";
-            case "password":
-                if (openedEye) {
-                    return "text";
-                } else {
-                    return "password";
-                }
-            case "username":
+        case "number":
+            return "tel";
+        case "password":
+            if (openedEye) {
                 return "text";
-            default:
-                null;
+            } else {
+                return "password";
+            }
+        case "username":
+            return "text";
+        default:
+            null;
         }
     };
 
