@@ -5,6 +5,7 @@
 ## Команда разработчиков
 
 -   **Дмитрий Шишкин** - [GitHub профиль](https://github.com/ihopeyoucanfly)
+-   **Muslim Zamukaev** - [GitHub профиль](https://github.com/zamukaev)
 
 ## Основные технологии
 
