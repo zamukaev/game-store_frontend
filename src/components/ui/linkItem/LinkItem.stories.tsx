@@ -17,8 +17,8 @@ export const Instagram: Story = {
     render: () => <LinkItem kind={Kind.INSTAGRAM} text="instagram" />,
 };
 
-export const Telefon: Story = {
-    render: () => <LinkItem kind={Kind.TELEFON} text="123 456 567 78" />,
+export const PHONE: Story = {
+    render: () => <LinkItem kind={Kind.PHONE} text="123 456 567 78" />,
 };
 export const WhatsApp: Story = {
     render: () => <LinkItem kind={Kind.WHATSAPP} text="WahtsApp" />,
