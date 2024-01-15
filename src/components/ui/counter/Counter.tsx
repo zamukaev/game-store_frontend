@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
-import Minus from "@/components/shared/icons/minus/Minus";
-import Plus from "@/components/shared/icons/plus/Plus";
+import MinusIcon from "@/components/shared/icons/minus/MinusIcon";
+import PlusIcon from "@/components/shared/icons/plus/PlusIcon";
 
 import Button from "../button/Button";
 
@@ -25,7 +25,7 @@ const Counter: FC<CounterProps> = ({ initialCount = 0 }): JSX.Element => {
                 onClick={decrement}
                 kind="clear"
             >
-                <Minus />
+                <PlusIcon />
             </Button>
             <span data-testid="value-title">{count}</span>
             <Button
@@ -34,7 +34,7 @@ const Counter: FC<CounterProps> = ({ initialCount = 0 }): JSX.Element => {
                 onClick={increment}
                 kind="clear"
             >
-                <Plus />
+                <PlusIcon />
             </Button>
         </div>
     );

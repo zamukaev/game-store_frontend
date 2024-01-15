@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from "react";
 
-const TelefonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+const PhoneIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     return (
         <svg
             width="16"
@@ -23,4 +23,4 @@ const TelefonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
     );
 };
 
-export default TelefonIcon;
+export default PhoneIcon;
