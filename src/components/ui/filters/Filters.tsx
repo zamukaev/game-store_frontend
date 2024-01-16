@@ -1,18 +1,12 @@
 import { FC, useState } from "react";
 
-import InputPrice from "../inputPrice/InputPrice";
-import Range from "../range/Range";
-import Switcher from "../switcher/Switcher";
+import { OptionsType } from "@/configs/options";
+
+import Switcher from "@/components/ui/switcher/Switcher";
+import InputPrice from "@/components/ui/inputPrice/InputPrice";
+import Range from "@/components/ui/range/Range";
 
 import styles from "./styles.module.scss";
-
-export interface OptionsType {
-    priceFrom: number;
-    priceTo: number;
-    hits: boolean;
-    promotion: boolean;
-    inStock: boolean;
-}
 
 interface FiltersProps {
     className?: string;
@@ -35,9 +29,11 @@ const Filters: FC<FiltersProps> = (props) => {
     const hitsToggleHandle = () => {
         setOptions(prev => ({ ...prev, hits: !prev.hits }));
     };
+
     const promotionToggleHandle = () => {
         setOptions(prev => ({ ...prev, promotion: !prev.promotion }));
     };
+
     const inStockToggleHandle = () => {
         setOptions(prev => ({ ...prev, inStock: !prev.inStock }));
     };
@@ -77,9 +73,7 @@ const Filters: FC<FiltersProps> = (props) => {
                     <h4 className={styles.title}>В наличии</h4>
                     <Switcher isToggled={options.inStock} onToggle={inStockToggleHandle} />
                 </div>
-
             </div>
-
         </div>
     );
 };
