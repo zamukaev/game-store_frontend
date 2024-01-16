@@ -2,10 +2,9 @@
     svg {
         margin-right: 10px;
     }
-    
 }
 
-.email,.linkItem {
+.email{
     &:hover {
         svg {
             fill: var(--color-orange);
