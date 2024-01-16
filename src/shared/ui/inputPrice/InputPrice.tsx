@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes, FC, ChangeEvent } from "react";
 
-import { OptionsType } from "../filters/Filters";
+import { OptionsType } from "@/configs/options";
 
 import styles from "./styles.module.scss";
 

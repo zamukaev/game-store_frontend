@@ -1,10 +1,9 @@
 import { FC, useCallback, useState } from "react";
 
+import ArrowsIcon from "@/shared/icons/arrowsIcon/ArrowsIcon";
+import CheckIcon from "@/shared/icons/checkIcon/CheckIcon";
+
 import styles from "./styles.module.scss";
-
-import CheckIcon from "@/components/shared/icons/checkIcon/CheckIcon";
-import ArrowsIcon from "@/components/shared/icons/arrowsIcon/ArrowsIcon";
-
 
 export interface OptionsType {
     id: string;
