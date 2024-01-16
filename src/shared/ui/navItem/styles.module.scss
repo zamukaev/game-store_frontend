@@ -10,6 +10,8 @@
     }
 
     &:hover {
+        color:var(--color-orange-light);
+
         svg {
             transition: all ease 0.3s;
             fill: var(--color-orange-light);
