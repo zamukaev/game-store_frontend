@@ -1,16 +1,11 @@
 .linkItem {
     svg {
         margin-right: 10px;
-
-        &:hover {
-            svg {
-                fill: var(--color-orange);
-            }
-        }
     }
+    
 }
 
-.email {
+.email,.linkItem {
     &:hover {
         svg {
             fill: var(--color-orange);
@@ -18,31 +13,7 @@
     }
 }
 
-.instagram {
-    &:hover {
-        svg {
-            stroke: var(--color-orange);
-        }
-    }
-}
-
-.phone {
-    &:hover {
-        svg {
-            stroke: var(--color-orange);
-        }
-    }
-}
-
-.whatsapp {
-    &:hover {
-        svg {
-            stroke: var(--color-orange);
-        }
-    }
-}
-
-.address {
+.instagram,.phone,.whatsapp,.address {
     &:hover {
         svg {
             stroke: var(--color-orange);
