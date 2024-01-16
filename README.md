@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Game Store Frontend
 
-## Getting Started
+Этот проект представляет собой фронтенд для интернет-магазина техники game-store. Разработанный с использованием React.js и Next.js, это приложение обеспечивает функциональность для управления продуктами, категориями, поиском, а также включает в себя систему авторизации и админ панель для менеджеров магазина.
 
-First, run the development server:
+## Команда разработчиков
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+-   **Дмитрий Шишкин** - [GitHub профиль](https://github.com/ihopeyoucanfly)
+-   **Muslim Zamukaev** - [GitHub профиль](https://github.com/zamukaev)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Основные технологии
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   **React.js(Next.js)**
+-   **TypeScript**
+-   **scss, sass**
+-   **zustand**
+-   **jest, react testing library**
+-   **storybook**
+-   **eslint, stylelint, prettier**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Функциональность
 
-## Learn More
+-   **Карточки товаров, фильтрация, категории, поиск**: Интуитивный интерфейс для просмотра и поиска продуктов с удобными фильтрами и категориями.
+-   **Система избранных товаров**: Позволяет пользователям добавлять товары в избранное для удобного отслеживания и быстрого доступа.
+-   **Система корзина и подсчета общей суммы и кол-ва товаров**: Реализована функциональность корзины для удобного оформления заказов с автоматическим подсчетом общей стоимости и количества товаров.
+-   **Система рейтинга товаров, отзывов, комментариев**: Возможность оценивать товары, оставлять отзывы и комментарии для обмена мнениями.
+-   **Возможность регистрации, авторизации**: Реализованы страницы для регистрации новых пользователей и авторизации существующих.
+-   **Профиль пользователя, смена данных**: Пользователи могут управлять своим профилем, включая изменение личных данных и пароля.
 
-To learn more about Next.js, take a look at the following resources:
+## Установка
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Клонируйте репозиторий:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    git clone https://github.com/zamukaev/game-store_2.0.git
 
-## Deploy on Vercel
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Установите зависимости:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```bash
+    npm install
+
+    ```
+
+3. Запустите фронтенд:
+
+    ```bash
+       npm run dev
+
+    ```
+
+4. Билд и запуск storybook:
+
+    ```bash
+       npm run build-storybook
+       npm run storybook
+
+    ```
+
+5. Запуск тестов:
+
+    ```bash
+       npm run test:unit
+
+    ```
+
+6. Запуск и фикс eslint:
+
+    ```bash
+       npm run lint:ts
+       npm run lint:ts:fix
+
+    ```
+
+7. Запуск и фикс stylelint:
+
+    ```bash
+       npm run lint:scss
+       npm run lint:scss:fix
+
+    ```
+
+8. Запуск и фикс prettier:
+
+    ```bash
+       npm run prettier
+       npm run prettier:fix
+    ```
