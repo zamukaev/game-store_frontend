@@ -2,9 +2,7 @@ import { FC, useState } from "react";
 
 import { OptionsType } from "@/configs/options";
 
-import Switcher from "@/components/ui/switcher/Switcher";
-import InputPrice from "@/components/ui/inputPrice/InputPrice";
-import Range from "@/components/ui/range/Range";
+import { InputPrice, Switcher, Range } from "@/shared/ui";
 
 import styles from "./styles.module.scss";
 

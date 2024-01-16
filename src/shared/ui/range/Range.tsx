@@ -1,18 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import ReactSlider from "react-slider";
 
-const Range = () => {
+import { OptionsType } from "@/configs/options";
+
+import styles from "./styles.module.scss";
+
+export interface RangeProps {
+    value: number[];
+    setValue: (value: any) => void;
+}
+
+const Range: FC<RangeProps> = (props) => {
+    const {
+        value,
+        setValue
+    } = props;
     const priceTo = 100000;
 
-    const [value, setValue] = useState([0, priceTo]);
+    // const [value, setValue] = useState([0, priceTo]);
 
     const onChange = (value: any) => {
         const newPosition = value.slice();
         newPosition[0] = value[0];
         newPosition[1] = value[1];
-        setValue(newPosition);
+        setValue((prev: OptionsType) => ({ ...prev, priceFrom: newPosition[0], priceTo: newPosition[1] }));
     };
 
     // изменение через инпут -
@@ -30,7 +43,7 @@ const Range = () => {
     };
 
     return (
-        <div>
+        <div className={styles.range}>
             <ReactSlider
                 className="horizontal-slider"
                 thumbClassName="example-thumb"
