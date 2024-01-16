@@ -1,9 +1,12 @@
 import { Inter } from "next/font/google";
 
+import { TopHeader } from "@/widgets/topHeader";
+import { Header } from "@/widgets/header";
+
 import type { Metadata } from "next";
 
-import "@/shared/styles/_globals.scss";
-import "@/shared/styles/_vars.scss";
+import "@/app/styles/_globals.scss";
+import "@/app/styles/_vars.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +23,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body suppressHydrationWarning={true} className={inter.className}>
-                {children}
+                <div className="container">
+                    <header className="header">
+                        <TopHeader />
+                        <Header />
+                    </header>
+                    {children}
+                </div>
             </body>
         </html>
     );
