@@ -29,23 +29,28 @@ const LinkItem: FC<LinkItemProps> = (props) => {
 
     const getIcon = () => {
         switch (kind) {
-            case "instagram":
-                return <InstagramIcon stroke="black" />;
-            case "phone":
-                return <PhoneIcon stroke="black" />;
-            case "email":
-                return <EmailIcon fill="black" />;
-            case "whatsapp":
-                return <WhatsAppIcon stroke="black" />;
-            case "address":
-                return <AddressIcon stroke="black" />;
-            default:
-                null;
+        case "instagram":
+            return <InstagramIcon stroke="black" />;
+        case "phone":
+            return <PhoneIcon stroke="black" />;
+        case "email":
+            return <EmailIcon fill="black" />;
+        case "whatsapp":
+            return <WhatsAppIcon stroke="black" />;
+        case "address":
+            return <AddressIcon stroke="black" />;
+        default:
+            null;
         }
     };
 
     return (
-        <AppLink data-testid="linkItem" className={cls} href={url}>
+        <AppLink
+            data-testid="linkItem"
+            className={cls}
+            href={url}
+            target="_blank"
+        >
             {getIcon()}
             <p>{children}</p>
         </AppLink>
