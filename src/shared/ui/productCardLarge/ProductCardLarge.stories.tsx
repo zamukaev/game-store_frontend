@@ -10,6 +10,7 @@ export default meta;
 type Story = StoryObj<typeof ProductCardLarge>;
 
 const mockProduct = {
+    _id: "312312312",
     title: "Apple MacBook Pro 14 (M3 10C CPU, 8C GPU, 2023) 8 ГБ, 512 ГБ SSD, «серый космос»",
     desc: "This is a fake product description",
     characteristic: "Fake characteristic",

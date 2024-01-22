@@ -1,0 +1,10 @@
+.arrow {
+    background: var(--color-white) !important;
+    z-index: 999;
+
+    & svg {
+        position: relative;
+        top: 8px;
+        right: -8px;
+    }
+}

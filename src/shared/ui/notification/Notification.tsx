@@ -2,6 +2,8 @@
 
 import { FC, ReactNode, useEffect, useRef } from "react";
 
+import { createPortal } from "react-dom";
+
 import Button from "@/shared/ui/button/Button";
 import CloseIcon from "@/shared/icons/closeIcon/CloseIcon";
 
@@ -53,7 +55,7 @@ const Notification: FC<NotificationProps> = (props) => {
         };
     }, [setVisible]);
 
-    return (
+    return createPortal(
         <div data-testid="notification" className={cls}>
             <Button
                 data-testid="close-btn"
@@ -64,7 +66,8 @@ const Notification: FC<NotificationProps> = (props) => {
                 <CloseIcon />
             </Button>
             <p className={styles.text}>{children}</p>
-        </div>
+        </div>,
+        document.body
     );
 };
 

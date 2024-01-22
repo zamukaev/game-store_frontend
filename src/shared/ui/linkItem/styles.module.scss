@@ -4,7 +4,7 @@
     }
 }
 
-.email{
+.email {
     &:hover {
         svg {
             fill: var(--color-orange);
@@ -12,7 +12,10 @@
     }
 }
 
-.instagram,.phone,.whatsapp,.address {
+.instagram,
+.phone,
+.whatsapp,
+.address {
     &:hover {
         svg {
             stroke: var(--color-orange);

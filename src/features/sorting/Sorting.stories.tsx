@@ -16,4 +16,3 @@ export const Closed: Story = {
 export const Opened: Story = {
     render: () => <Sorting />,
 };
-

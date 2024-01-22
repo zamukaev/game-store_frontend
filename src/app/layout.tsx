@@ -3,11 +3,15 @@ import { Inter } from "next/font/google";
 import { TopHeader } from "@/widgets/topHeader";
 import { Header } from "@/widgets/header";
 
+import { QueryProvider } from "./_providers/Query-provider";
+
 import type { Metadata } from "next";
 
 import "@/app/styles/_globals.scss";
 import "@/app/styles/_vars.scss";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -28,7 +32,7 @@ export default function RootLayout({
                         <TopHeader />
                         <Header />
                     </header>
-                    {children}
+                    <QueryProvider>{children}</QueryProvider>
                 </div>
             </body>
         </html>

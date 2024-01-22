@@ -1,4 +1,5 @@
 export interface Product {
+    _id: string;
     title: string;
     desc: string;
     characteristic: string;

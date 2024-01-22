@@ -20,6 +20,7 @@ import Switcher from "./switcher/Switcher";
 import UserInput from "./userInput/UserInput";
 import { Kind } from "./linkItem/LinkItem";
 import Logo from "./logo/Logo";
+import SliderArrow from "./sliderArrow/SliderArrow";
 
 export {
     AppLink,
@@ -44,4 +45,5 @@ export {
     UserInput,
     Kind,
     Logo,
+    SliderArrow,
 };
