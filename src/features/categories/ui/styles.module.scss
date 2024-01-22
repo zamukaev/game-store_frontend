@@ -1,0 +1,22 @@
+.categories{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 326px;
+
+    .title{
+        margin-bottom: 30px;
+    }
+
+    .row{
+        .item{
+            cursor: pointer;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+
+            &:hover{
+                font-weight: 500;
+            }
+        }
+    }
+}

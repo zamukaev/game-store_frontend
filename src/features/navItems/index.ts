@@ -1,3 +1,3 @@
-import Search from "./ui/NavItems";
+import NavItems from "./ui/NavItems";
 
-export { Search };
+export { NavItems };

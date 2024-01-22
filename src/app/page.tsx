@@ -2,6 +2,8 @@
 
 import NextNProgress from "nextjs-progressbar";
 
+import { Categories } from "@/features/categories";
+
 export default function Home() {
     const mockProduct = {
         title: "Apple MacBook Pro 14 (M3 10C CPU, 8C GPU, 2023) 8 ГБ, 512 ГБ SSD, «серый космос»",
@@ -27,7 +29,12 @@ export default function Home() {
                 height={3}
                 options={{ showSpinner: false }}
             />
-            <main className="main"></main>
+            <main className="main">
+                <Categories />
+                <div className="main_content">
+
+                </div>
+            </main>
         </>
     );
 }

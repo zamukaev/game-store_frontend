@@ -20,6 +20,8 @@ import Switcher from "./switcher/Switcher";
 import UserInput from "./userInput/UserInput";
 import { Kind } from "./linkItem/LinkItem";
 import Logo from "./logo/Logo";
+import Headline, { HeadlineSize, HTag } from "./headline/Headline";
+
 
 export {
     AppLink,
@@ -44,4 +46,7 @@ export {
     UserInput,
     Kind,
     Logo,
+    Headline,
+    HeadlineSize,
+    HTag
 };

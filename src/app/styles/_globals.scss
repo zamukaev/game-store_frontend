@@ -57,10 +57,16 @@ textarea {
 .main {
     color: var(--color-black);
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
+    margin-top: 64px;
     gap: 10px;
+}
+
+.main_content{
+    flex-grow: 1;
 }
 
 .horizontal-slider {
@@ -115,6 +121,7 @@ textarea {
 .container {
     margin: 30px;
 }
+
 
 .header {
     display: flex;
