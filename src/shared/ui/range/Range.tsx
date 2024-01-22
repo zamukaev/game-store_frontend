@@ -13,10 +13,7 @@ export interface RangeProps {
 }
 
 const Range: FC<RangeProps> = (props) => {
-    const {
-        value,
-        setValue
-    } = props;
+    const { value, setValue } = props;
     const priceTo = 100000;
 
     // const [value, setValue] = useState([0, priceTo]);
@@ -25,7 +22,11 @@ const Range: FC<RangeProps> = (props) => {
         const newPosition = value.slice();
         newPosition[0] = value[0];
         newPosition[1] = value[1];
-        setValue((prev: OptionsType) => ({ ...prev, priceFrom: newPosition[0], priceTo: newPosition[1] }));
+        setValue((prev: OptionsType) => ({
+            ...prev,
+            priceFrom: newPosition[0],
+            priceTo: newPosition[1],
+        }));
     };
 
     // изменение через инпут -

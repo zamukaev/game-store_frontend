@@ -6,12 +6,6 @@
     display: flex;
     justify-content: space-between;
     transition: all 0.2s ease;
-
-    &:hover {
-        fill: var(--color-white);
-        filter: drop-shadow(0 0 5px rgb(0 0 0 / 10%));
-        background: var(--color-white);
-    }
 }
 
 .input {

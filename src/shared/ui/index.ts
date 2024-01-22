@@ -20,6 +20,7 @@ import Switcher from "./switcher/Switcher";
 import UserInput from "./userInput/UserInput";
 import { Kind } from "./linkItem/LinkItem";
 import Logo from "./logo/Logo";
+import SliderArrow from "./sliderArrow/SliderArrow";
 import Headline, { HeadlineSize, HTag } from "./headline/Headline";
 
 
@@ -46,7 +47,4 @@ export {
     UserInput,
     Kind,
     Logo,
-    Headline,
-    HeadlineSize,
-    HTag
 };

@@ -11,10 +11,7 @@ interface FiltersProps {
 }
 
 const Filters: FC<FiltersProps> = (props) => {
-    const {
-        className,
-
-    } = props;
+    const { className } = props;
     const cls = `${styles.filters} ${className}`;
     const [options, setOptions] = useState<OptionsType>({
         priceFrom: 0,
@@ -25,15 +22,15 @@ const Filters: FC<FiltersProps> = (props) => {
     });
 
     const hitsToggleHandle = () => {
-        setOptions(prev => ({ ...prev, hits: !prev.hits }));
+        setOptions((prev) => ({ ...prev, hits: !prev.hits }));
     };
 
     const promotionToggleHandle = () => {
-        setOptions(prev => ({ ...prev, promotion: !prev.promotion }));
+        setOptions((prev) => ({ ...prev, promotion: !prev.promotion }));
     };
 
     const inStockToggleHandle = () => {
-        setOptions(prev => ({ ...prev, inStock: !prev.inStock }));
+        setOptions((prev) => ({ ...prev, inStock: !prev.inStock }));
     };
 
     return (
@@ -56,20 +53,32 @@ const Filters: FC<FiltersProps> = (props) => {
                         value={options.priceTo}
                     />
                 </div>
-                <Range value={[options.priceFrom, options.priceTo]} setValue={setOptions} />
+                <Range
+                    value={[options.priceFrom, options.priceTo]}
+                    setValue={setOptions}
+                />
             </div>
             <div className={styles.options}>
                 <div className={styles.promotion}>
                     <h4 className={styles.title}>Акция</h4>
-                    <Switcher isToggled={options.hits} onToggle={hitsToggleHandle} />
+                    <Switcher
+                        isToggled={options.hits}
+                        onToggle={hitsToggleHandle}
+                    />
                 </div>
                 <div className={styles.hits}>
                     <h4 className={styles.title}>Хиты</h4>
-                    <Switcher isToggled={options.promotion} onToggle={promotionToggleHandle} />
+                    <Switcher
+                        isToggled={options.promotion}
+                        onToggle={promotionToggleHandle}
+                    />
                 </div>
                 <div className={styles.InStock}>
                     <h4 className={styles.title}>В наличии</h4>
-                    <Switcher isToggled={options.inStock} onToggle={inStockToggleHandle} />
+                    <Switcher
+                        isToggled={options.inStock}
+                        onToggle={inStockToggleHandle}
+                    />
                 </div>
             </div>
         </div>

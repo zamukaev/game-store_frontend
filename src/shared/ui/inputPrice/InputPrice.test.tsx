@@ -4,7 +4,9 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import InputPrice from "./InputPrice";
 
 const setup = () => {
-    const utils = render(<InputPrice type="priceFrom" setValue={() => { }} placeholder="" />);
+    const utils = render(
+        <InputPrice type="priceFrom" setValue={() => {}} placeholder="" />
+    );
     const input = screen.getByLabelText("input-price") as HTMLInputElement;
     return {
         input,

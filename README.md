@@ -13,6 +13,7 @@
 -   **TypeScript**
 -   **scss, sass**
 -   **zustand**
+-   **react-query**
 -   **jest, react testing library**
 -   **storybook**
 -   **eslint, stylelint, prettier**

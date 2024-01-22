@@ -29,8 +29,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                 </div>
                 <FavoritesIcon
                     fill="black"
-                    width={25}
-                    height={25}
+                    width={28}
+                    height={28}
                     className={styles.favoriteIcon}
                 />
             </div>
@@ -38,8 +38,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                 <Image
                     src={urlImages[0]}
                     alt="product image"
-                    width={162}
-                    height={106}
+                    width={182}
+                    height={126}
                 />
             </div>
             <p className={styles.title}>{title}</p>
