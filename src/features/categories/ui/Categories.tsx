@@ -1,8 +1,14 @@
-import { FC, useEffect } from "react";
+"use client";
+import { FC } from "react";
 
-import { Headline, HTag, HeadlineSize } from "@/shared/ui";
+import { useQuery } from "@tanstack/react-query";
 
-import { useCategoriesStore } from "../model/store";
+import { Headline, HTag, HeadlineSize, AppLink } from "@/shared/ui";
+import { Categories } from "@/shared/types/categories";
+
+import { getCategories } from "../api";
+
+import CategoriesLoader from "./CategoriesLoader";
 
 import styles from "./styles.module.scss";
 
@@ -14,21 +20,26 @@ const Categories: FC<CategoriesProps> = (props) => {
     const {
         className = "",
     } = props;
+
     const cls = `${styles.categories} ${className}`;
 
-    const { categories, getCategories } = useCategoriesStore();
-
-    useEffect(() => {
-        getCategories();
-    }, [getCategories]);
-
+    const {
+        data:categories,
+        isLoading:isCategoriesLoading
+    }=useQuery({queryKey:["categories"], queryFn:getCategories });
    
+    if(isCategoriesLoading){
+        return <CategoriesLoader/>;
+    }
+
     return (
         <div className={cls}>
             <Headline className={styles.title} H={HTag.H2} size={HeadlineSize.M}>Категории</Headline>
             <ul className={styles.row}>
-                {categories.map((cat: any, i: number) => (
-                    <li key={cat.id} className={styles.item}>{cat.title}</li>
+                {categories!.map((cat:Categories) => (
+                    <li key={cat._id} className={styles.item}>
+                        <AppLink className={styles.link} href={`/category/${cat.originTitle}`}>{cat.title}</AppLink>
+                    </li>
                 ))}
             </ul>
         </div >

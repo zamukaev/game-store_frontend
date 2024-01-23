@@ -47,4 +47,7 @@ export {
     UserInput,
     Kind,
     Logo,
+    SliderArrow,
+    HeadlineSize,
+    HTag, Headline
 };
