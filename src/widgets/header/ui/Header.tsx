@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { FC } from "react";
 
 import { Logo } from "@/shared/ui";
 
@@ -10,7 +10,7 @@ import NavItems from "@/features/navItems/ui/NavItems";
 
 import styles from "./style.module.scss";
 
-const Header = () => {
+const Header: FC = () => {
     return (
         <div className={styles.container}>
             <Logo />

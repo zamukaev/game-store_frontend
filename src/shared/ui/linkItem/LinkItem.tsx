@@ -45,7 +45,12 @@ const LinkItem: FC<LinkItemProps> = (props) => {
     };
 
     return (
-        <AppLink data-testid="linkItem" className={cls} href={url}>
+        <AppLink
+            data-testid="linkItem"
+            className={cls}
+            href={url}
+            target="_blank"
+        >
             {getIcon()}
             <p>{children}</p>
         </AppLink>

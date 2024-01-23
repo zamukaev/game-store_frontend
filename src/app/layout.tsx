@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 
 import { TopHeader } from "@/widgets/topHeader";
 import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 
 import { QueryProvider } from "./_providers/Query-provider";
 
@@ -12,6 +13,7 @@ import "@/app/styles/_vars.scss";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -33,6 +35,7 @@ export default function RootLayout({
                         <Header />
                     </header>
                     <QueryProvider>{children}</QueryProvider>
+                    <Footer />
                 </div>
             </body>
         </html>
