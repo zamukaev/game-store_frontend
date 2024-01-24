@@ -1,4 +1,4 @@
-import { HTag, Headline, HeadlineSize } from "..";
+import { Headline, HeadlineSize } from "..";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Headline>;
 
 export const H1: Story = {
     render: () => (
-        <Headline size={HeadlineSize.L} H={HTag.H1}>
+        <Headline Size={HeadlineSize.L}>
             some text
         </Headline>
     ),
@@ -19,14 +19,14 @@ export const H1: Story = {
 
 export const H2: Story = {
     render: () => (
-        <Headline size={HeadlineSize.M} H={HTag.H2}>
+        <Headline Size={HeadlineSize.M}>
             some text
         </Headline>
     ),
 };
 export const H3: Story = {
     render: () => (
-        <Headline size={HeadlineSize.M} H={HTag.H3}>
+        <Headline Size={HeadlineSize.S}>
             some text
         </Headline>
     ),
