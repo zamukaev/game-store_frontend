@@ -3,32 +3,26 @@ import { FC, ReactNode } from "react";
 import styles from "./styles.module.scss";
 
 export enum HeadlineSize {
-    L = "l",
-    M = "m",
-}
-export enum HTag {
-    H1 = "h1",
-    H2 = "h2",
-    H3 = "h3"
+    L = "h1",
+    M = "h2",
+    S = "h3",
 }
 
 interface HeadlineProps {
     className?: string;
-    size?: HeadlineSize;
-    H?: HTag;
+    Size?: HeadlineSize;
     children?: ReactNode;
 }
 
 const Headline: FC<HeadlineProps> = (props) => {
-    const {
-        className = " ",
-        size = HeadlineSize.M,
-        H = HTag.H2,
-        children
-    } = props;
-    const cls = `${styles[size]} ${className}`;
+    const { className = " ", Size = HeadlineSize.M, children } = props;
+    const cls = `${styles[Size]} ${className}`;
 
-    return <H data-testid="title" className={cls}>{children}</H>;
+    return (
+        <Size data-testid="title" className={cls}>
+            {children}
+        </Size>
+    );
 };
 
 export default Headline;

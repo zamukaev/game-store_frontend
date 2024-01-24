@@ -2,7 +2,13 @@ import { FC, useState } from "react";
 
 import { OptionsType } from "@/configs/options";
 
-import { InputPrice, Switcher, Range } from "@/shared/ui";
+import {
+    InputPrice,
+    Switcher,
+    Range,
+    Headline,
+    HeadlineSize,
+} from "@/shared/ui";
 
 import styles from "./styles.module.scss";
 
@@ -36,7 +42,9 @@ const Filters: FC<FiltersProps> = (props) => {
     return (
         <div data-testid="filters" className={cls}>
             <div className={styles.price}>
-                <h4 className={styles.title}>Цена</h4>
+                <Headline Size={HeadlineSize.S} className={styles.title}>
+                    Цена
+                </Headline>
                 <div className={styles.inputs}>
                     <InputPrice
                         type="priceFrom"
@@ -60,21 +68,27 @@ const Filters: FC<FiltersProps> = (props) => {
             </div>
             <div className={styles.options}>
                 <div className={styles.promotion}>
-                    <h4 className={styles.title}>Акция</h4>
+                    <Headline Size={HeadlineSize.S} className={styles.title}>
+                        Акция
+                    </Headline>
                     <Switcher
                         isToggled={options.hits}
                         onToggle={hitsToggleHandle}
                     />
                 </div>
                 <div className={styles.hits}>
-                    <h4 className={styles.title}>Хиты</h4>
+                    <Headline Size={HeadlineSize.S} className={styles.title}>
+                        Хиты
+                    </Headline>
                     <Switcher
                         isToggled={options.promotion}
                         onToggle={promotionToggleHandle}
                     />
                 </div>
                 <div className={styles.InStock}>
-                    <h4 className={styles.title}>В наличии</h4>
+                    <Headline Size={HeadlineSize.S} className={styles.title}>
+                        В наличии
+                    </Headline>
                     <Switcher
                         isToggled={options.inStock}
                         onToggle={inStockToggleHandle}

@@ -10,5 +10,3 @@ export const getCategories = async (): Promise<Categories[] | undefined> => {
         return undefined;
     }
 };
-
-

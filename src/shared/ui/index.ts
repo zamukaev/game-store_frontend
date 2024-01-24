@@ -23,7 +23,6 @@ import Logo from "./logo/Logo";
 import SliderArrow from "./sliderArrow/SliderArrow";
 import Headline, { HeadlineSize, HTag } from "./headline/Headline";
 
-
 export {
     AppLink,
     Button,
@@ -49,5 +48,6 @@ export {
     Logo,
     SliderArrow,
     HeadlineSize,
-    HTag, Headline
+    HTag,
+    Headline,
 };

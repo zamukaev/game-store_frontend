@@ -8,6 +8,8 @@ import SliderArrow from "../sliderArrow/SliderArrow";
 
 import ProductCardLoader from "../productCard/ProductCardLoader";
 
+import { Headline, HeadlineSize } from "..";
+
 import styles from "./styles.module.scss";
 
 interface SliderBlockProps {
@@ -29,7 +31,9 @@ const settings = {
 const SliderBlock: FC<SliderBlockProps> = ({ title, items, loading }) => {
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>{title}</h1>
+            <Headline Size={HeadlineSize.L} className={styles.title}>
+                {title}
+            </Headline>
             {loading ? (
                 <div className={styles.loader}>
                     {Array.from({ length: 3 }).map((_, index) => (
