@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 
-import { Kind, LinkItem } from "@/shared/ui";
+import { Headline, HeadlineSize, Kind, LinkItem } from "@/shared/ui";
 
 import styles from "./style.module.scss";
 
@@ -11,7 +11,9 @@ const Footer: FC = () => {
         <footer className={styles.footer}>
             <div className={styles.footer__nav}>
                 <div className={styles.footer__nav_items}>
-                    <h1 className={styles.title}>Контакты</h1>
+                    <Headline className={styles.title} Size={HeadlineSize.L}>
+                        Контакты
+                    </Headline>
                     <LinkItem
                         kind={Kind.ADDRESS}
                         // eslint-disable-next-line max-len
@@ -34,13 +36,17 @@ const Footer: FC = () => {
                     </div>
                 </div>
                 <div className={styles.footer__nav_items}>
-                    <h1 className={styles.title}>Навигация</h1>
+                    <Headline className={styles.title} Size={HeadlineSize.L}>
+                        Навигация
+                    </Headline>
                     <p>Все категории</p>
                     <p>Акции</p>
                     <p>Хиты</p>
                 </div>
                 <div className={styles.footer__nav_items}>
-                    <h1 className={styles.title}>Помощь и поддержка</h1>
+                    <Headline className={styles.title} Size={HeadlineSize.L}>
+                        Помощь и поддержка
+                    </Headline>
                     <p>Способы оплаты</p>
                     <p>Доставка</p>
                 </div>

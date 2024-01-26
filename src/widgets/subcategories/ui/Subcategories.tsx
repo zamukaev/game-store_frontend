@@ -6,7 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Subcategories } from "@/shared/types/categories";
 import { SubcategoryCard, Headline, HeadlineSize } from "@/shared/ui";
 
-import { getCategoryByTitle } from "./api";
+import { getCategoryByTitle } from "../api";
+
 import SubcategoriesLoader from "./SubcategoriesLoader";
 
 import styles from "./styles.module.scss";
