@@ -1,9 +1,9 @@
-import { Headline } from "@/shared/ui";
+import Subcategories from "@/widgets/subcategories/Subcategories";
 
 const Category = ({ params }: { params: { title: string } }) => {
     return (
         <section>
-            <Headline>{params.title}</Headline>
+            <Subcategories params={params} />
         </section>
     );
 };

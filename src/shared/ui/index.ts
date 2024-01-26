@@ -21,7 +21,8 @@ import UserInput from "./userInput/UserInput";
 import { Kind } from "./linkItem/LinkItem";
 import Logo from "./logo/Logo";
 import SliderArrow from "./sliderArrow/SliderArrow";
-import Headline, { HeadlineSize, HTag } from "./headline/Headline";
+import Headline, { HeadlineSize } from "./headline/Headline";
+import SubcategoryCard from "./subcategoryCard/SubcategoryCard";
 
 export {
     AppLink,
@@ -48,6 +49,6 @@ export {
     Logo,
     SliderArrow,
     HeadlineSize,
-    HTag,
     Headline,
+    SubcategoryCard,
 };

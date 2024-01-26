@@ -3,7 +3,7 @@ import { FC } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { Headline, HTag, HeadlineSize, AppLink } from "@/shared/ui";
+import { Headline, HeadlineSize, AppLink } from "@/shared/ui";
 import { Categories } from "@/shared/types/categories";
 
 import { getCategories } from "../api";
