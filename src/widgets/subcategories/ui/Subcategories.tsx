@@ -3,7 +3,7 @@ import { FC } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { Subcategories } from "@/shared/types/categories";
+import { Subcategory } from "@/shared/types/categories";
 import { SubcategoryCard, Headline, HeadlineSize } from "@/shared/ui";
 
 import { getCategoryByTitle } from "../api";
@@ -36,7 +36,7 @@ const Subcategories: FC<SubcategoriesProps> = (props) => {
                     </Headline>
                     <ul className={styles.subcategories}>
                         {category.subcategories.map(
-                            (cat: Subcategories, index) => (
+                            (cat: Subcategory, index) => (
                                 <SubcategoryCard
                                     key={index}
                                     text={cat.title}
