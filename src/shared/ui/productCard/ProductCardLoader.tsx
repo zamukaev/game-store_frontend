@@ -1,6 +1,8 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
+import styles from "./styles.module.scss";
+
 const ProductCardLoader = (props: any) => (
     <ContentLoader
         speed={2}
