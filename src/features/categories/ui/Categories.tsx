@@ -22,7 +22,7 @@ const Categories: FC = () => {
 
     return (
         <div className={cls}>
-            <Headline className={styles.title} Size={HeadlineSize.M}>
+            <Headline className={styles.title} Size={HeadlineSize.L}>
                 Категории
             </Headline>
             <ul className={styles.row}>

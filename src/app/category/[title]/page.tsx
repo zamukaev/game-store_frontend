@@ -1,3 +1,4 @@
+
 import dynamic from "next/dynamic";
 // components/MyChart.js contains the recharts chart
 const SubcategoriesContent = dynamic(
