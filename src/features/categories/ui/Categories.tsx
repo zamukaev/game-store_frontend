@@ -4,7 +4,7 @@ import { FC } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { Headline, HeadlineSize, AppLink } from "@/shared/ui";
-import { Categories } from "@/shared/types/categories";
+import { Category } from "@/shared/types/categories";
 
 import { getCategories } from "../api";
 
@@ -29,7 +29,7 @@ const Categories: FC = () => {
                 {!categories ? (
                     <CategoriesLoader />
                 ) : (
-                    categories.map((cat: Categories) => (
+                    categories.map((cat: Category) => (
                         <li key={cat._id} className={styles.item}>
                             <AppLink
                                 className={styles.link}

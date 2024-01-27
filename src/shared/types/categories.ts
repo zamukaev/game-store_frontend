@@ -6,5 +6,6 @@ export interface Subcategory {
 }
 
 export interface Category extends Subcategory {
+    _id: string;
     subcategories: Subcategory[];
 }
