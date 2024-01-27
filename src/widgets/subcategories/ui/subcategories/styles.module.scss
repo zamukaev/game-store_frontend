@@ -14,3 +14,15 @@
         align-items: flex-start;
     }
 }
+
+.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+        margin-top: 26px;
+        margin-bottom: 56px;
+    }
+}

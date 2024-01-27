@@ -6,10 +6,11 @@ import CategoryLoader from "@/shared/ui/subcategoryCard/SubcategoryLoader";
 
 import styles from "./styles.module.scss";
 
-const CategoriesLoader: FC = (props) => {
+const SubcategoriesLoader: FC = (props) => {
     const cls = `${styles.category}`;
+
     return (
-        <>
+        <section className={cls}>
             <ContentLoader
                 className={styles.title}
                 speed={0}
@@ -20,7 +21,7 @@ const CategoriesLoader: FC = (props) => {
                 foregroundColor="#ecebeb"
                 {...props}
             >
-                <rect x="2" y="33" rx="5" ry="5" width="300" height="16" />
+                <rect x="0" y="0" rx="5" ry="5" width="300" height="16" />
             </ContentLoader>
             <ul className={styles.subcategories}>
                 {Array.from({ length: 4 }).map((_, index: number) => (
@@ -29,8 +30,8 @@ const CategoriesLoader: FC = (props) => {
                     </li>
                 ))}
             </ul>
-        </>
+        </section>
     );
 };
 
-export default CategoriesLoader;
+export default SubcategoriesLoader;

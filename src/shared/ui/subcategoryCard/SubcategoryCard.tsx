@@ -1,6 +1,8 @@
 import { FC } from "react";
 import Image from "next/image";
 
+import { Headline, HeadlineSize } from "..";
+
 import CartImage from "./image/1.png";
 
 import styles from "./styles.module.scss";
@@ -18,9 +20,11 @@ const SubcategoryCard: FC<CategoryCardProps> = (props) => {
     return (
         <li className={cls}>
             <div className={styles.image}>
-                <Image src={CartImage} alt={alt} width={130} height={130} />
+                <Image src={CartImage} alt={alt} width={150} height={150} />
             </div>
-            <p className={styles.text}>{text}</p>
+            <Headline Size={HeadlineSize.S} className={styles.text}>
+                {text}
+            </Headline>
         </li>
     );
 };
