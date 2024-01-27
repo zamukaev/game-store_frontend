@@ -2,8 +2,8 @@
 build
 coverage
 .next
-**/.tsx
-**/.ts
+**/*.tsx
+**/*.ts
 .vscode
 node_modules
 public

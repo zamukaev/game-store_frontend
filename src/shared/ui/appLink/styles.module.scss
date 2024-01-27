@@ -26,3 +26,17 @@
 .secondary {
     color: var(--color-orange-light);
 }
+
+.outline {
+    width: 278px;
+    height: 52px;
+    text-align: center;
+    color: var(--color-orange);
+    border: 1px solid var(--color-orange);
+    border-radius: 22px;
+
+    &:hover {
+        color: var(--color-orange-light);
+        border: 1px solid var(--color-orange-light);
+    }
+}

@@ -9,6 +9,7 @@ export enum AppLinkTheme {
     SECONDARY = "secondary",
     DEFAULT = "default",
     NAVITEM = "navItem",
+    OUTLINE = "outline",
 }
 
 export interface AppLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

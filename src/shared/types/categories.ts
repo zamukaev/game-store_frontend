@@ -1,16 +1,11 @@
-import { Product } from "./product";
-
-export interface Subcategories {
-    _id: string;
+export interface Subcategory {
+    id: string;
     title: string;
     originTitle: string;
     urlImg: string;
 }
 
-export interface Categories {
+export interface Category extends Subcategory {
     _id: string;
-    title: string;
-    originTitle: string;
-    urlImg: string;
-    subcategories: Subcategories[];
+    subcategories: Subcategory[];
 }

@@ -37,7 +37,7 @@ const SearchInput: FC<SearchInputProps> = ({ onSearch, placeholder }) => {
                 className={styles.input}
             />
             <button type="submit" className={styles.iconButton}>
-                <SearchIcon className={styles.icon} />
+                <SearchIcon fill="#989898" className={styles.icon} />
             </button>
         </form>
     );

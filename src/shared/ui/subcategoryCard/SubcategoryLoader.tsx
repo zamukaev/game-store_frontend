@@ -4,15 +4,15 @@ import ContentLoader from "react-content-loader";
 const SubcategoryLoader = (props: any) => (
     <ContentLoader
         speed={0}
-        width={203}
-        height={203}
-        viewBox="0 0 203 203"
+        width={180}
+        height={211}
+        viewBox="0 0 180 211"
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"
         {...props}
     >
-        <rect x="8" y="0" rx="5" ry="5" width="130" height="130" />
-        <rect x="0" y="146" rx="5" ry="5" width="147" height="14" />
+        <rect x="13" y="0" rx="5" ry="5" width="150" height="150" />
+        <rect x="0" y="190" rx="5" ry="5" width="180" height="20" />
     </ContentLoader>
 );
 

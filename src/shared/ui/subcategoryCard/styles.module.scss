@@ -1,19 +1,11 @@
 .row {
-    width: 203px;
-    height: 203px;
+    flex: 0 1 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
 
     .image {
-        width: 130px;
-        height: 130px;
         margin-bottom: 10px;
-        background: red;
-    }
-
-    .text {
-        font-weight: 500;
     }
 }
