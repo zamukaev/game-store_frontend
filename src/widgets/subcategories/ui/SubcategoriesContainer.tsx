@@ -3,17 +3,21 @@ import { FC } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { getCategoryByTitle } from "../api";
+import { getCategoryByTitle } from "../api/getCategoryByTitle";
 
 import SubcategoriesLoader from "./subcategories/SubcategoriesLoader";
 import Subcategories from "./subcategories/Subcategories";
 
-interface SubcategoriesContentProps {
+
+interface SubcategoriesContainerProps {
     params: { title: string };
 }
 
-const SubcategoriesContent: FC<SubcategoriesContentProps> = ({ params }) => {
-    const { data, isLoading } = useQuery({
+const SubcategoriesContainer: FC<SubcategoriesContainerProps> = ({ params }) => {
+    const {
+        data,
+        isLoading
+    } = useQuery({
         queryKey: ["category"],
         queryFn: () => getCategoryByTitle(params.title),
     });
@@ -23,9 +27,8 @@ const SubcategoriesContent: FC<SubcategoriesContentProps> = ({ params }) => {
     ) : (
         <Subcategories
             data-testid="subcategories"
-            title={params.title}
             category={data}
         />
     );
 };
-export default SubcategoriesContent;
+export default SubcategoriesContainer;
