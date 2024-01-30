@@ -8,33 +8,37 @@ import SubcategoriesEmpty from "./SubcategoriesEmpty";
 import styles from "./styles.module.scss";
 
 interface SubcategoriesProps {
-    title: string;
     category?: Category;
 }
 
 const Subcategories: FC<SubcategoriesProps> = (props) => {
-    const { title, category } = props;
+    const { category } = props;
     const cls = `${styles.category}`;
 
     return (
         <section className={cls}>
             <Headline className={styles.title} Size={HeadlineSize.L}>
-                {title}
+                {category?.title}
             </Headline>
-            <ul className={styles.subcategories}>
-                {category ? (
-                    category.subcategories.map((cat: Subcategory) => (
-                        <SubcategoryCard
-                            key={cat.id}
-                            text={cat.title}
-                            alt={cat.title}
-                            image={cat.urlImg}
-                        />
-                    ))
+            {
+                (category?.subcategories.length !== 0) ? (
+                    <ul className={styles.subcategories}>
+
+                        {category?.subcategories.map((cat: Subcategory) => (
+                            <SubcategoryCard
+                                data-testid="subcategory-card"
+                                key={cat._id}
+                                text={cat.title}
+                                alt={cat.title}
+                                image={cat.urlImg}
+                            />
+                        ))}
+
+                    </ul>
                 ) : (
                     <SubcategoriesEmpty />
-                )}
-            </ul>
+                )
+            }
         </section>
     );
 };

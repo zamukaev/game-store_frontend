@@ -13,7 +13,7 @@ const SubcategoriesEmpty: FC = () => {
     return (
         <div className={cls}>
             <SearchIcon fill="#FF6B00" height={50} width={50} />
-            <Headline className={styles.title} Size={HeadlineSize.M}>
+            <Headline className={styles.subtitle} Size={HeadlineSize.M}>
                 Нам не удалось найти то, что вы искали
             </Headline>
             <AppLink href="/" theme={AppLinkTheme.OUTLINE}>

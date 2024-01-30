@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Headline, HeadlineSize, AppLink } from "@/shared/ui";
 import { Category } from "@/shared/types/categories";
 
-import { getCategories } from "../api";
+import { getCategories } from "../api/getCategories";
 
 import CategoriesLoader from "./CategoriesLoader";
 

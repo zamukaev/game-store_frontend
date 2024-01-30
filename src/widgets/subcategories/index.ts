@@ -1,3 +1,3 @@
-import Subcategories from "./ui/Subcategories";
+import SubcategoriesContainer from "./ui/SubcategoriesContainer";
 
-export { Subcategories };
+export { SubcategoriesContainer };

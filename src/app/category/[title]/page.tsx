@@ -1,15 +1,9 @@
-
-import dynamic from "next/dynamic";
-// components/MyChart.js contains the recharts chart
-const SubcategoriesContent = dynamic(
-    () => import("@/widgets/subcategories/ui/SubcategoriesContainer"),
-    { ssr: false }
-);
+import { SubcategoriesContainer } from "@/widgets/subcategories";
 
 const Category = ({ params }: { params: { title: string } }) => {
     return (
         <section>
-            <SubcategoriesContent params={params} />
+            <SubcategoriesContainer params={params} />
         </section>
     );
 };
