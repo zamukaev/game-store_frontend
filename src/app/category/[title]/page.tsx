@@ -1,5 +1,4 @@
-
-import SubcategoriesContainer from "@/widgets/subcategories/ui/SubcategoriesContainer";
+import { SubcategoriesContainer } from "@/widgets/subcategories";
 
 const Category = ({ params }: { params: { title: string } }) => {
     return (
