@@ -7,11 +7,11 @@ import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
 
 import styles from "./styles.module.scss";
 
-const SubcategoriesEmpty: FC = () => {
+const SubcategoriesEmpty: FC = ({ ...props }) => {
     const cls = `${styles.empty}`;
 
     return (
-        <div className={cls}>
+        <div className={cls} {...props}>
             <SearchIcon fill="#FF6B00" height={50} width={50} />
             <Headline className={styles.subtitle} Size={HeadlineSize.M}>
                 Нам не удалось найти то, что вы искали

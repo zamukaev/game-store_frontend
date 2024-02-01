@@ -27,7 +27,7 @@ const Categories: FC = () => {
             </Headline>
             <ul className={styles.row}>
                 {!categories ? (
-                    <CategoriesLoader />
+                    <CategoriesLoader data-testid="categories-loader" />
                 ) : (
                     categories.map((cat: Category) => (
                         <li key={cat._id} className={styles.item}>

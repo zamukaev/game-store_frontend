@@ -26,7 +26,6 @@ const SubcategoriesContainer: FC<SubcategoriesContainerProps> = ({ params }) => 
         <SubcategoriesLoader data-testid="subcategories-loader" />
     ) : (
         <Subcategories
-            data-testid="subcategories"
             category={data}
         />
     );

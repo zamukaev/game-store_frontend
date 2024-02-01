@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 
 import { Category, Subcategory } from "@/shared/types/categories";
@@ -14,29 +15,27 @@ interface SubcategoriesProps {
 const Subcategories: FC<SubcategoriesProps> = (props) => {
     const { category } = props;
     const cls = `${styles.category}`;
-
     return (
-        <section className={cls}>
-            <Headline className={styles.title} Size={HeadlineSize.L}>
+        <section data-testid="subcategories" className={cls}>
+            <Headline data-testid="category-title" className={styles.title} Size={HeadlineSize.L}>
                 {category?.title}
             </Headline>
             {
                 (category?.subcategories.length !== 0) ? (
-                    <ul className={styles.subcategories}>
-
+                    <ul className={styles.subcategories} role="list">
                         {category?.subcategories.map((cat: Subcategory) => (
-                            <SubcategoryCard
-                                data-testid="subcategory-card"
-                                key={cat._id}
-                                text={cat.title}
-                                alt={cat.title}
-                                image={cat.urlImg}
-                            />
+                            <li data-testid="category-list" key={cat._id}>
+                                <SubcategoryCard
+                                    text={cat.title}
+                                    alt={cat.title}
+                                    image={cat.urlImg}
+                                />
+                            </li>
                         ))}
 
                     </ul>
                 ) : (
-                    <SubcategoriesEmpty />
+                    <SubcategoriesEmpty data-testid="subcategories-empty" />
                 )
             }
         </section>
