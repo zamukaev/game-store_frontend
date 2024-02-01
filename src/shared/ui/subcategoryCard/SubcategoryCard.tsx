@@ -1,7 +1,9 @@
 import { FC } from "react";
 import Image from "next/image";
 
-import { Headline, HeadlineSize } from "..";
+import { AppLink, Headline, HeadlineSize } from "..";
+
+import { AppLinkTheme } from "../appLink/AppLink";
 
 import CartImage from "./image/1.png";
 
@@ -18,14 +20,14 @@ const SubcategoryCard: FC<CategoryCardProps> = (props) => {
     const cls = `${styles.row}`;
 
     return (
-        <li className={cls}>
+        <AppLink href="/" theme={AppLinkTheme.NAVITEM} className={cls}>
             <div className={styles.image}>
                 <Image src={CartImage} alt={alt} width={150} height={150} />
             </div>
             <Headline Size={HeadlineSize.S} className={styles.text}>
                 {text}
             </Headline>
-        </li>
+        </AppLink>
     );
 };
 
