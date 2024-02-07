@@ -26,6 +26,7 @@ const Subcategories: FC<SubcategoriesProps> = (props) => {
                         {category?.subcategories.map((cat: Subcategory) => (
                             <li data-testid="category-list" key={cat._id}>
                                 <SubcategoryCard
+                                    title={cat.originTitle}
                                     text={cat.title}
                                     alt={cat.title}
                                     image={cat.urlImg}

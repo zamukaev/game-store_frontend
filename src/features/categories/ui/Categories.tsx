@@ -33,7 +33,7 @@ const Categories: FC = () => {
                         <li key={cat._id} className={styles.item}>
                             <AppLink
                                 className={styles.link}
-                                href={`/category/${cat.originTitle}`}
+                                href={`/subcategories/${cat.originTitle}`}
                             >
                                 {cat.title}
                             </AppLink>

@@ -1,0 +1,32 @@
+.content{
+    display:flex;
+    flex-direction: column;
+}
+
+.title{
+    align-self: flex-start;
+    margin:100px 0 51px;
+}
+
+.sorting{
+    align-self: flex-start;
+}
+
+.container{
+    margin-top: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.products{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: flex-start;
+    margin: -15px;
+}
+
+.product{
+    flex: 0 0 20%;
+    margin: 15px;
+}

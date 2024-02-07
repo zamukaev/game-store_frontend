@@ -10,16 +10,16 @@ import Subcategories from "./subcategories/Subcategories";
 
 
 interface SubcategoriesContainerProps {
-    params: { title: string };
+    title: string;
 }
 
-const SubcategoriesContainer: FC<SubcategoriesContainerProps> = ({ params }) => {
+const SubcategoriesContainer: FC<SubcategoriesContainerProps> = ({ title }) => {
     const {
         data,
         isLoading
     } = useQuery({
         queryKey: ["category"],
-        queryFn: () => getCategoryByTitle(params.title),
+        queryFn: () => getCategoryByTitle(title),
     });
 
     return isLoading ? (

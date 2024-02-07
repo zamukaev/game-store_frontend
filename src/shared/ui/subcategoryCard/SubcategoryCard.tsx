@@ -12,15 +12,17 @@ import styles from "./styles.module.scss";
 interface CategoryCardProps {
     image: string;
     text: string;
+    title: string;
     alt: string;
 }
 
 const SubcategoryCard: FC<CategoryCardProps> = (props) => {
-    const { image, text, alt } = props;
+    const { image, text, alt, title } = props;
     const cls = `${styles.row}`;
 
     return (
-        <AppLink href="/" theme={AppLinkTheme.NAVITEM} className={cls}>
+        <AppLink href={`/products/${title}`}
+            theme={AppLinkTheme.NAVITEM} className={cls}>
             <div className={styles.image}>
                 <Image src={CartImage} alt={alt} width={150} height={150} />
             </div>
