@@ -25,13 +25,6 @@ const Filters: FC<FiltersProps> = (props) => {
         setOptions
     } = props;
     const cls = `${styles.filters} ${className}`;
-    // const [options, setOptions] = useState<OptionsType>({
-    //     priceFrom: 0,
-    //     priceTo: 100000,
-    //     hits: false,
-    //     promotion: false,
-    //     inStock: false,
-    // });
 
     const hitsToggleHandle = () => {
         setOptions((prev: OptionsType): OptionsType => ({ ...prev, hits: !prev.hits }));
@@ -57,14 +50,14 @@ const Filters: FC<FiltersProps> = (props) => {
                         className={styles.priceItem}
                         placeholder="от 300₽"
                         setValue={setOptions}
-                        value={options.priceFrom}
+                        value={options?.priceFrom}
                     />
 
                     <InputPrice
                         type="priceTo"
                         placeholder="до 5000₽"
                         setValue={setOptions}
-                        value={options.priceTo}
+                        value={options?.priceTo}
                     />
                 </div>
                 <Range

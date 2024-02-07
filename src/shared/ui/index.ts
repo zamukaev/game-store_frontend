@@ -23,6 +23,7 @@ import Logo from "./logo/Logo";
 import SliderArrow from "./sliderArrow/SliderArrow";
 import Headline, { HeadlineSize } from "./headline/Headline";
 import SubcategoryCard from "./subcategoryCard/SubcategoryCard";
+import ProductsPageLoader from "./productsPageLoader/ProductsPageLoader";
 
 export {
     AppLink,
@@ -51,4 +52,5 @@ export {
     HeadlineSize,
     Headline,
     SubcategoryCard,
+    ProductsPageLoader
 };

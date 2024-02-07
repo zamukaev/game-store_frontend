@@ -17,7 +17,7 @@ const ProductsPageLoader: FC<ProductsPageLoaderProps> = (props) => {
                 className={styles.title}
                 speed={0}
                 width={300}
-                height={70}
+                height={50}
                 viewBox="0 0 300 50"
                 backgroundColor="#f3f3f3"
                 foregroundColor="#ecebeb"

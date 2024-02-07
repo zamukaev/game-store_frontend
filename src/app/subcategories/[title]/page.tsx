@@ -1,12 +1,8 @@
-import SubcategoriesPage from "@/pages/subcategoriesPage/SubcategoriesPage";
+import { SubcategoriesContainer } from "@/widgets/subcategories";
 
 const CategoryPage = ({ params }: { params: { title: string } }) => {
 
-    return (
-        <section>
-            <SubcategoriesPage title={params.title} />
-        </section>
-    );
+    return <SubcategoriesContainer title={params.title} />;
 };
 
 export default CategoryPage;
