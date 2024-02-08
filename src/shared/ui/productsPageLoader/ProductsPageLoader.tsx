@@ -6,11 +6,7 @@ import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 
 import styles from "./styles.module.scss";
 
-interface ProductsPageLoaderProps {
-
-}
-
-const ProductsPageLoader: FC<ProductsPageLoaderProps> = (props) => {
+const ProductsPageLoader: FC = (props) => {
     return (
         <>
             <ContentLoader
