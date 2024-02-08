@@ -26,6 +26,7 @@ const ProductsPageLoader: FC<ProductsPageLoaderProps> = (props) => {
                 <rect x="0" y="0" rx="5" ry="5" width="300" height="16" />
             </ContentLoader>
             <ContentLoader
+                className={styles.sorting}
                 speed={0}
                 width={300}
                 height={40}

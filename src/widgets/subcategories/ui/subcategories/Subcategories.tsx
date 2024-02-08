@@ -2,9 +2,7 @@
 import { FC } from "react";
 
 import { Category, Subcategory } from "@/shared/types/categories";
-import { Headline, HeadlineSize, SubcategoryCard } from "@/shared/ui";
-
-import SubcategoriesEmpty from "./SubcategoriesEmpty";
+import { Headline, HeadlineSize, SubcategoriesEmpty, SubcategoryCard } from "@/shared/ui";
 
 import styles from "./styles.module.scss";
 

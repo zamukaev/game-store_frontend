@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { OptionsType } from "@/configs/options";
 
-import { Headline, HeadlineSize, ProductCard, ProductsPageLoader } from "@/shared/ui";
+import { Headline, HeadlineSize, ProductCard, ProductsPageLoader, SubcategoriesEmpty } from "@/shared/ui";
 import { Sorting } from "@/features/sorting";
 import { Filters } from "@/features/filters";
 import { Product } from "@/shared/types/product";
@@ -56,25 +56,29 @@ const Products = ({ params }: { params: { title: string } }) => {
             {
                 isLoading
                     ? <ProductsPageLoader />
-                    :
-                    <>
-                        <Headline Size={HeadlineSize.L} className={styles.title}>
-                            {!!products?.length && products[0].category}
-                        </Headline>
-                        <Sorting className={styles.sorting} setSelectedValue={setSelectedValue} />
-                        <div className={styles.container}>
-                            <ul className={styles.products}>
-                                {products?.map((product: Product) => (
-                                    <li
-                                        className={styles.product}
-                                        key={product._id}
-                                    >
-                                        <ProductCard product={product} />
-                                    </li>
-                                ))}
-                            </ul>
-                            <Filters options={options} setOptions={setOptions} />
-                        </div>
+                    : <>
+                        {!!products?.length ?
+                            <>
+                                <Headline Size={HeadlineSize.L} className={styles.title}>
+                                    {products[0].category}
+                                </Headline>
+                                <Sorting className={styles.sorting} setSelectedValue={setSelectedValue} />
+                                <div className={styles.container}>
+                                    <ul className={styles.products}>
+                                        {products?.map((product: Product) => (
+                                            <li
+                                                className={styles.product}
+                                                key={product._id}
+                                            >
+                                                <ProductCard product={product} />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <Filters options={options} setOptions={setOptions} />
+                                </div>
+                            </>
+                            : <SubcategoriesEmpty className={styles.empty} />
+                        }
                     </>
             }
         </section>

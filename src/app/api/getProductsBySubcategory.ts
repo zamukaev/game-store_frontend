@@ -6,7 +6,7 @@ export const getProductsBySubcategory = async (queryParams: any): Promise<Produc
         const response = await api.get<Product[]>(`/getProductsBySubcategory/?${queryParams}`);
         return response.data;
     } catch (error) {
-        console.error("Ошибка при получении Категории:", error);
+        //console.error("Ошибка при получении Категории:", error);
         return undefined;
     }
 };

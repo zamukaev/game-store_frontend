@@ -7,8 +7,12 @@ import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
 
 import styles from "./styles.module.scss";
 
-const SubcategoriesEmpty: FC = ({ ...props }) => {
-    const cls = `${styles.empty}`;
+interface SubcategoriesEmptyProps {
+    className?: string;
+}
+
+const SubcategoriesEmpty: FC<SubcategoriesEmptyProps> = ({ className, ...props }) => {
+    const cls = `${styles.empty} ${className}`;
 
     return (
         <div className={cls} {...props}>

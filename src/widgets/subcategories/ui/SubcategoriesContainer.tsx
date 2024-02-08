@@ -3,11 +3,11 @@ import { FC } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
+import { SubcategoriesLoader } from "@/shared/ui";
+
 import { getCategoryByTitle } from "../api/getCategoryByTitle";
 
-import SubcategoriesLoader from "./subcategories/SubcategoriesLoader";
 import Subcategories from "./subcategories/Subcategories";
-
 
 interface SubcategoriesContainerProps {
     title: string;

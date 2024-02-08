@@ -24,6 +24,8 @@ import SliderArrow from "./sliderArrow/SliderArrow";
 import Headline, { HeadlineSize } from "./headline/Headline";
 import SubcategoryCard from "./subcategoryCard/SubcategoryCard";
 import ProductsPageLoader from "./productsPageLoader/ProductsPageLoader";
+import SubcategoriesEmpty from "./subcategoriesEmpty/SubcategoriesEmpty";
+import SubcategoriesLoader from "./subcategoriesLoader/SubcategoriesLoader";
 
 export {
     AppLink,
@@ -52,5 +54,7 @@ export {
     HeadlineSize,
     Headline,
     SubcategoryCard,
-    ProductsPageLoader
+    ProductsPageLoader,
+    SubcategoriesEmpty,
+    SubcategoriesLoader
 };
