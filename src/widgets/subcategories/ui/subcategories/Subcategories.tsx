@@ -34,7 +34,9 @@ const Subcategories: FC<SubcategoriesProps> = (props) => {
 
                     </ul>
                 ) : (
-                    <SubcategoriesEmpty data-testid="subcategories-empty" />
+                    <SubcategoriesEmpty
+                        content="Нам не удалось найти то, что вы искали"
+                        data-testid="subcategories-empty" />
                 )
             }
         </section>

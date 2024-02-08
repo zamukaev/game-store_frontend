@@ -57,28 +57,28 @@ const Products = ({ params }: { params: { title: string } }) => {
                 isLoading
                     ? <ProductsPageLoader />
                     : <>
-                        {!!products?.length ?
-                            <>
-                                <Headline Size={HeadlineSize.L} className={styles.title}>
-                                    {products[0].category}
-                                </Headline>
-                                <Sorting className={styles.sorting} setSelectedValue={setSelectedValue} />
-                                <div className={styles.container}>
-                                    <ul className={styles.products}>
-                                        {products?.map((product: Product) => (
-                                            <li
-                                                className={styles.product}
-                                                key={product._id}
-                                            >
-                                                <ProductCard product={product} />
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <Filters options={options} setOptions={setOptions} />
-                                </div>
-                            </>
-                            : <SubcategoriesEmpty className={styles.empty} />
-                        }
+                        <Headline Size={HeadlineSize.L} className={styles.title}>
+                            {!!products?.length && products[0].category}
+                        </Headline>
+                        <Sorting className={styles.sorting} setSelectedValue={setSelectedValue} />
+                        <div className={styles.container}>
+                            {!products?.length ?
+                                <SubcategoriesEmpty
+                                    content="Нам не удалось найти результаты, соответствующие критериям поиска"
+                                    className={styles.empty}
+                                />
+                                : <ul className={styles.products}>
+                                    {products?.map((product: Product) => (
+                                        <li
+                                            className={styles.product}
+                                            key={product._id}
+                                        >
+                                            <ProductCard product={product} />
+                                        </li>
+                                    ))}
+                                </ul>}
+                            <Filters options={options} setOptions={setOptions} />
+                        </div>
                     </>
             }
         </section>
