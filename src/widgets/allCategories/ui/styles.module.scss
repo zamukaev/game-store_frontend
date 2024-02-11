@@ -1,0 +1,25 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 113px;
+}
+
+.title{
+    align-self: flex-start;
+    margin-bottom:96px;
+}
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items: flex-start;
+    margin: -15px;
+
+    .category{
+        text-align: center;
+        flex: 1 0 20%;
+        margin: 15px;
+    }
+}

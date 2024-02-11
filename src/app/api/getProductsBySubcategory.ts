@@ -1,9 +1,9 @@
 import api from "@/shared/api/api";
-import { Product } from "@/shared/types/product";
+import { Subcategory } from "@/shared/types/subcategories";
 
-export const getProductsBySubcategory = async (queryParams: any): Promise<Product[] | undefined> => {
+export const getProductsBySubcategory = async (queryParams: any): Promise<Subcategory | undefined> => {
     try {
-        const response = await api.get<Product[]>(`/getProductsBySubcategory/?${queryParams}`);
+        const response = await api.get<Subcategory>(`/getProductsBySubcategory/?${queryParams}`);
         return response.data;
     } catch (error) {
         //console.error("Ошибка при получении Категории:", error);

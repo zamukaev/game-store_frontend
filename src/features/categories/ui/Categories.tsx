@@ -26,6 +26,14 @@ const Categories: FC = () => {
                 Категории
             </Headline>
             <ul className={styles.row}>
+                <li className={styles.item}>
+                    <AppLink
+                        className={styles.link}
+                        href="/catalog/"
+                    >
+                        Все категории
+                    </AppLink>
+                </li>
                 {!categories ? (
                     <CategoriesLoader data-testid="categories-loader" />
                 ) : (
@@ -33,7 +41,7 @@ const Categories: FC = () => {
                         <li key={cat._id} className={styles.item}>
                             <AppLink
                                 className={styles.link}
-                                href={`/subcategories/${cat.originTitle}`}
+                                href={`/catalog/${cat.originTitle}`}
                             >
                                 {cat.title}
                             </AppLink>

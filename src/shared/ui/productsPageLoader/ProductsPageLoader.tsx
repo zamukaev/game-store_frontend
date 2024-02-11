@@ -1,12 +1,10 @@
-import { FC } from "react";
-
 import ContentLoader from "react-content-loader";
 
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 
 import styles from "./styles.module.scss";
 
-const ProductsPageLoader: FC = (props) => {
+const ProductsPageLoader = (props: any) => {
     return (
         <>
             <ContentLoader
