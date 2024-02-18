@@ -4,17 +4,22 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { OptionsType } from "@/configs/options";
-
-import { Headline, HeadlineSize, ProductCard, ProductsPageLoader, SubcategoriesEmpty } from "@/shared/ui";
+import {
+    BreadCrumb,
+    Headline,
+    HeadlineSize,
+    ProductCard,
+    ProductsPageLoader,
+    SubcategoriesEmpty
+} from "@/shared/ui";
 import { Sorting } from "@/features/sorting";
 import { Filters } from "@/features/filters";
 import { Product } from "@/shared/types/product";
-
-import { getProductsBySubcategory } from "@/app/api/getProductsBySubcategory";
+import { getProductsBySubcategory } from "@/widgets/goods/api/getProductsBySubcategory";
 
 import styles from "./styles.module.scss";
 
-const Products = ({ params }: { params: { title: string } }) => {
+const Goods = ({ slug, item }: { slug: string, item: string }) => {
 
     const [selectedValue, setSelectedValue] = useState("popular");
     const [options, setOptions] = useState<OptionsType>({
@@ -57,6 +62,9 @@ const Products = ({ params }: { params: { title: string } }) => {
                 isLoading
                     ? <ProductsPageLoader />
                     : <>
+                        <BreadCrumb
+                            crumb={subcategory!.title}
+                        />
                         <Headline Size={HeadlineSize.L} className={styles.title}>
                             {subcategory?.title}
                         </Headline>
@@ -85,4 +93,4 @@ const Products = ({ params }: { params: { title: string } }) => {
     );
 };
 
-export default Products;
+export default Goods;

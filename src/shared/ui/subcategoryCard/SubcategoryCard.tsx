@@ -1,5 +1,8 @@
-import { FC } from "react";
+"use client";
+import { FC, useEffect } from "react";
 import Image from "next/image";
+
+import { useParams, usePathname } from "next/navigation";
 
 import { AppLink, Headline, HeadlineSize } from "..";
 
@@ -17,11 +20,16 @@ interface CategoryCardProps {
 }
 
 const SubcategoryCard: FC<CategoryCardProps> = (props) => {
-    const { image, text, alt, title } = props;
+    const { image,
+        text,
+        alt,
+        title,
+    } = props;
     const cls = `${styles.row}`;
+    const { slug } = useParams();
 
     return (
-        <AppLink href={`/products/${title}`}
+        <AppLink href={`/catalog/${slug ? slug : title}/${slug ? title : ""}`}
             theme={AppLinkTheme.NAVITEM} className={cls}>
             <div className={styles.image}>
                 <Image src={CartImage} alt={alt} width={150} height={150} />

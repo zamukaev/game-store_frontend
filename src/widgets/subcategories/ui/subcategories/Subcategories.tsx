@@ -2,7 +2,13 @@
 import { FC } from "react";
 
 import { Category, Subcategory } from "@/shared/types/categories";
-import { Headline, HeadlineSize, SubcategoriesEmpty, SubcategoryCard } from "@/shared/ui";
+import {
+    BreadCrumb,
+    Headline,
+    HeadlineSize,
+    SubcategoriesEmpty,
+    SubcategoryCard
+} from "@/shared/ui";
 
 import styles from "./styles.module.scss";
 
@@ -13,8 +19,12 @@ interface SubcategoriesProps {
 const Subcategories: FC<SubcategoriesProps> = (props) => {
     const { category } = props;
     const cls = `${styles.category}`;
+
     return (
         <section data-testid="subcategories" className={cls}>
+            <BreadCrumb
+                crumb={category?.title}
+            />
             <Headline data-testid="category-title" className={styles.title} Size={HeadlineSize.L}>
                 {category?.title}
             </Headline>
@@ -31,7 +41,6 @@ const Subcategories: FC<SubcategoriesProps> = (props) => {
                                 />
                             </li>
                         ))}
-
                     </ul>
                 ) : (
                     <SubcategoriesEmpty

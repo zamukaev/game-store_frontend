@@ -26,7 +26,7 @@ import SubcategoryCard from "./subcategoryCard/SubcategoryCard";
 import ProductsPageLoader from "./productsPageLoader/ProductsPageLoader";
 import SubcategoriesEmpty from "./subcategoriesEmpty/SubcategoriesEmpty";
 import SubcategoriesLoader from "./subcategoriesLoader/SubcategoriesLoader";
-
+import BreadCrumb from "./breadcrumb/Breadcrumbs";
 export {
     AppLink,
     Button,
@@ -56,5 +56,6 @@ export {
     SubcategoryCard,
     ProductsPageLoader,
     SubcategoriesEmpty,
-    SubcategoriesLoader
+    SubcategoriesLoader,
+    BreadCrumb
 };
