@@ -1,10 +1,10 @@
 .category {
     display: flex;
     flex-direction: column;
-    margin-top: 113px;
 
     .title {
         align-self: flex-start;
+        margin-top: 30px;
         margin-bottom: 52px;
     }
 
@@ -13,17 +13,5 @@
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: flex-start;
-    }
-}
-
-.empty {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .subtitle {
-        margin-top: 26px;
-        margin-bottom: 56px;
     }
 }

@@ -1,0 +1,22 @@
+.breadcrumbs {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 61px;
+}
+
+.icon {
+    align-self: center;
+    fill: var(--color-black);
+    margin: 0 15px;
+}
+
+.crumb {
+    .link {
+        color: var(--color-black);
+    }
+}
+
+.lastCrumb {
+    color: var(--color-black-light);
+}

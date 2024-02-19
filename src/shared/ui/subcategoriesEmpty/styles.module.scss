@@ -1,0 +1,11 @@
+.empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .subtitle {
+        margin-top: 26px;
+        margin-bottom: 56px;
+    }
+}

@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    align-self: flex-start;
+    margin-top: 30px;
+    margin-bottom: 96px;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: -15px;
+
+    .category {
+        text-align: center;
+        flex: 1 0 20%;
+        margin: 15px;
+    }
+}
+
+.breadcrumbItem {
+    align-self: flex-start;
+}

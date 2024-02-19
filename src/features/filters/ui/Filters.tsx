@@ -14,29 +14,28 @@ import styles from "./styles.module.scss";
 
 interface FiltersProps {
     className?: string;
+    options: OptionsType;
+    setOptions: (prev: any) => any;
 }
 
 const Filters: FC<FiltersProps> = (props) => {
-    const { className } = props;
+    const {
+        className,
+        options,
+        setOptions
+    } = props;
     const cls = `${styles.filters} ${className}`;
-    const [options, setOptions] = useState<OptionsType>({
-        priceFrom: 0,
-        priceTo: 100000,
-        hits: false,
-        promotion: false,
-        inStock: false,
-    });
 
     const hitsToggleHandle = () => {
-        setOptions((prev) => ({ ...prev, hits: !prev.hits }));
+        setOptions((prev: OptionsType): OptionsType => ({ ...prev, hits: !prev.hits }));
     };
 
     const promotionToggleHandle = () => {
-        setOptions((prev) => ({ ...prev, promotion: !prev.promotion }));
+        setOptions((prev: OptionsType): OptionsType => ({ ...prev, promotion: !prev.promotion }));
     };
 
     const inStockToggleHandle = () => {
-        setOptions((prev) => ({ ...prev, inStock: !prev.inStock }));
+        setOptions((prev: OptionsType): OptionsType => ({ ...prev, inStock: !prev.inStock }));
     };
 
     return (
@@ -51,14 +50,14 @@ const Filters: FC<FiltersProps> = (props) => {
                         className={styles.priceItem}
                         placeholder="от 300₽"
                         setValue={setOptions}
-                        value={options.priceFrom}
+                        value={options?.priceFrom}
                     />
 
                     <InputPrice
                         type="priceTo"
                         placeholder="до 5000₽"
                         setValue={setOptions}
-                        value={options.priceTo}
+                        value={options?.priceTo}
                     />
                 </div>
                 <Range
