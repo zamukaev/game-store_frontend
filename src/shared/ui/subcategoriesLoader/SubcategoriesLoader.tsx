@@ -5,12 +5,16 @@ import ContentLoader from "react-content-loader";
 import CategoryLoader from "@/shared/ui/subcategoryCard/SubcategoryLoader";
 
 import styles from "./styles.module.scss";
+interface SubcategoriesLoaderProps {
+    length?: number;
+}
 
-const SubcategoriesLoader: FC = (props) => {
+const SubcategoriesLoader: FC<SubcategoriesLoaderProps> = (props) => {
+    const { length = 4, ...otherProps } = props;
     const cls = `${styles.category}`;
 
     return (
-        <section className={cls}>
+        <>
             <ContentLoader
                 className={styles.title}
                 speed={0}
@@ -19,18 +23,16 @@ const SubcategoriesLoader: FC = (props) => {
                 viewBox="0 0 300 50"
                 backgroundColor="#f3f3f3"
                 foregroundColor="#ecebeb"
-                {...props}
+                {...otherProps}
             >
                 <rect x="0" y="0" rx="5" ry="5" width="300" height="16" />
             </ContentLoader>
             <ul className={styles.subcategories}>
-                {Array.from({ length: 4 }).map((_, index: number) => (
-                    <li key={index}>
-                        <CategoryLoader />
-                    </li>
+                {Array.from({ length: length }).map((_, index: number) => (
+                    <CategoryLoader className={styles.category} key={index} />
                 ))}
             </ul>
-        </section>
+        </>
     );
 };
 

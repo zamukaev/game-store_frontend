@@ -1,17 +1,18 @@
-.category {
+.title {
+    margin: 30px 0 35px;
+    align-self: flex-start;
+}
+
+.subcategories {
     display: flex;
-    flex-direction: column;
-    margin-top: 113px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: -15px;
 
-    .title {
-        align-self: flex-start;
-        margin-bottom: 52px;
-    }
-
-    .subcategories {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: flex-start;
+    .category {
+        text-align: flex-start;
+        flex: 1 0 20%;
+        margin: 15px;
     }
 }
