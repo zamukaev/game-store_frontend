@@ -26,28 +26,30 @@ const Categories: FC = () => {
                 Категории
             </Headline>
             <ul className={styles.row}>
-                <li className={styles.item}>
-                    <AppLink
-                        className={styles.link}
-                        href="/catalog/"
-                    >
-                        Все категории
-                    </AppLink>
-                </li>
                 {!categories ? (
                     <CategoriesLoader data-testid="categories-loader" />
-                ) : (
-                    categories.map((cat: Category) => (
-                        <li key={cat._id} className={styles.item}>
+                ) :
+                    <>
+                        <li className={styles.item}>
                             <AppLink
                                 className={styles.link}
-                                href={`/catalog/${cat.originTitle}`}
+                                href="/catalog/"
                             >
-                                {cat.title}
+                                Все категории
                             </AppLink>
                         </li>
-                    ))
-                )}
+                        {categories.map((cat: Category) => (
+                            <li key={cat._id} className={styles.item}>
+                                <AppLink
+                                    className={styles.link}
+                                    href={`/catalog/${cat.originTitle}`}
+                                >
+                                    {cat.title}
+                                </AppLink>
+                            </li>
+                        ))}
+                    </>
+                }
             </ul>
         </div>
     );

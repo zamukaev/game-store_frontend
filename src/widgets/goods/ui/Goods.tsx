@@ -54,17 +54,18 @@ const Goods = ({ slug, item }: { slug: string, item: string }) => {
             await refetch();
         };
         fetchProducts();
-    }, [options, refetch]);
+    }, [options, selectedValue, refetch]);
 
     return (
         <section className={styles.content}>
+            <BreadCrumb
+                crumb={subcategory?.title}
+            />
             {
                 isLoading
                     ? <ProductsPageLoader />
                     : <>
-                        <BreadCrumb
-                            crumb={subcategory!.title}
-                        />
+
                         <Headline Size={HeadlineSize.L} className={styles.title}>
                             {subcategory?.title}
                         </Headline>

@@ -1,9 +1,9 @@
 "use client";
-import { SubcategoriesContainer } from "@/widgets/subcategories";
+import { Subcategories } from "@/widgets/subcategories";
 
 const CategoryPage = ({ params }: { params: { slug: string } }) => {
 
-    return <SubcategoriesContainer title={params.slug} />;
+    return <Subcategories title={params.slug} />;
 };
 
 export default CategoryPage;

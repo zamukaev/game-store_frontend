@@ -24,7 +24,7 @@ const ProductsPageLoader = (props: any) => {
                 speed={0}
                 width={300}
                 height={40}
-                viewBox="0 0 300 50"
+                viewBox="0 0 400 50"
                 backgroundColor="#f3f3f3"
                 foregroundColor="#ecebeb"
                 {...props}

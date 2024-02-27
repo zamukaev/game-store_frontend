@@ -10,7 +10,7 @@ interface BreadcrumbsProps {
     crumb?: string;
 }
 
-const Breadcrumbs: FC<BreadcrumbsProps> = ({ crumb, className }) => {
+const Breadcrumbs: FC<BreadcrumbsProps> = ({ crumb, className, ...otherProps }) => {
     const cls = `${styles.breadcrumbs} ${className}`;
 
     const paths = usePathname();
@@ -25,7 +25,7 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ crumb, className }) => {
     }
 
     return (
-        <ul className={cls}>
+        <ul className={cls} {...otherProps}>
             {breadcrumbs.map((crumb, index) => (
                 <Crumb
                     key={crumb.href}
