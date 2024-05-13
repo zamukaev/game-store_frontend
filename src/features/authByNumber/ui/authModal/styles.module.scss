@@ -1,0 +1,16 @@
+.tabs{
+    display: flex;
+}
+
+.title{
+    font-weight: 400;
+    color: var(--color-gray);
+}
+
+.active{
+    color: var(--color-black);
+}
+
+.item{
+    margin: 0 15px;
+}

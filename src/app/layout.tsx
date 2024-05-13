@@ -29,14 +29,14 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body suppressHydrationWarning={true} className={inter.className}>
-                <div className="container">
+                <section className="container">
                     <header className="header">
                         <TopHeader />
                         <Header />
                     </header>
                     <QueryProvider>{children}</QueryProvider>
                     <Footer />
-                </div>
+                </section>
             </body>
         </html>
     );
