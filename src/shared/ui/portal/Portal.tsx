@@ -1,9 +1,9 @@
 "use client";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 interface PortalProps {
-    selector?: string;
+    selector: string;
     children: ReactNode;
 }
 
@@ -13,9 +13,19 @@ const Portal: FC<PortalProps> = (props) => {
         selector = "body"
     } = props;
 
-    const portalDiv = document.querySelector(selector) as HTMLElement;
+    const [isMounted, setIsMounted] = useState(false);
 
-    return createPortal(children, portalDiv);
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (isMounted) {
+        const portalDiv = document.querySelector(selector) as Element | DocumentFragment;
+        return createPortal(children, portalDiv);
+
+    } else {
+        return null;
+    }
 };
 
 export default Portal;

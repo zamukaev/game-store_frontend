@@ -1,6 +1,12 @@
 "use client";
-import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
-
+import {
+    FC,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState
+} from "react";
 
 import CloseIcon from "@/shared/icons/closeIcon/CloseIcon";
 
@@ -13,16 +19,16 @@ interface ModalProps {
     children: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
-
 }
+
 export const ANIMATION_DELAY = 200;
+
 const Modal: FC<ModalProps> = (props) => {
     const {
         className,
         children,
         isOpen,
         onClose,
-
     } = props;
 
     const [isOpening, setIsOpening] = useState(false);
@@ -56,6 +62,15 @@ const Modal: FC<ModalProps> = (props) => {
 
     useEffect(() => {
         if (isOpen) {
+            setIsMounted(true);
+            timerRef.current = setTimeout(() => {
+                setIsOpening(true);
+            }, ANIMATION_DELAY);
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
             window.addEventListener("keydown", onKeyDown);
         }
         return () => {
@@ -64,18 +79,9 @@ const Modal: FC<ModalProps> = (props) => {
         };
     }, [isOpen, onKeyDown]);
 
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-            timerRef.current = setTimeout(() => {
-                setIsOpening(true);
-            }, ANIMATION_DELAY);
-        }
-    }, [isOpen]);
-
     return (
-        <Portal >
-            <section className={cls}>
+        <Portal selector="body" >
+            <div className={cls}>
                 <div className={styles.overlay} onClick={closeHandler}>
                     <div className={styles.content} onClick={contentClick}>
                         {children}
@@ -89,7 +95,7 @@ const Modal: FC<ModalProps> = (props) => {
                         </span>
                     </div>
                 </div>
-            </section>
+            </div>
         </Portal>
     );
 };

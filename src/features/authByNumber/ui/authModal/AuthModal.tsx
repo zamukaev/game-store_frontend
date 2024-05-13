@@ -1,4 +1,4 @@
-import { FC, memo, useState } from "react";
+import { FC, memo } from "react";
 
 import { Modal } from "@/shared/ui";
 
@@ -13,17 +13,11 @@ const AuthModal: FC<LoginModalProps> = (props) => {
         onClose
     } = props;
 
-    const [isLogin, setIsLogin] = useState(true);
-
-    const tabHandler = () => {
-        setIsLogin(!isLogin);
-    };
-
     return (
         <Modal isOpen={isOpen} onClose={onClose} >
-            <h1>Auth by Phone</h1>
+            Auth by Phone
         </Modal>
     );
 };
 
-export default memo(AuthModal);
+export default AuthModal;
