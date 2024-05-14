@@ -1,6 +1,5 @@
 "use client";
-
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import ReactSlider from "react-slider";
 
 import { OptionsType } from "@/configs/options";
@@ -14,9 +13,6 @@ export interface RangeProps {
 
 const Range: FC<RangeProps> = (props) => {
     const { value, setValue } = props;
-    const priceTo = 100000;
-
-    // const [value, setValue] = useState([0, priceTo]);
 
     const onChange = (value: any) => {
         const newPosition = value.slice();
@@ -54,9 +50,9 @@ const Range: FC<RangeProps> = (props) => {
                 ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
                 pearling
                 minDistance={10}
-                onAfterChange={(e) => onChange(e)}
+                onChange={(e) => onChange(e)}
                 value={value}
-                max={priceTo}
+                max={value[1]}
                 data-testid="range"
             />
         </div>

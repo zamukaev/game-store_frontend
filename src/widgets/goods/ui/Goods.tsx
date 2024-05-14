@@ -16,11 +16,12 @@ import { Sorting } from "@/features/sorting";
 import { Filters } from "@/features/filters";
 import { Product } from "@/shared/types/product";
 import { getProductsBySubcategory } from "@/widgets/goods/api/getProductsBySubcategory";
+import { getMaxPrice } from "@/utils/data/getMaxPrice";
 
 import styles from "./styles.module.scss";
 
-const Goods = ({ slug, item }: { slug: string, item: string }) => {
 
+const Goods = ({ slug, item }: { slug: string, item: string }) => {
     const [selectedValue, setSelectedValue] = useState("popular");
     const [options, setOptions] = useState<OptionsType>({
         priceFrom: 0,
@@ -54,7 +55,11 @@ const Goods = ({ slug, item }: { slug: string, item: string }) => {
             await refetch();
         };
         fetchProducts();
-    }, [options, selectedValue, refetch]);
+    }, [options, selectedValue, refetch, subcategory]);
+
+    useEffect(() => {
+        setOptions(prev => ({ ...prev, priceTo: 4000 }));
+    }, [subcategory]);
 
     return (
         <section className={styles.content}>

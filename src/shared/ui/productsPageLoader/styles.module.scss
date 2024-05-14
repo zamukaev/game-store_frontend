@@ -22,9 +22,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin: -15px;
+   
 }
 
 .product {
-    flex: 0 0 25%;
+    width: 301;
     margin: 15px;
 }

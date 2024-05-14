@@ -57,7 +57,7 @@ const Filters: FC<FiltersProps> = (props) => {
                         type="priceTo"
                         placeholder="до 5000₽"
                         setValue={setOptions}
-                        value={options?.priceTo}
+                        value={options.priceTo}
                     />
                 </div>
                 <Range

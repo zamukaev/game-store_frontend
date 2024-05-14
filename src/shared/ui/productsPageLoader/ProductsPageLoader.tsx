@@ -48,18 +48,18 @@ const ProductsPageLoader = (props: any) => {
                     foregroundColor="#ecebeb"
                     {...props}
                 >
-                    <rect x="1" y="0" rx="5" ry="5" width="65" height="30" />
-                    <rect x="0" y="57" rx="10" ry="10" width="125" height="25" />
-                    <rect x="153" y="56" rx="10" ry="10" width="125" height="25" />
+                    <rect x="1" y="0" rx="5" ry="5" width="65" height="20" />
+                    <rect x="0" y="40" rx="10" ry="10" width="125" height="35" />
+                    <rect x="175" y="40" rx="10" ry="10" width="125" height="35" />
                     <rect x="0" y="105" rx="0" ry="0" width="266" height="4" />
-                    <circle cx="8" cy="107" r="8" />
-                    <circle cx="268" cy="108" r="9" />
-                    <rect x="0" y="135" rx="5" ry="5" width="65" height="15" />
-                    <rect x="0" y="166" rx="5" ry="5" width="60" height="15" />
-                    <rect x="0" y="209" rx="5" ry="5" width="70" height="15" />
-                    <rect x="230" y="134" rx="10" ry="10" width="43" height="22" />
-                    <rect x="230" y="166" rx="10" ry="10" width="43" height="22" />
-                    <rect x="230" y="209" rx="10" ry="10" width="43" height="22" />
+                    <circle cx="8" cy="107" r="10" />
+                    <circle cx="268" cy="108" r="10" />
+                    <rect x="0" y="135" rx="5" ry="5" width="65" height="20" />
+                    <rect x="0" y="170" rx="5" ry="5" width="60" height="20" />
+                    <rect x="0" y="225" rx="5" ry="5" width="100" height="20" />
+                    <rect x="248" y="135" rx="10" ry="10" width="50" height="25" />
+                    <rect x="248" y="170" rx="10" ry="10" width="50" height="25" />
+                    <rect x="248" y="225" rx="10" ry="10" width="50" height="25" />
                 </ContentLoader>
             </div>
         </>
