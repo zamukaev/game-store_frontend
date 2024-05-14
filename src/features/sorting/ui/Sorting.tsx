@@ -51,7 +51,7 @@ const Sorting: FC<SortingProps> = (props) => {
         <>
             <div
                 onClick={closeSelectHandle}
-                className={styles.underlay}>
+                className={`${styles.underlay} ${isActive ? styles.active : ""}`}>
             </div>
             <div
                 data-testid="sorting"

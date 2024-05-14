@@ -1,8 +1,12 @@
 .underlay{
+    display: none;
+}
+
+.underlay.active{
+    display: block;
     position: absolute;
     inset: 0;
     z-index: 10;
-
 }
 
 .sorting {
