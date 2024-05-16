@@ -17,6 +17,7 @@
         "test:unit": "jest"
     },
     "dependencies": {
+        "@fontsource/inter": "^5.0.18",
         "@storybook/addon-knobs": "^7.0.2",
         "@tanstack/react-query": "^5.17.19",
         "axios": "^1.6.5",

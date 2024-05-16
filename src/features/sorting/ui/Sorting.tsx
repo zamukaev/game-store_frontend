@@ -18,7 +18,7 @@ export const options: OptionsType[] = [
 
 interface SortingProps {
     className?: string;
-    setSelectedValue?: (value: string) => void
+    setSelectedValue?: (value: string) => void;
 }
 
 const Sorting: FC<SortingProps> = (props) => {
@@ -53,7 +53,9 @@ const Sorting: FC<SortingProps> = (props) => {
             >
                 <span className={styles.item}>{optionsValue}</span>
                 <ArrowsIcon
-                    className={`${styles.arrow} ${isActive ? styles.rotate : ""}`}
+                    className={`${styles.arrow} ${
+                        isActive ? styles.rotate : ""
+                    }`}
                 />
             </h6>
             <ul
@@ -67,7 +69,9 @@ const Sorting: FC<SortingProps> = (props) => {
                             selectHandle(index, item.value, item.option)
                         }
                         key={item.id}
-                        className={`${styles.option} ${optionsActive === index ? styles.active : ""}`}
+                        className={`${styles.option} ${
+                            optionsActive === index ? styles.active : ""
+                        }`}
                     >
                         {item.option}{" "}
                         {optionsActive === index && (

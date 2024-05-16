@@ -15,26 +15,30 @@ describe("getCategories", () => {
                 {
                     title: "Материнская плата",
                     originTitle: "materinskie-plati",
-                    urlImg: ""
+                    urlImg: "",
                 },
                 {
                     title: "Материнская плата",
                     originTitle: "materinskie-plati",
-                    urlImg: ""
+                    urlImg: "",
                 },
-            ]
+            ],
         };
         const resp = { data: category };
         mockedApi.get.mockResolvedValue(resp);
         const result = await getCategoryByTitle(category.originTitle);
-        expect(mockedApi.get).toHaveBeenCalledWith("/category/komplektuyushie-dly-pk");
+        expect(mockedApi.get).toHaveBeenCalledWith(
+            "/category/komplektuyushie-dly-pk"
+        );
         expect(result).toEqual(category);
     });
     test("should returns undefined if  it is a error", async () => {
         const errorMessage = "error";
         mockedApi.get.mockRejectedValueOnce(new Error(errorMessage));
         const result = await getCategoryByTitle("komplektuyushie-dly-pk");
-        expect(mockedApi.get).toHaveBeenCalledWith("/category/komplektuyushie-dly-pk");
+        expect(mockedApi.get).toHaveBeenCalledWith(
+            "/category/komplektuyushie-dly-pk"
+        );
         expect(result).toBeUndefined();
     });
 });

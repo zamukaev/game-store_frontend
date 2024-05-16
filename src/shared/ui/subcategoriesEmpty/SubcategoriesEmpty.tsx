@@ -12,7 +12,11 @@ interface SubcategoriesEmptyProps {
     content?: ReactNode;
 }
 
-const SubcategoriesEmpty: FC<SubcategoriesEmptyProps> = ({ className, content, ...props }) => {
+const SubcategoriesEmpty: FC<SubcategoriesEmptyProps> = ({
+    className,
+    content,
+    ...props
+}) => {
     const cls = `${styles.empty} ${className}`;
 
     return (

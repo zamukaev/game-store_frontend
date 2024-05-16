@@ -6,24 +6,26 @@ jest.mock("@/shared/api/api");
 const mockedApi = api as jest.Mocked<typeof api>;
 describe("getCategories", () => {
     test("should fetch categories", async () => {
-        const categories = [{
-            _id: "65aee9edd994f62aafc45eb1",
-            title: "Комплектующие для ПК",
-            originTitle: "komplektuyushie-dly-pk",
-            urlImg: "",
-            subcategories: [
-                {
-                    title: "Материнская плата",
-                    originTitle: "materinskie-plati",
-                    urlImg: ""
-                },
-                {
-                    title: "Материнская плата",
-                    originTitle: "materinskie-plati",
-                    urlImg: ""
-                },
-            ]
-        }];
+        const categories = [
+            {
+                _id: "65aee9edd994f62aafc45eb1",
+                title: "Комплектующие для ПК",
+                originTitle: "komplektuyushie-dly-pk",
+                urlImg: "",
+                subcategories: [
+                    {
+                        title: "Материнская плата",
+                        originTitle: "materinskie-plati",
+                        urlImg: "",
+                    },
+                    {
+                        title: "Материнская плата",
+                        originTitle: "materinskie-plati",
+                        urlImg: "",
+                    },
+                ],
+            },
+        ];
         const resp = { data: categories };
         mockedApi.get.mockResolvedValue(resp);
         const result = await getCategories();

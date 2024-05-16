@@ -22,7 +22,9 @@ describe("Categories Component", () => {
     });
 
     test("renders loading state when data is being fetched", async () => {
-        (getCategories as jest.Mock).mockImplementation(() => new Promise(() => { }));
+        (getCategories as jest.Mock).mockImplementation(
+            () => new Promise(() => {})
+        );
 
         render(
             <QueryClientProvider client={new QueryClient()}>

@@ -1,15 +1,11 @@
 "use client";
 import NextNProgress from "nextjs-progressbar";
 
-
-
 import { Categories } from "@/features/categories";
 
 import Products from "@/widgets/products/ui/Products";
 
-
 export default function Home() {
-
     return (
         <>
             <NextNProgress

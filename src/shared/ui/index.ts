@@ -57,5 +57,5 @@ export {
     ProductsPageLoader,
     SubcategoriesEmpty,
     SubcategoriesLoader,
-    BreadCrumb
+    BreadCrumb,
 };
