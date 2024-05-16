@@ -59,7 +59,7 @@ const Goods = ({ slug, item }: { slug: string, item: string }) => {
 
     useEffect(() => {
         setOptions(prev => ({ ...prev, priceTo: 4000 }));
-    }, [subcategory]);
+    }, []);
 
     return (
         <section className={styles.content}>
