@@ -1,6 +1,5 @@
 "use client";
-
-import React, { FC, useState } from "react";
+import React, { FC, useMemo } from "react";
 import ReactSlider from "react-slider";
 
 import { OptionsType } from "@/configs/options";
@@ -14,9 +13,7 @@ export interface RangeProps {
 
 const Range: FC<RangeProps> = (props) => {
     const { value, setValue } = props;
-    const priceTo = 100000;
-
-    // const [value, setValue] = useState([0, priceTo]);
+    const priceTo: number = useMemo(() => value[1], []);
 
     const onChange = (value: any) => {
         const newPosition = value.slice();
@@ -54,7 +51,7 @@ const Range: FC<RangeProps> = (props) => {
                 ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
                 pearling
                 minDistance={10}
-                onAfterChange={(e) => onChange(e)}
+                onChange={(e) => onChange(e)}
                 value={value}
                 max={priceTo}
                 data-testid="range"
@@ -64,22 +61,3 @@ const Range: FC<RangeProps> = (props) => {
 };
 
 export default Range;
-
-{
-    /* <Col sm="12" className="flex gap-[20px]">
-    <TextField
-        type="number"
-        placeholder="Цена от"
-        value={test[0]}
-        name="priceTo"
-        onChange={(e: any) => onChangeMin(e.target.value)}
-    />
-    <TextField
-        placeholder="Цена до"
-        value={test[1]}
-        name="priceFrom"
-        onChange={(e: any) => onChangeMax(e.target.value)}
-        type="number"
-    />
-</Col>; */
-}

@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 
 import ArrowsIcon from "@/shared/icons/arrowsIcon/ArrowsIcon";
 import CheckIcon from "@/shared/icons/checkIcon/CheckIcon";
@@ -28,7 +28,6 @@ const Sorting: FC<SortingProps> = (props) => {
     const [isActive, setIsActive] = useState(false);
     const [optionsActive, setOptionsActive] = useState(0);
     const [optionsValue, setOptionsValue] = useState(options[0].option);
-    // const [selectedValue, setSelectedValue] = useState("popular");
 
     const selectHandle = useCallback(
         (index: number, value: string, content: string) => {
@@ -37,12 +36,16 @@ const Sorting: FC<SortingProps> = (props) => {
             setSelectedValue && setSelectedValue(value);
             setIsActive(false);
         },
-        []
+        [setSelectedValue]
     );
 
     const openSelectHandle = useCallback(() => {
         setIsActive(!isActive);
     }, [isActive]);
+
+    const closeSelectHandle = useCallback(() => {
+        setIsActive(false);
+    }, []);
 
     return (
         <div data-testid="sorting" className={cls}>
