@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+.block__count_items {
+    margin-top: 10px;
+}
+
 .block__container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -20,7 +24,7 @@
 }
 
 .block__product {
-    width: 325px;
+    width: 414px;
     height: 319px;
     margin-top: 50px;
 }

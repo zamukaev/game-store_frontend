@@ -1,9 +1,8 @@
 "use client";
-
 import Link from "next/link";
 
 import { ProductCard } from "@/shared/ui";
-import ArrowPrevIcon from "@/shared/icons/arrowPrevIcon/arrowPrevIcon";
+import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 
 import { mockDataForMapping } from "@/widgets/favorites/mock";
 
@@ -14,7 +13,7 @@ export default function FavoritesWidget() {
         <div>
             <Link href="/">
                 <div className={styles.block__return_back_button}>
-                    <ArrowPrevIcon />
+                    <ArrowPrevGreyIcon />
                     <p className={styles.block__return_back}>
                         Вернуться к покупкам
                     </p>
