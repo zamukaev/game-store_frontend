@@ -28,7 +28,7 @@
         "max-len": [
             "error",
             {
-                "code": 120
+                "code": 180
             }
         ],
         "import/no-unresolved": "off",
