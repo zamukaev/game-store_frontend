@@ -27,6 +27,8 @@ import ProductsPageLoader from "./productsPageLoader/ProductsPageLoader";
 import SubcategoriesEmpty from "./subcategoriesEmpty/SubcategoriesEmpty";
 import SubcategoriesLoader from "./subcategoriesLoader/SubcategoriesLoader";
 import BreadCrumb from "./breadcrumb/Breadcrumbs";
+import Modal from "./modal/Modal";
+import Portal from "./portal/Portal";
 export {
     AppLink,
     Button,
@@ -58,4 +60,6 @@ export {
     SubcategoriesEmpty,
     SubcategoriesLoader,
     BreadCrumb,
+    Modal,
+    Portal
 };

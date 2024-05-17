@@ -1,8 +1,21 @@
+.underlay{
+    display: none;
+}
+
+.underlay.active{
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+}
+
 .sorting {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-width: 100%;
+    z-index: 50;
 
     .title {
         cursor: pointer;

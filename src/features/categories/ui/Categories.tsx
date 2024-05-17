@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { useQuery } from "@tanstack/react-query";
 
@@ -14,11 +14,16 @@ import styles from "./styles.module.scss";
 
 const Categories: FC = () => {
     const cls = `${styles.categories}`;
+    const [cat, setCat] = useState<Category[] | undefined>([]);
 
     const { data: categories } = useQuery({
         queryKey: ["categories"],
         queryFn: getCategories,
     });
+
+    useEffect(() => {
+        setCat(categories);
+    }, [categories]);
 
     return (
         <div className={cls}>
@@ -26,7 +31,7 @@ const Categories: FC = () => {
                 Категории
             </Headline>
             <ul className={styles.row}>
-                {!categories ? (
+                {!cat ? (
                     <CategoriesLoader data-testid="categories-loader" />
                 ) : (
                     <>
@@ -35,7 +40,7 @@ const Categories: FC = () => {
                                 Все категории
                             </AppLink>
                         </li>
-                        {categories.map((cat: Category) => (
+                        {cat.map((cat: Category) => (
                             <li key={cat._id} className={styles.item}>
                                 <AppLink
                                     className={styles.link}

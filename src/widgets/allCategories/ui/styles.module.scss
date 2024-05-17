@@ -14,12 +14,11 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-    margin: -15px;
+    gap: 45px;
 
     .category {
         text-align: flex-start;
         flex: 1 0 20%;
-        margin: 15px;
     }
 }
 
