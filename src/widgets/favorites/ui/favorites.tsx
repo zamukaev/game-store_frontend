@@ -1,13 +1,13 @@
 "use client";
 
+import Link from "next/link";
+
 import { ProductCard } from "@/shared/ui";
 import ArrowPrevIcon from "@/shared/icons/arrowPrevIcon/arrowPrevIcon";
 
-import Link from "next/link";
+import { mockDataForMapping } from "@/widgets/favorites/mock";
 
 import styles from "./styles.module.scss";
-
-import { mockDataForMapping } from "@/widgets/favorites/mock";
 
 export default function FavoritesWidget() {
     return (

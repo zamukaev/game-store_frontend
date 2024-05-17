@@ -57,7 +57,7 @@ const Goods = ({ slug, item }: { slug: string; item: string }) => {
     }, [options, selectedValue, refetch, subcategory]);
 
     useEffect(() => {
-        setOptions(prev => ({ ...prev, priceTo: 4000 }));
+        setOptions((prev) => ({ ...prev, priceTo: 4000 }));
     }, []);
 
     return (
