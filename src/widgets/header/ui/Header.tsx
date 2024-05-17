@@ -1,9 +1,5 @@
 "use client";
-import React, {
-    FC,
-    useCallback,
-    useState
-} from "react";
+import React, { FC, useCallback, useState } from "react";
 
 import { Search } from "@/features/search";
 import { NavItems } from "@/features/navItems";

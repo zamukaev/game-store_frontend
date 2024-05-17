@@ -19,23 +19,31 @@ interface FiltersProps {
 }
 
 const Filters: FC<FiltersProps> = (props) => {
-    const {
-        className,
-        options,
-        setOptions
-    } = props;
+    const { className, options, setOptions } = props;
     const cls = `${styles.filters} ${className}`;
 
     const hitsToggleHandle = () => {
-        setOptions((prev: OptionsType): OptionsType => ({ ...prev, hits: !prev.hits }));
+        setOptions(
+            (prev: OptionsType): OptionsType => ({ ...prev, hits: !prev.hits })
+        );
     };
 
     const promotionToggleHandle = () => {
-        setOptions((prev: OptionsType): OptionsType => ({ ...prev, promotion: !prev.promotion }));
+        setOptions(
+            (prev: OptionsType): OptionsType => ({
+                ...prev,
+                promotion: !prev.promotion,
+            })
+        );
     };
 
     const inStockToggleHandle = () => {
-        setOptions((prev: OptionsType): OptionsType => ({ ...prev, inStock: !prev.inStock }));
+        setOptions(
+            (prev: OptionsType): OptionsType => ({
+                ...prev,
+                inStock: !prev.inStock,
+            })
+        );
     };
 
     return (

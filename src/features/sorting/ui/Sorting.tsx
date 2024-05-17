@@ -18,7 +18,7 @@ export const options: OptionsType[] = [
 
 interface SortingProps {
     className?: string;
-    setSelectedValue?: (value: string) => void
+    setSelectedValue?: (value: string) => void;
 }
 
 const Sorting: FC<SortingProps> = (props) => {
@@ -48,51 +48,42 @@ const Sorting: FC<SortingProps> = (props) => {
     }, []);
 
     return (
-        <>
-            <div
-                onClick={closeSelectHandle}
-                className={`${styles.underlay} ${isActive ? styles.active : ""}`}>
-            </div>
-            <div
-                data-testid="sorting"
-                className={cls}
+        <div data-testid="sorting" className={cls}>
+            <h6
+                data-testid="title"
                 onClick={openSelectHandle}
+                className={`${styles.title}`}
             >
-
-                <h6
-
-                    data-testid="title"
-                    className={`${styles.title}`}
-                >
-                    <span
-
-                        className={styles.item}>{optionsValue}</span>
-                    <ArrowsIcon
-                        className={`${styles.arrow} ${isActive ? styles.rotate : ""}`}
-                    />
-                </h6>
-                <ul
-                    role="list"
-                    className={`${styles.select} ${isActive ? styles.opened : ""}`}
-                >
-                    {options.map((item: OptionsType, index) => (
-                        <li
-                            data-testid="list-item"
-                            onClick={() =>
-                                selectHandle(index, item.value, item.option)
-                            }
-                            key={item.id}
-                            className={`${styles.option} ${optionsActive === index ? styles.active : ""}`}
-                        >
-                            {item.option}{" "}
-                            {optionsActive === index && (
-                                <CheckIcon data-testid="arrows-icon" />
-                            )}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </>
+                <span className={styles.item}>{optionsValue}</span>
+                <ArrowsIcon
+                    className={`${styles.arrow} ${
+                        isActive ? styles.rotate : ""
+                    }`}
+                />
+            </h6>
+            <ul
+                role="list"
+                className={`${styles.select} ${isActive ? styles.opened : ""}`}
+            >
+                {options.map((item: OptionsType, index) => (
+                    <li
+                        data-testid="list-item"
+                        onClick={() =>
+                            selectHandle(index, item.value, item.option)
+                        }
+                        key={item.id}
+                        className={`${styles.option} ${
+                            optionsActive === index ? styles.active : ""
+                        }`}
+                    >
+                        {item.option}{" "}
+                        {optionsActive === index && (
+                            <CheckIcon data-testid="arrows-icon" />
+                        )}
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
 

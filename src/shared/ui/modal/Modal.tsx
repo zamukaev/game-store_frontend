@@ -1,12 +1,5 @@
 "use client";
-import {
-    FC,
-    ReactNode,
-    useCallback,
-    useEffect,
-    useRef,
-    useState
-} from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
 import CloseIcon from "@/shared/icons/closeIcon/CloseIcon";
 
@@ -24,19 +17,16 @@ interface ModalProps {
 export const ANIMATION_DELAY = 200;
 
 const Modal: FC<ModalProps> = (props) => {
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,
-    } = props;
+    const { className, children, isOpen, onClose } = props;
 
     const [isOpening, setIsOpening] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const cls = `${styles.modal} ${isOpening && styles.isOpening} ${isClosing && styles.isClosing} ${className}`;
+    const cls = `${styles.modal} ${isOpening && styles.isOpening} ${
+        isClosing && styles.isClosing
+    } ${className}`;
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -50,11 +40,14 @@ const Modal: FC<ModalProps> = (props) => {
         }
     }, [onClose]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === "Escape") {
-            closeHandler();
-        }
-    }, [closeHandler]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                closeHandler();
+            }
+        },
+        [closeHandler]
+    );
 
     const contentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -80,7 +73,7 @@ const Modal: FC<ModalProps> = (props) => {
     }, [isOpen, onKeyDown]);
 
     return (
-        <Portal selector="body" >
+        <Portal selector="body">
             <div className={cls}>
                 <div className={styles.overlay} onClick={closeHandler}>
                     <div className={styles.content} onClick={contentClick}>
@@ -88,10 +81,9 @@ const Modal: FC<ModalProps> = (props) => {
                         <span
                             onClick={closeHandler}
                             aria-description="close button"
-                            className={styles.close}>
-                            <CloseIcon
-                                fill="#696969"
-                            />
+                            className={styles.close}
+                        >
+                            <CloseIcon fill="#696969" />
                         </span>
                     </div>
                 </div>

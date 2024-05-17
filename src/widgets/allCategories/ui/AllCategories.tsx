@@ -7,29 +7,26 @@ import {
     Headline,
     HeadlineSize,
     SubcategoriesLoader,
-    SubcategoryCard
+    SubcategoryCard,
 } from "@/shared/ui";
 
 import styles from "./styles.module.scss";
 
 const AllCategories = () => {
-    const {
-        data: categories,
-        isLoading
-    } = useQuery({
+    const { data: categories, isLoading } = useQuery({
         queryKey: ["categories"],
         queryFn: getCategories,
     });
 
     return (
-        <section className={styles.content} >
+        <section className={styles.content}>
             <BreadCrumb className={styles.breadcrumbItem} />
 
-            {isLoading
-                ? <SubcategoriesLoader length={12} />
-                :
+            {isLoading ? (
+                <SubcategoriesLoader length={12} />
+            ) : (
                 <>
-                    <Headline className={styles.title} Size={HeadlineSize.L} >
+                    <Headline className={styles.title} Size={HeadlineSize.L}>
                         Все категории
                     </Headline>
                     <ul className={styles.categories}>
@@ -45,7 +42,7 @@ const AllCategories = () => {
                         ))}
                     </ul>
                 </>
-            }
+            )}
         </section>
     );
 };

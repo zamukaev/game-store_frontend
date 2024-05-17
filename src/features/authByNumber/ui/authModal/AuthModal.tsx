@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 
 import { Modal } from "@/shared/ui";
 
@@ -8,13 +8,10 @@ interface LoginModalProps {
 }
 
 const AuthModal: FC<LoginModalProps> = (props) => {
-    const {
-        isOpen,
-        onClose
-    } = props;
+    const { isOpen, onClose } = props;
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose} >
+        <Modal isOpen={isOpen} onClose={onClose}>
             Auth by Phone
         </Modal>
     );

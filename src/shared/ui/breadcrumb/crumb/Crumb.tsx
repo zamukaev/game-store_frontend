@@ -12,24 +12,24 @@ interface CrumbProps {
 }
 
 const Crumb: FC<CrumbProps> = (props) => {
-    const {
-        href,
-        title,
-        last
-    } = props;
+    const { href, title, last } = props;
 
     return (
         <>
-            {last
-                ? <>
+            {last ? (
+                <>
                     <li className={styles.crumb}>
-                        <Link className={styles.link} href={href}>{title}</Link>
+                        <Link className={styles.link} href={href}>
+                            {title}
+                        </Link>
                     </li>
                     <BreadcrumbsIcon className={styles.icon} />
                 </>
-                : <li className={styles.lastCrumb} key={href}>
+            ) : (
+                <li className={styles.lastCrumb} key={href}>
                     {title}
-                </li>}
+                </li>
+            )}
         </>
     );
 };

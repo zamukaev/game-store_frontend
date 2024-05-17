@@ -33,13 +33,10 @@ const Categories: FC = () => {
             <ul className={styles.row}>
                 {!cat ? (
                     <CategoriesLoader data-testid="categories-loader" />
-                ) :
+                ) : (
                     <>
                         <li className={styles.item}>
-                            <AppLink
-                                className={styles.link}
-                                href="/catalog/"
-                            >
+                            <AppLink className={styles.link} href="/catalog/">
                                 Все категории
                             </AppLink>
                         </li>
@@ -54,7 +51,7 @@ const Categories: FC = () => {
                             </li>
                         ))}
                     </>
-                }
+                )}
             </ul>
         </div>
     );

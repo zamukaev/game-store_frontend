@@ -1,0 +1,38 @@
+.block__display_flex {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.block__return_back_button {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.block__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px;
+}
+
+.block__product {
+    width: 325px;
+    height: 319px;
+    margin-top: 50px;
+}
+
+.block__return_back {
+    color: black;
+}
+
+.block__favorite_section {
+    color: black;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: left;
+    margin-right: 20px;
+}
