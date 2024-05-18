@@ -61,5 +61,5 @@ export {
     SubcategoriesLoader,
     BreadCrumb,
     Modal,
-    Portal
+    Portal,
 };

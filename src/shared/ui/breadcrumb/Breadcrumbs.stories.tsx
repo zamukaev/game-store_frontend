@@ -1,4 +1,3 @@
-
 import Breadcrumbs from "./Breadcrumbs";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -11,17 +10,11 @@ export default meta;
 type Story = StoryObj<typeof Breadcrumbs>;
 
 export const Default: Story = {
-    render: () => (
-        <Breadcrumbs />
-    ),
+    render: () => <Breadcrumbs />,
 };
 export const Category: Story = {
-    render: () => (
-        <Breadcrumbs crumb="Комплектующие для ПК" />
-    ),
+    render: () => <Breadcrumbs crumb="Комплектующие для ПК" />,
 };
 export const Subcategory: Story = {
-    render: () => (
-        <Breadcrumbs crumb="Материнские платы" />
-    ),
+    render: () => <Breadcrumbs crumb="Материнские платы" />,
 };

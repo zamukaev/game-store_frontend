@@ -10,5 +10,7 @@ export interface Product {
     inStock: boolean;
     discount: boolean;
     urlImages: string[];
-    reviews: string[];
+    reviews: {}[];
+    __v?: number;
+    originTitle?: string;
 }

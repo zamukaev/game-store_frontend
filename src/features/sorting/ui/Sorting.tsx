@@ -18,7 +18,7 @@ export const options: OptionsType[] = [
 
 interface SortingProps {
     className?: string;
-    setSelectedValue?: (value: string) => void
+    setSelectedValue?: (value: string) => void;
 }
 
 const Sorting: FC<SortingProps> = (props) => {

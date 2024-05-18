@@ -11,6 +11,11 @@ type Story = StoryObj<typeof SubcategoryCard>;
 
 export const CardCategory: Story = {
     render: () => (
-        <SubcategoryCard title="Title" image={""} text={"some text"} alt={" some text"} />
+        <SubcategoryCard
+            title="Title"
+            image={""}
+            text={"some text"}
+            alt={" some text"}
+        />
     ),
 };

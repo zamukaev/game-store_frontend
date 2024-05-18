@@ -2,7 +2,6 @@
 import { Subcategories } from "@/widgets/subcategories";
 
 const CategoryPage = ({ params }: { params: { slug: string } }) => {
-
     return <Subcategories title={params.slug} />;
 };
 

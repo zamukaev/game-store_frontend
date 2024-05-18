@@ -1,4 +1,4 @@
-import { findByTestId, render, screen, waitFor, } from "@testing-library/react";
+import { findByTestId, render, screen, waitFor } from "@testing-library/react";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -6,7 +6,6 @@ import { Category } from "@/shared/types/categories";
 
 import { Subcategories } from "..";
 import { getCategoryByTitle } from "../api/getCategoryByTitle";
-
 
 const mockCategory: Category = {
     _id: "65aee9edd994f62aafc45eb1",
@@ -18,15 +17,15 @@ const mockCategory: Category = {
             _id: "sdf3",
             title: "Материнская плата",
             originTitle: "materinskie-plati",
-            urlImg: ""
+            urlImg: "",
         },
         {
             _id: "s2f3",
             title: "Материнская плата",
             originTitle: "materinskie-plati",
-            urlImg: ""
+            urlImg: "",
         },
-    ]
+    ],
 };
 jest.mock("../api/getCategoryByTitle");
 describe("Subcategories Component", () => {
@@ -34,7 +33,9 @@ describe("Subcategories Component", () => {
         (getCategoryByTitle as jest.Mock).mockReset();
     });
     test("renders loading state when data is being fetched", async () => {
-        (getCategoryByTitle as jest.Mock).mockImplementation(() => new Promise(() => { }));
+        (getCategoryByTitle as jest.Mock).mockImplementation(
+            () => new Promise(() => {})
+        );
 
         render(
             <QueryClientProvider client={new QueryClient()}>
@@ -50,8 +51,7 @@ describe("Subcategories Component", () => {
         const { container } = render(
             <QueryClientProvider client={new QueryClient()}>
                 <Subcategories title={mockCategory.originTitle} />
-            </QueryClientProvider >
-
+            </QueryClientProvider>
         );
 
         expect(container).toBeInTheDocument();
@@ -59,16 +59,17 @@ describe("Subcategories Component", () => {
         mockCategory.subcategories.forEach(async (subcategory) => {
             await waitFor(() => {
                 const subcategoryText = screen.getAllByText(subcategory.title);
-                subcategoryText.forEach(title => {
+                subcategoryText.forEach((title) => {
                     expect(title).toBeInTheDocument();
                 });
             });
         });
-
     });
 
     test("renders SubcategoriesEmpty when no subcategories", async () => {
-        (getCategoryByTitle as jest.Mock).mockResolvedValue({ subcategories: [] });
+        (getCategoryByTitle as jest.Mock).mockResolvedValue({
+            subcategories: [],
+        });
         render(
             <QueryClientProvider client={new QueryClient()}>
                 <Subcategories title={mockCategory.title} />
@@ -76,8 +77,9 @@ describe("Subcategories Component", () => {
         );
 
         await waitFor(() => {
-            expect(screen.getByTestId("subcategories-empty")).toBeInTheDocument();
+            expect(
+                screen.getByTestId("subcategories-empty")
+            ).toBeInTheDocument();
         });
-
     });
 });

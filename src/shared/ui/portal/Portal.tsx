@@ -8,10 +8,7 @@ interface PortalProps {
 }
 
 const Portal: FC<PortalProps> = (props) => {
-    const {
-        children,
-        selector = "body"
-    } = props;
+    const { children, selector = "body" } = props;
 
     const [isMounted, setIsMounted] = useState(false);
 
@@ -20,9 +17,10 @@ const Portal: FC<PortalProps> = (props) => {
     }, []);
 
     if (isMounted) {
-        const portalDiv = document.querySelector(selector) as Element | DocumentFragment;
+        const portalDiv = document.querySelector(selector) as
+            | Element
+            | DocumentFragment;
         return createPortal(children, portalDiv);
-
     } else {
         return null;
     }

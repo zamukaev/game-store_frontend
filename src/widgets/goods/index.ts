@@ -1,5 +1,3 @@
 import Goods from "./ui/Goods";
 
-export {
-    Goods
-};
+export { Goods };

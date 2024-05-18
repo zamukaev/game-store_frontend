@@ -15,7 +15,12 @@ interface HeadlineProps {
 }
 
 const Headline: FC<HeadlineProps> = (props) => {
-    const { className = " ", Size = HeadlineSize.M, children, ...otherProps } = props;
+    const {
+        className = " ",
+        Size = HeadlineSize.M,
+        children,
+        ...otherProps
+    } = props;
     const cls = `${styles[Size]} ${className}`;
 
     return (

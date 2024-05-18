@@ -19,5 +19,5 @@ const options: OptionsType = {
     inStock: false,
 };
 export const Default: Story = {
-    render: () => <Filters options={options} setOptions={() => { }} />,
+    render: () => <Filters options={options} setOptions={() => {}} />,
 };
