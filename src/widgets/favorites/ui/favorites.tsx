@@ -1,14 +1,25 @@
 "use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
+import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 
 import { mockDataForMapping } from "@/widgets/favorites/mock";
 
 import styles from "./styles.module.scss";
 
 export default function FavoritesWidget() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(!isLoading);
+        }, 1000);
+    }, []);
+
     return (
         <div>
             <Link href="/">
@@ -23,19 +34,37 @@ export default function FavoritesWidget() {
             <div className={styles.block__display_flex}>
                 <h1 className={styles.block__favorite_section}>Избранное</h1>
                 <p className={styles.block__count_items}>
-                    {mockDataForMapping.length} товаров
+                    {isLoading ? (
+                        "..."
+                    ) : (
+                        <>{mockDataForMapping.length} товаров</>
+                    )}
                 </p>
             </div>
 
-            <div className={styles.block__container}>
-                {mockDataForMapping.map((value) => {
-                    return (
-                        <div key={value._id} className={styles.block__product}>
-                            <ProductCard key={value.title} product={value} />
-                        </div>
-                    );
-                })}
-            </div>
+            {isLoading ? (
+                <div className={styles.loader}>
+                    {Array.from({ length: 4 }).map((_, index) => (
+                        <ProductCardLoader key={index} />
+                    ))}
+                </div>
+            ) : (
+                <div className={styles.block__container}>
+                    {mockDataForMapping.map((value) => {
+                        return (
+                            <div
+                                key={value._id}
+                                className={styles.block__product}
+                            >
+                                <ProductCard
+                                    key={value.title}
+                                    product={value}
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            )}
         </div>
     );
 }
