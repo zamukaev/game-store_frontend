@@ -54,11 +54,10 @@ const Sorting: FC<SortingProps> = (props) => {
                 className={`${styles.underlay} ${isActive ? styles.active : ""}`}>
             </div>
             <div
-                data-testid="sorting"
                 className={cls}
+                data-testid="sorting"
                 onClick={openSelectHandle}
             >
-
                 <h6 data-testid="title" className={`${styles.title}`}>
                     <span className={styles.item}>{optionsValue}</span>
                     <ArrowsIcon
