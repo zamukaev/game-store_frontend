@@ -1,17 +1,17 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { ProductCard } from "@/shared/ui";
+import { AppLink, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
+import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
 
 import { mockDataForMapping } from "@/widgets/favorites/mock";
 
 import styles from "./styles.module.scss";
 
-export default function FavoritesWidget() {
+const FavoritesWidget = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -22,20 +22,20 @@ export default function FavoritesWidget() {
 
     return (
         <div>
-            <Link href="/">
+            <AppLink className={styles.link} href="/">
                 <div className={styles.block__return_back_button}>
                     <ArrowPrevGreyIcon />
                     <p className={styles.block__return_back}>
                         Вернуться к покупкам
                     </p>
                 </div>
-            </Link>
+            </AppLink>
 
             <div className={styles.block__display_flex}>
                 <h1 className={styles.block__favorite_section}>Избранное</h1>
                 <p className={styles.block__count_items}>
                     {isLoading ? (
-                        "..."
+                        <FavoritesCardsLengthLoader />
                     ) : (
                         <>{mockDataForMapping.length} товаров</>
                     )}
@@ -67,4 +67,6 @@ export default function FavoritesWidget() {
             )}
         </div>
     );
-}
+};
+
+export default FavoritesWidget;
