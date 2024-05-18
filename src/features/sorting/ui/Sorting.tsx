@@ -59,14 +59,8 @@ const Sorting: FC<SortingProps> = (props) => {
                 onClick={openSelectHandle}
             >
 
-                <h6
-
-                    data-testid="title"
-                    className={`${styles.title}`}
-                >
-                    <span
-
-                        className={styles.item}>{optionsValue}</span>
+                <h6 data-testid="title" className={`${styles.title}`}>
+                    <span className={styles.item}>{optionsValue}</span>
                     <ArrowsIcon
                         className={`${styles.arrow} ${isActive ? styles.rotate : ""}`}
                     />
