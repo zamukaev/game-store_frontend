@@ -41,59 +41,59 @@ const ProductsPageLoader = (props: any) => {
                 </ul>
                 <ContentLoader
                     speed={0}
-                    width={300}
-                    height={251}
-                    viewBox="0 0 300 251"
+                    width={320}
+                    height={290}
+                    viewBox="0 10 320 290"
                     backgroundColor="#f3f3f3"
                     foregroundColor="#ecebeb"
                     {...props}
                 >
-                    <rect x="1" y="0" rx="5" ry="5" width="65" height="30" />
+                    <rect x="5" y="0" rx="5" ry="5" width="65" height="20" />
                     <rect
                         x="0"
-                        y="57"
+                        y="40"
                         rx="10"
                         ry="10"
-                        width="125"
+                        width="130"
+                        height="40"
+                    />
+                    <rect
+                        x="185"
+                        y="40"
+                        rx="10"
+                        ry="10"
+                        width="130"
+                        height="40"
+                    />
+                    <rect x="0" y="115" rx="0" ry="0" width="320" height="4" />
+                    <circle cx="10" cy="116" r="11" />
+                    <circle cx="310" cy="116" r="11" />
+                    <rect x="0" y="145" rx="5" ry="5" width="65" height="25" />
+                    <rect x="0" y="185" rx="5" ry="5" width="65" height="25" />
+                    <rect x="0" y="240" rx="5" ry="5" width="85" height="25" />
+                    <rect
+                        x="265"
+                        y="145"
+                        rx="10"
+                        ry="10"
+                        width="55"
                         height="25"
                     />
                     <rect
-                        x="153"
-                        y="56"
+                        x="265"
+                        y="185"
                         rx="10"
                         ry="10"
-                        width="125"
+                        width="55"
                         height="25"
                     />
-                    <rect x="0" y="105" rx="0" ry="0" width="266" height="4" />
-                    <circle cx="8" cy="107" r="8" />
-                    <circle cx="268" cy="108" r="9" />
-                    <rect x="0" y="135" rx="5" ry="5" width="65" height="15" />
-                    <rect x="0" y="166" rx="5" ry="5" width="60" height="15" />
-                    <rect x="0" y="209" rx="5" ry="5" width="70" height="15" />
                     <rect
-                        x="230"
-                        y="134"
+                        x="265"
+                        y="240"
                         rx="10"
                         ry="10"
-                        width="43"
-                        height="22"
-                    />
-                    <rect
-                        x="230"
-                        y="166"
-                        rx="10"
-                        ry="10"
-                        width="43"
-                        height="22"
-                    />
-                    <rect
-                        x="230"
-                        y="209"
-                        rx="10"
-                        ry="10"
-                        width="43"
-                        height="22"
+                        width="55"
+                        height="25"
                     />
                 </ContentLoader>
             </div>
