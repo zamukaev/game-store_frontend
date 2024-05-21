@@ -2,12 +2,15 @@ import create from "zustand";
 
 type FavoritesState = {
     favorites: string[];
-    addToFavorites: (id: string) => void;
+    toggleFavorite: (id: string) => void;
 };
 
 const useFavoritesStore = create<FavoritesState>((set) => ({
-    favorites: JSON.parse(localStorage.getItem("favorites") || "[]"),
-    addToFavorites: (id: string) => {
+    favorites:
+        typeof window !== "undefined"
+            ? JSON.parse(localStorage.getItem("favorites") || "[]")
+            : [],
+    toggleFavorite: (id: string) => {
         set((state) => {
             const favorites = [...state.favorites];
             const index = favorites.indexOf(id);

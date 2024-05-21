@@ -1,9 +1,10 @@
 "use client";
 
 import React, { FC, useEffect, useState } from "react";
-import useFavoritesStore from "@/shared/store/favorites";
 
 import Image from "next/image";
+
+import useFavoritesStore from "@/widgets/favorites/favorites-store";
 
 import { Product } from "@/shared/types/product";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
@@ -23,7 +24,7 @@ interface ProductCardProps {
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const { hit, discount, urlImages, title, price, oldPrice } = product;
 
-    const addToFavorites = useFavoritesStore((state) => state.addToFavorites);
+    const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
     const favorites = useFavoritesStore((state) => state.favorites);
 
     const [isFavorite, setIsFavorite] = useState(false);
@@ -32,8 +33,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         setIsFavorite(favorites.includes(product._id));
     });
 
-    const addFavorite = () => {
-        addToFavorites(product._id);
+    const toggleFavoriteHandle = () => {
+        toggleFavorite(product._id);
     };
 
     return (
@@ -44,8 +45,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     {discount && <ProductType kind="discount" />}
                 </div>
                 <FavoritesIcon
-                    onClick={addFavorite}
-                    fill={isFavorite ? "orange" : "black"}
+                    onClick={toggleFavoriteHandle}
+                    fill={isFavorite ? "var(--color-orange)" : "black"}
                     width={28}
                     height={28}
                     className={styles.favoriteIcon}
