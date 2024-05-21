@@ -1,4 +1,7 @@
-import React, { FC } from "react";
+"use client";
+
+import React, { FC, useEffect, useState } from "react";
+import useFavoritesStore from "@/shared/store/favorites";
 
 import Image from "next/image";
 
@@ -20,6 +23,19 @@ interface ProductCardProps {
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const { hit, discount, urlImages, title, price, oldPrice } = product;
 
+    const addToFavorites = useFavoritesStore((state) => state.addToFavorites);
+    const favorites = useFavoritesStore((state) => state.favorites);
+
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    useEffect(() => {
+        setIsFavorite(favorites.includes(product._id));
+    });
+
+    const addFavorite = () => {
+        addToFavorites(product._id);
+    };
+
     return (
         <div className={styles.product} data-testid="productCard">
             <div className={styles.product__header}>
@@ -28,7 +44,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     {discount && <ProductType kind="discount" />}
                 </div>
                 <FavoritesIcon
-                    fill="black"
+                    onClick={addFavorite}
+                    fill={isFavorite ? "orange" : "black"}
                     width={28}
                     height={28}
                     className={styles.favoriteIcon}
