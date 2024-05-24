@@ -52,3 +52,11 @@
     display: flex;
     justify-content: flex-start !important;
 }
+
+.block__notification_favorites {
+    margin-top: 60px;
+    display: flex;
+    font-size: 80px;
+    color: gray;
+    white-space: nowrap;
+}

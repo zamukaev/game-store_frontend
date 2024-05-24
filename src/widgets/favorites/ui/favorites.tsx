@@ -1,24 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import { AppLink, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
 
-import { mockDataForMapping } from "@/widgets/favorites/mock";
+import { Product } from "@/shared/types/product";
+
+import { fetchFavoriteProducts } from "../api";
 
 import styles from "./styles.module.scss";
+import useFavoritesStore from "../favorites-store";
 
 const FavoritesWidget = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const favorites = useFavoritesStore((state) => state.favorites);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(!isLoading);
-        }, 1000);
-    }, []);
+    const { data, isLoading } = useQuery<Product[] | undefined>({
+        queryKey: [favorites],
+        queryFn: async () => {
+            if (favorites.length > 0) {
+                return fetchFavoriteProducts(favorites).catch((err) => {
+                    console.error("Error fetching favorite products:", err);
+                    return undefined;
+                });
+            }
+            return Promise.resolve(undefined);
+        },
+    });
 
     return (
         <div>
@@ -37,7 +47,13 @@ const FavoritesWidget = () => {
                     {isLoading ? (
                         <FavoritesCardsLengthLoader />
                     ) : (
-                        <>{mockDataForMapping.length} товаров</>
+                        <>
+                            {data ? (
+                                <span>{data.length} товаров</span>
+                            ) : (
+                                <span>Нет товаров в избранном</span>
+                            )}
+                        </>
                     )}
                 </p>
             </div>
@@ -50,19 +66,37 @@ const FavoritesWidget = () => {
                 </div>
             ) : (
                 <div className={styles.block__container}>
-                    {mockDataForMapping.map((value) => {
-                        return (
-                            <div
-                                key={value._id}
-                                className={styles.block__product}
+                    <div className={styles.block__container}>
+                        {Array.isArray(data) ? (
+                            data.length > 0 ? (
+                                data.map((value) => (
+                                    <div
+                                        key={value._id}
+                                        className={styles.block__product}
+                                    >
+                                        <ProductCard
+                                            key={value.title}
+                                            product={value}
+                                        />
+                                    </div>
+                                ))
+                            ) : (
+                                <h1
+                                    className={
+                                        styles.block__notification_favorites
+                                    }
+                                >
+                                    Invalid data
+                                </h1>
+                            )
+                        ) : (
+                            <h1
+                                className={styles.block__notification_favorites}
                             >
-                                <ProductCard
-                                    key={value.title}
-                                    product={value}
-                                />
-                            </div>
-                        );
-                    })}
+                                Нет товаров в избранном...
+                            </h1>
+                        )}
+                    </div>
                 </div>
             )}
         </div>
