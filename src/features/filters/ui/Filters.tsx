@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+/* eslint-disable no-console */
+import { FC } from "react";
 
 import { OptionsType } from "@/configs/options";
 

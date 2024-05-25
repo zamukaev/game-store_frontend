@@ -11,8 +11,9 @@ import { Product } from "@/shared/types/product";
 
 import { fetchFavoriteProducts } from "../api";
 
-import styles from "./styles.module.scss";
 import useFavoritesStore from "../favorites-store";
+
+import styles from "./styles.module.scss";
 
 const FavoritesWidget = () => {
     const favorites = useFavoritesStore((state) => state.favorites);
