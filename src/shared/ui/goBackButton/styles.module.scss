@@ -1,0 +1,16 @@
+.go_back_btn {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .back_btn_icon {
+        stroke: #5d5d5d;
+    }
+
+    &:hover {
+        .back_btn_icon {
+            stroke: var(--color-red-light);
+            transform: translateX(-5px);
+        }
+    }
+}

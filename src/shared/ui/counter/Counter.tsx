@@ -11,13 +11,13 @@ import styles from "./styles.module.scss";
 
 interface CounterProps {
     initialCount?: number;
+    count: number;
+    increment?: () => void;
+    decrement?: () => void;
 }
 
-const Counter: FC<CounterProps> = ({ initialCount = 0 }): JSX.Element => {
-    const [count, setCount] = useState(initialCount);
-
-    const increment = () => setCount((prevCount) => prevCount + 1);
-    const decrement = () => setCount((prevCount) => Math.max(0, prevCount - 1));
+const Counter: FC<CounterProps> = (props): JSX.Element => {
+    const { count, decrement, increment } = props;
 
     return (
         <div data-testid="counter" className={styles.counter}>

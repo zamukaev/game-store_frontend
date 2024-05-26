@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 
 import Image from "next/image";
 
@@ -6,6 +6,8 @@ import { Product } from "@/shared/types/product";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
 
 import { formatCurrency } from "@/utils/string/formatCurrency";
+
+import localStorageApi from "@/utils/data/localStorageApi";
 
 import ProductType from "../productType/ProductType";
 
@@ -18,7 +20,11 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-    const { hit, discount, urlImages, title, price, oldPrice } = product;
+    const { hit, discount, urlImages, title, price, oldPrice, _id } = product;
+
+    const addProductToCart = () => {
+        localStorageApi.setItemToLocalSt(_id, "cart");
+    };
 
     return (
         <div className={styles.product} data-testid="productCard">
@@ -53,7 +59,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     )}
                 </div>
                 <div className={styles.product__footer_cart}>
-                    <Card />
+                    <Card onClick={addProductToCart} />
                 </div>
             </div>
         </div>

@@ -28,5 +28,11 @@ const mockProduct = {
 };
 
 export const Default: Story = {
-    render: () => <ProductCardLarge product={mockProduct} />,
+    render: () => (
+        <ProductCardLarge
+            getCount={() => {}}
+            onCheckHandler={() => {}}
+            product={mockProduct}
+        />
+    ),
 };

@@ -7,7 +7,7 @@
 -   **Дмитрий Шишкин** - [GitHub профиль](https://github.com/ihopeyoucanfly)
 -   **Muslim Zamukaev** - [GitHub профиль](https://github.com/zamukaev)
 -   **Nikita Petrochenko** - [GitHub профиль](https://github.com/Petrochenk0)
-  
+
 ## Основные технологии
 
 -   **React.js(Next.js)**

@@ -29,6 +29,7 @@ import SubcategoriesLoader from "./subcategoriesLoader/SubcategoriesLoader";
 import BreadCrumb from "./breadcrumb/Breadcrumbs";
 import Modal from "./modal/Modal";
 import Portal from "./portal/Portal";
+import GoBackButton from "./goBackButton/GoBackButton";
 export {
     AppLink,
     Button,
@@ -62,4 +63,5 @@ export {
     BreadCrumb,
     Modal,
     Portal,
+    GoBackButton,
 };

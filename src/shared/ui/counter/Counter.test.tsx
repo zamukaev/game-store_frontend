@@ -1,53 +1,49 @@
+/* eslint-disable react/display-name */
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 
 import Counter from "./Counter";
 
+// Mock icons to avoid issues with icon imports
+jest.mock("@/shared/icons/minus/MinusIcon", () => () => (
+    <svg data-testid="minus-icon" />
+));
+jest.mock("@/shared/icons/plus/PlusIcon", () => () => (
+    <svg data-testid="plus-icon" />
+));
+
 describe("Counter Component", () => {
     it("renders the Counter component with initial count", () => {
-        const { getByTestId } = render(<Counter initialCount={0} />);
+        const { getByTestId } = render(<Counter count={0} />);
         const counter = getByTestId("counter");
         expect(counter).toBeInTheDocument();
     });
 
-    it("render a counter with value of 1", () => {
-        render(<Counter initialCount={5} />);
+    it("renders a counter with the correct initial value", () => {
+        const increment = jest.fn();
+        render(<Counter count={1} increment={increment} />);
 
         const value = screen.getByTestId("value-title");
-
-        expect(value).toHaveTextContent("5");
+        expect(value).toHaveTextContent("1");
     });
 
-    it("increment count", () => {
-        render(<Counter initialCount={1} />);
+    it("calls increment function when increment button is clicked", () => {
+        const increment = jest.fn();
+        render(<Counter count={1} increment={increment} />);
 
-        const value = screen.getByTestId("value-title");
         const incrementButton = screen.getByTestId("increment");
-
         fireEvent.click(incrementButton);
 
-        expect(value).toHaveTextContent("2");
+        expect(increment).toHaveBeenCalledTimes(1);
     });
 
-    it("decrement count", () => {
-        render(<Counter initialCount={3} />);
+    it("calls decrement function when decrement button is clicked", () => {
+        const decrement = jest.fn();
+        render(<Counter count={3} decrement={decrement} />);
 
-        const value = screen.getByTestId("value-title");
         const decrementButton = screen.getByTestId("decrement");
-
         fireEvent.click(decrementButton);
 
-        expect(value).toHaveTextContent("2");
-    });
-
-    it("absolute count", () => {
-        render(<Counter initialCount={0} />);
-
-        const value = screen.getByTestId("value-title");
-        const decrementButton = screen.getByTestId("decrement");
-
-        fireEvent.click(decrementButton);
-
-        expect(value).toHaveTextContent("0");
+        expect(decrement).toHaveBeenCalledTimes(1);
     });
 });
