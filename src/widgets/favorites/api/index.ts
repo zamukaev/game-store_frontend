@@ -12,7 +12,6 @@ export const fetchFavoriteProducts = async (
         );
         return response.data;
     } catch (error) {
-        console.error("Invalid server error: ", error);
         return undefined;
     }
 };

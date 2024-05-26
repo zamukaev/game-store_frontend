@@ -6,12 +6,13 @@ import { AppLink, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
+import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
 
 import { Product } from "@/shared/types/product";
 
 import { fetchFavoriteProducts } from "../api";
 
-import useFavoritesStore from "../favorites-store";
+import useFavoritesStore from "../model/favorites-store";
 
 import styles from "./styles.module.scss";
 
@@ -22,8 +23,7 @@ const FavoritesWidget = () => {
         queryKey: [favorites],
         queryFn: async () => {
             if (favorites.length > 0) {
-                return fetchFavoriteProducts(favorites).catch((err) => {
-                    console.error("Error fetching favorite products:", err);
+                return fetchFavoriteProducts(favorites).catch(() => {
                     return undefined;
                 });
             }
@@ -91,11 +91,24 @@ const FavoritesWidget = () => {
                                 </h1>
                             )
                         ) : (
-                            <h1
-                                className={styles.block__notification_favorites}
-                            >
-                                Нет товаров в избранном...
-                            </h1>
+                            <div className={styles.block__no_goods}>
+                                <FavoritesIcon
+                                    fill={"var(--color-orange)"}
+                                    width={28}
+                                    height={28}
+                                />
+                                <h1>Вы пока не добавляли товары в избранное</h1>
+                                <button>
+                                    <AppLink
+                                        href="/"
+                                        className={
+                                            styles.block__return_back_link
+                                        }
+                                    >
+                                        Перейти на главную
+                                    </AppLink>
+                                </button>
+                            </div>
                         )}
                     </div>
                 </div>
