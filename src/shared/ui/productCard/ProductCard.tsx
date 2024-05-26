@@ -1,6 +1,9 @@
-import React, { FC, useCallback } from "react";
+"use client";
+import React, { FC, useEffect, useState } from "react";
 
 import Image from "next/image";
+
+import useFavoritesStore from "@/widgets/favorites/favorites-store";
 
 import { Product } from "@/shared/types/product";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
@@ -26,6 +29,19 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         localStorageApi.setItemToLocalSt(_id, "cart");
     };
 
+    const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
+    const favorites = useFavoritesStore((state) => state.favorites);
+
+    const [isFavorite, setIsFavorite] = useState(false);
+
+    useEffect(() => {
+        setIsFavorite(favorites.includes(product._id));
+    });
+
+    const toggleFavoriteHandle = () => {
+        toggleFavorite(product._id);
+    };
+
     return (
         <div className={styles.product} data-testid="productCard">
             <div className={styles.product__header}>
@@ -34,7 +50,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     {discount && <ProductType kind="discount" />}
                 </div>
                 <FavoritesIcon
-                    fill="black"
+                    onClick={toggleFavoriteHandle}
+                    fill={isFavorite ? "var(--color-orange)" : "black"}
                     width={28}
                     height={28}
                     className={styles.favoriteIcon}
