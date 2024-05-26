@@ -1,11 +1,7 @@
 import { Cart } from "@/widgets/cart";
 
 const CartPage = () => {
-    return (
-        <div>
-            <Cart />
-        </div>
-    );
+    return <Cart />;
 };
 
 export default CartPage;
