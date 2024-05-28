@@ -2,7 +2,8 @@
 import React, { FC, MutableRefObject, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-import useFavoritesStore from "@/widgets/favorites/favorites-store";
+import useFavoritesStore from "@/widgets/favorites/model/favorites-store";
+
 import { Product } from "@/shared/types/product";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
 import { formatCurrency } from "@/utils/string/formatCurrency";
