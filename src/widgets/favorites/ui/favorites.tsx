@@ -18,6 +18,10 @@ const FavoritesWidget = () => {
         const timer = setTimeout(() => {
             setIsLoading(!isLoading);
         }, 1000);
+
+        return () => {
+            clearTimeout(timer);
+        };
     }, []);
 
     return (

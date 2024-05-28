@@ -27,24 +27,8 @@ Object.defineProperty(window, "localStorage", { value: localStorageMock });
 describe("LocalStorageApi", () => {
     const key = "testKey";
     const data = "testData";
-    const cartData: CartInterface[] = [
-        {
-            _id: "1",
-            name: "Product 1",
-            price: 10,
-            selected: true,
-            count: 1,
-            totalPrice: 10,
-            title: "",
-            desc: "",
-            characteristic: "",
-            category: "",
-            hit: false,
-            inStock: false,
-            discount: false,
-            urlImages: [],
-            reviews: [],
-        },
+    const cartIds: string[] = [
+        "1"
     ];
 
     beforeEach(() => {
@@ -87,9 +71,9 @@ describe("LocalStorageApi", () => {
     it("should remove selected cart items from localStorage", () => {
         localStorage.setItem(
             key,
-            JSON.stringify(cartData.map((item) => item._id))
+            JSON.stringify(cartIds.map((item) => item))
         );
-        localStorageApi.removeSelectedCart(key, cartData);
+        localStorageApi.removeSelectedCart(key, cartIds);
         const result = localStorageApi.getDataFromLocalSt(key);
         expect(result).toEqual([]);
     });

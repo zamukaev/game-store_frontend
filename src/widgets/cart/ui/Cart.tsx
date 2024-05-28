@@ -1,6 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
-
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import {
@@ -11,24 +10,37 @@ import {
     HeadlineSize,
     ProductCardLarge,
 } from "@/shared/ui";
-
 import { Product } from "@/shared/types/product";
-
-import { formatCurrency } from "@/utils/string/formatCurrency";
+import { CartInterface } from "@/shared/types/cart";
+import { OrderDetails } from "@/features/orderDetails";
 
 import localStorageApi from "@/utils/data/localStorageApi";
 
-import { CartInterface } from "@/shared/types/cart";
-
 import { getCart } from "../api";
 
-import styles from "./styles.module.scss";
-import CartEmpty from "./cartEmpty/CartEmpty";
 import CartLoader from "./cartLoader/CartLoader";
+import CartEmpty from "./cartEmpty/CartEmpty";
+
+import styles from "./styles.module.scss";
 
 const Cart = () => {
     const cls = `${styles.cart_container}`;
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
+
+    const [carts, setCarts] = useState<CartInterface[]>([]);
+    const [selectedCart, setSelectedCart] = useState<CartInterface[]>([]);
+    const [selectAllCart, setSelectAllCart] = useState<boolean>(true);
+    const [selectedCartIds, setSelectedCartIds] = useState<string[]>([]);
+
+    const totalSelectedItems = useMemo(() => selectedCart.reduce(
+        (total, item) => total + item.count,
+        0
+    ), [selectedCart]);
+
+    const totalPrice = useMemo(() => selectedCart.reduce(
+        (total, item) => total + item.totalPrice,
+        0
+    ), [selectedCart]);
 
     const { data, isLoading, error } = useQuery({
         queryKey: ["getProductsByIds"],
@@ -39,20 +51,6 @@ const Cart = () => {
         },
     });
 
-    const [carts, setCarts] = useState<CartInterface[]>([]);
-    const [selectedCartState, setSelectedCartState] = useState<CartInterface[]>(
-        []
-    );
-    const [selectAllCart, setSelectAllCart] = useState<boolean>(true);
-    const totalSelectedItems = selectedCartState.reduce(
-        (total, item) => total + item.count,
-        0
-    );
-    const totalPrice = selectedCartState.reduce(
-        (total, item) => total + item.totalPrice,
-        0
-    );
-
     const cartCheckHandler = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>): void => {
             const productId = event.target.value;
@@ -62,7 +60,7 @@ const Cart = () => {
                     : cart
             );
             setCarts(updatedCarts);
-            setSelectedCartState(updatedCarts.filter((cart) => cart.selected));
+            setSelectedCart(updatedCarts.filter((cart) => cart.selected));
         },
         [carts]
     );
@@ -75,7 +73,7 @@ const Cart = () => {
                 selected: isSelected,
             }));
             setCarts(updatedCarts);
-            setSelectedCartState(isSelected ? updatedCarts : []);
+            setSelectedCart(isSelected ? updatedCarts : []);
             setSelectAllCart(isSelected);
         },
         [carts]
@@ -85,13 +83,7 @@ const Cart = () => {
         setSelectAllCart(carts.every((cart) => cart.selected));
     }, [carts]);
 
-    const removeSelectedCart = (): void => {
-        setSelectedCartState((prev: Product[]) => []);
-        setCarts((prev) => prev.filter((cart) => !cart.selected));
-        localStorageApi.removeSelectedCart("cart", selectedCartState);
-    };
-
-    const getCount = (count: number, productId: string): void => {
+    const getCount = useCallback((count: number, productId: string): void => {
         if (count < 1) {
             setCarts((prev: CartInterface[]) =>
                 prev.filter((cart: Product) => cart._id !== productId)
@@ -99,7 +91,7 @@ const Cart = () => {
             localStorageApi.removeDataFromLocalSt("cart", productId);
         }
 
-        setSelectedCartState((prev: CartInterface[]) =>
+        setSelectedCart((prev: CartInterface[]) =>
             prev.map((cart: CartInterface) =>
                 cart._id === productId
                     ? { ...cart, count: count, totalPrice: cart.price * count }
@@ -114,6 +106,12 @@ const Cart = () => {
                     : cart
             )
         );
+    }, []);
+
+    const removeSelectedCart = (): void => {
+        localStorageApi.removeSelectedCart("cart", selectedCartIds);
+        setCarts((prev) => prev.filter((cart) => !cart.selected));
+        setSelectedCart((prev: Product[]) => []);
     };
 
     const removeCartItem = (productId: string) => {
@@ -123,14 +121,22 @@ const Cart = () => {
         );
     };
 
-    useEffect(() => {
-        checkIsCartSelected();
-    }, [checkIsCartSelected]);
+    const getSelectedCartIds = useCallback(() => {
+        const ids = selectedCart.map(cart => cart._id);
+        setSelectedCartIds((prev: string[]) => ids);
+    }, [selectedCart]);
 
     useEffect(() => {
-        if (data) {
-            setCarts(data);
-            setSelectedCartState(data);
+        checkIsCartSelected();
+        getSelectedCartIds();
+    }, [checkIsCartSelected, getSelectedCartIds]);
+
+    useEffect(() => {
+        if (cartIds?.length) {
+            if (data) {
+                setCarts(data);
+                setSelectedCart(data);
+            };
         }
     }, [data]);
 
@@ -185,48 +191,10 @@ const Cart = () => {
                             </li>
                         ))}
                     </ul>
-                    <div className={styles.cart_order}>
-                        <Headline
-                            className={styles.order_title}
-                            Size={HeadlineSize.M}
-                        >
-                            Детали заказа
-                        </Headline>
-                        <div className={styles.order_details}>
-                            {!!totalSelectedItems ? (
-                                <>
-                                    <div className={styles.order_items}>
-                                        <span className={styles.total}>
-                                            Итого:
-                                        </span>
-                                        <p className={styles.items}>
-                                            {totalSelectedItems} товара
-                                        </p>
-                                    </div>
-                                    <p className={styles.order_price}>
-                                        {formatCurrency(totalPrice)}
-                                    </p>
-                                </>
-                            ) : (
-                                <div>
-                                    <Headline
-                                        className={styles.empty_title}
-                                        Size={HeadlineSize.S}
-                                    >
-                                        Нет выбранных товаров.
-                                    </Headline>
-                                    <p className={styles.empty_text}>
-                                        {" "}
-                                        Пожалуйста выберите товар чтобы оформить
-                                        заказ!
-                                    </p>
-                                </div>
-                            )}
-                        </div>
-                        <Button disabled={!totalSelectedItems} kind="cart">
-                            Перейти к оформлению
-                        </Button>
-                    </div>
+                    <OrderDetails
+                        totalPrice={totalPrice}
+                        totalSelectedItems={totalSelectedItems}
+                    />
                 </div>
             ) : (
                 <CartEmpty className={styles.cart_empty} />

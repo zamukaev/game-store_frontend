@@ -7,6 +7,10 @@
         margin-bottom: 36px;
     }
 
+    .cart_title{
+        font-weight: 500;
+    }
+
     .cart_content {
         display: flex;
         justify-content: space-between;
@@ -45,44 +49,5 @@
         }
     }
 
-    .cart_order {
-        width: 362px;
 
-        .order_title {
-            border-bottom: 1px solid var(--color-gray);
-            padding-bottom: 17px;
-        }
-
-        .order_details {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 44px;
-            margin-bottom: 29px;
-
-            .empty_title {
-                color: var(--color-orange);
-                margin-bottom: 10px;
-            }
-
-            .empty_text {
-                color: var(--color-orange-light);
-            }
-
-            .order_items {
-                .total {
-                    font-size: 14px;
-                    color: var(--color-gray-light);
-                }
-
-                .items {
-                    font-weight: 600;
-                }
-            }
-
-            .order_price {
-                align-self: flex-end;
-                font-weight: 600;
-            }
-        }
-    }
 }

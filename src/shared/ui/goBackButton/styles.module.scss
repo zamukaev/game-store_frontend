@@ -2,9 +2,10 @@
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
+    color: var(--color-gray);
 
     .back_btn_icon {
-        stroke: #5d5d5d;
+        stroke: var(--color-gray);
     }
 
     &:hover {

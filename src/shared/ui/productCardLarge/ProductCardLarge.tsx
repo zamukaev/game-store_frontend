@@ -75,7 +75,7 @@ const ProductCardLarge: FC<ProductCardLargeProps> = (props) => {
                         count={count}
                         initialCount={1}
                     />
-                    {count > 1 && <span>{formatCurrency(price)}</span>}
+                    {count > 1 && <span className={styles.item_price}>{formatCurrency(price)}/шт</span>}
                 </div>
             </div>
             <div className={styles.product__footer}>
