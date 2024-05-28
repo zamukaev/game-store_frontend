@@ -40,7 +40,7 @@ const LinkItem: FC<LinkItemProps> = (props) => {
         case "address":
             return <AddressIcon stroke="black" />;
         default:
-            null;
+            return null;
         }
     };
 

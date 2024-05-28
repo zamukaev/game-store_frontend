@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useState } from "react";
 
 import ArrowsIcon from "@/shared/icons/arrowsIcon/ArrowsIcon";
 import CheckIcon from "@/shared/icons/checkIcon/CheckIcon";
