@@ -11,6 +11,7 @@ export const FavoritesCardsLengthLoader = () => {
             backgroundColor="#f3f3f3"
             foregroundColor="#ecebeb"
         >
+            <title id="unique-id">Loading...</title>
             <rect x="48" y="26" rx="3" ry="3" width="52" height="6" />
             <rect x="0" y="56" rx="3" ry="3" width="410" height="6" />
             <rect x="0" y="72" rx="3" ry="3" width="380" height="6" />
