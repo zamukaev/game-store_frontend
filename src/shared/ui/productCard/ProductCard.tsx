@@ -1,5 +1,11 @@
 "use client";
-import React, { FC, MutableRefObject, useEffect, useRef, useState } from "react";
+import React, {
+    FC,
+    MutableRefObject,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import Image from "next/image";
 
 import useFavoritesStore from "@/widgets/favorites/model/favorites-store";
@@ -19,16 +25,20 @@ interface ProductCardProps {
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-    const { hit, discount, urlImages, title, price, oldPrice, _id, } = product;
+    const { hit, discount, urlImages, title, price, oldPrice, _id } = product;
     const [isLoadingBtn, setIsLoadingBtn] = useState<boolean>(false);
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
-    const [isProductAddedToCart, setIsProductAddedToCart] = useState<boolean | undefined>(false);
+    const [isProductAddedToCart, setIsProductAddedToCart] = useState<
+        boolean | undefined
+    >(false);
 
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
     const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
     const favorites = useFavoritesStore((state) => state.favorites);
 
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     const addProductToCart = () => {
         setIsLoadingBtn(true);
@@ -94,20 +104,19 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     )}
                 </div>
                 <div className={styles.product__footer_cart}>
-                    {
-                        isProductAddedToCart ?
-                            < Card
-                                isLoadingBtn={isLoadingBtn}
-                                isProductAddedToCart={isProductAddedToCart}
-                                onClick={removeProductFromCart}
-                            />
-                            :
-                            <Card
-                                isProductAddedToCart={isProductAddedToCart}
-                                isLoadingBtn={isLoadingBtn}
-                                onClick={addProductToCart}
-                            />
-                    }
+                    {isProductAddedToCart ? (
+                        <Card
+                            isLoadingBtn={isLoadingBtn}
+                            isProductAddedToCart={isProductAddedToCart}
+                            onClick={removeProductFromCart}
+                        />
+                    ) : (
+                        <Card
+                            isProductAddedToCart={isProductAddedToCart}
+                            isLoadingBtn={isLoadingBtn}
+                            onClick={addProductToCart}
+                        />
+                    )}
                 </div>
             </div>
         </div>

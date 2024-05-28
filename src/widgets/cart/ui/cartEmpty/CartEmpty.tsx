@@ -8,11 +8,20 @@ const CartEmpty = ({ className }: { className: string }) => {
 
     return (
         <div className={cls}>
-            <FavoritesIcon width={30} height={30} className={styles.icon} fill="#FF6B00" />
+            <FavoritesIcon
+                width={30}
+                height={30}
+                className={styles.icon}
+                fill="#FF6B00"
+            />
             <Headline className={styles.title} Size={HeadlineSize.M}>
                 Вы пока не добавляли товары в избранное
             </Headline>
-            <AppLink className={styles.back_btn} theme={AppLinkTheme.OUTLINE} href="/">
+            <AppLink
+                className={styles.back_btn}
+                theme={AppLinkTheme.OUTLINE}
+                href="/"
+            >
                 Перейти на главную
             </AppLink>
         </div>

@@ -1,10 +1,7 @@
 /* eslint-disable max-len */
 import React from "react";
 
-
-
 const FavoritesIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
-
     return (
         <svg
             width="21"

@@ -3,7 +3,9 @@ class LocalStorageApi {
 
     public getDataFromLocalSt(key: string) {
         if (this.isLocalStrDefined && localStorage.getItem(key)) {
-            const items: string[] = JSON.parse(localStorage.getItem(key) || "[]");
+            const items: string[] = JSON.parse(
+                localStorage.getItem(key) || "[]"
+            );
             return items;
         }
     }

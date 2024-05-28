@@ -5,17 +5,18 @@
     display: inline-block;
     position: relative;
     border: 10px solid;
-    border-color: rgb(255 139 55 / 15%) rgb(255 139 55 / 30%) rgb(255 139 55 / 35%) rgb(255 139 55 / 50%);
+    border-color: rgb(255 139 55 / 15%) rgb(255 139 55 / 30%)
+        rgb(255 139 55 / 35%) rgb(255 139 55 / 50%);
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-  }
-  
-  @keyframes rotation {
+}
+
+@keyframes rotation {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
 
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  } 
+}

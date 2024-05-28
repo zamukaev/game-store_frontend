@@ -17,7 +17,12 @@ interface Props {
 }
 
 const Card: FC<Props> = (props) => {
-    const { className = "", onClick, isLoadingBtn, isProductAddedToCart } = props;
+    const {
+        className = "",
+        onClick,
+        isLoadingBtn,
+        isProductAddedToCart,
+    } = props;
 
     const cls = `${styles.card} ${className}`;
 
@@ -29,19 +34,22 @@ const Card: FC<Props> = (props) => {
     console.log(isProductAddedToCart);
     return (
         <>
-            {isLoadingBtn
-                ? <ButtonLoader />
-                :
+            {isLoadingBtn ? (
+                <ButtonLoader />
+            ) : (
                 <Button
                     data-testid="card"
                     className={cls}
                     onClick={clickHandle}
                     kind="card"
                 >
-                    {isProductAddedToCart ? <CloseIcon width={15} height={15} fill="#ff8b37" /> : <CartIcon />}
+                    {isProductAddedToCart ? (
+                        <CloseIcon width={15} height={15} fill="#ff8b37" />
+                    ) : (
+                        <CartIcon />
+                    )}
                 </Button>
-            }
-
+            )}
         </>
     );
 };

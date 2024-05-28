@@ -67,5 +67,5 @@ export {
     Portal,
     GoBackButton,
     ButtonLoader,
-    AppLinkTheme
+    AppLinkTheme,
 };

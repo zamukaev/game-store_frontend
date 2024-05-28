@@ -32,15 +32,15 @@ const Cart = () => {
     const [selectAllCart, setSelectAllCart] = useState<boolean>(true);
     const [selectedCartIds, setSelectedCartIds] = useState<string[]>([]);
 
-    const totalSelectedItems = useMemo(() => selectedCart.reduce(
-        (total, item) => total + item.count,
-        0
-    ), [selectedCart]);
+    const totalSelectedItems = useMemo(
+        () => selectedCart.reduce((total, item) => total + item.count, 0),
+        [selectedCart]
+    );
 
-    const totalPrice = useMemo(() => selectedCart.reduce(
-        (total, item) => total + item.totalPrice,
-        0
-    ), [selectedCart]);
+    const totalPrice = useMemo(
+        () => selectedCart.reduce((total, item) => total + item.totalPrice, 0),
+        [selectedCart]
+    );
 
     const { data, isLoading, error } = useQuery({
         queryKey: ["getProductsByIds"],
@@ -122,7 +122,7 @@ const Cart = () => {
     };
 
     const getSelectedCartIds = useCallback(() => {
-        const ids = selectedCart.map(cart => cart._id);
+        const ids = selectedCart.map((cart) => cart._id);
         setSelectedCartIds((prev: string[]) => ids);
     }, [selectedCart]);
 
@@ -136,7 +136,7 @@ const Cart = () => {
             if (data) {
                 setCarts(data);
                 setSelectedCart(data);
-            };
+            }
         }
     }, [data]);
 

@@ -30,10 +30,10 @@ const mockProduct = {
 export const Default: Story = {
     render: () => (
         <ProductCardLarge
-            getCount={() => { }}
-            onCheckHandler={() => { }}
+            getCount={() => {}}
+            onCheckHandler={() => {}}
             product={mockProduct}
-            removeCartItem={() => { }}
+            removeCartItem={() => {}}
         />
     ),
 };

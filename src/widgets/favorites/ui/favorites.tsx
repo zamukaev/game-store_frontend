@@ -94,10 +94,11 @@ const FavoritesWidget = () => {
             ) : (
                 <div>
                     <div
-                        className={`${Array.isArray(data) && data.length > 0
-                            ? styles.block__container
-                            : styles.display__flex
-                            }`}
+                        className={`${
+                            Array.isArray(data) && data.length > 0
+                                ? styles.block__container
+                                : styles.display__flex
+                        }`}
                     >
                         {Array.isArray(data) ? (
                             data.length > 0 ? (
