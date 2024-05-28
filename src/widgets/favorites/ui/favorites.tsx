@@ -31,6 +31,25 @@ const FavoritesWidget = () => {
         },
     });
 
+    function pluralize(
+        count: number,
+        singularForm: string,
+        pluralForm: string,
+        secondPluralForm: string
+    ): string {
+        if (count % 10 === 1 && count % 100 !== 11) {
+            return `${count} ${singularForm}`;
+        } else if (
+            count % 10 >= 2 &&
+            count % 10 <= 4 &&
+            (count % 100 < 10 || count % 100 >= 20)
+        ) {
+            return `${count} ${pluralForm}`;
+        } else {
+            return `${count} ${secondPluralForm}`;
+        }
+    }
+
     return (
         <div>
             <AppLink className={styles.link} href="/">
@@ -50,9 +69,16 @@ const FavoritesWidget = () => {
                     ) : (
                         <>
                             {data ? (
-                                <span>{data.length} товаров</span>
+                                <span>
+                                    {pluralize(
+                                        data.length,
+                                        "товар",
+                                        "товара",
+                                        "товаров"
+                                    )}
+                                </span>
                             ) : (
-                                <span>Нет товаров в избранном</span>
+                                <></>
                             )}
                         </>
                     )}
@@ -66,8 +92,14 @@ const FavoritesWidget = () => {
                     ))}
                 </div>
             ) : (
-                <div className={styles.block__container}>
-                    <div className={styles.block__container}>
+                <div>
+                    <div
+                        className={`${
+                            Array.isArray(data) && data.length > 0
+                                ? styles.block__container
+                                : styles.display__flex
+                        }`}
+                    >
                         {Array.isArray(data) ? (
                             data.length > 0 ? (
                                 data.map((value) => (
@@ -91,24 +123,28 @@ const FavoritesWidget = () => {
                                 </h1>
                             )
                         ) : (
-                            <div className={styles.block__no_goods}>
-                                <FavoritesIcon
-                                    fill={"var(--color-orange)"}
-                                    width={28}
-                                    height={28}
-                                />
-                                <h1>Вы пока не добавляли товары в избранное</h1>
-                                <button>
-                                    <AppLink
-                                        href="/"
-                                        className={
-                                            styles.block__return_back_link
-                                        }
-                                    >
-                                        Перейти на главную
-                                    </AppLink>
-                                </button>
-                            </div>
+                            <>
+                                <div className={styles.block__no_goods}>
+                                    <FavoritesIcon
+                                        fill={"var(--color-orange)"}
+                                        width={28}
+                                        height={28}
+                                    />
+                                    <h1>
+                                        Вы пока не добавляли товары в избранное
+                                    </h1>
+                                    <button>
+                                        <AppLink
+                                            href="/"
+                                            className={
+                                                styles.block__return_back_link
+                                            }
+                                        >
+                                            Перейти на главную
+                                        </AppLink>
+                                    </button>
+                                </div>
+                            </>
                         )}
                     </div>
                 </div>
