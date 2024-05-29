@@ -1,4 +1,4 @@
-import AppLink from "./appLink/AppLink";
+import AppLink, { AppLinkTheme } from "./appLink/AppLink";
 import Button from "./button/Button";
 import Card from "./card/Card";
 import Checkbox from "./checkbox/Checkbox";
@@ -29,6 +29,9 @@ import SubcategoriesLoader from "./subcategoriesLoader/SubcategoriesLoader";
 import BreadCrumb from "./breadcrumb/Breadcrumbs";
 import Modal from "./modal/Modal";
 import Portal from "./portal/Portal";
+import GoBackButton from "./goBackButton/GoBackButton";
+import ButtonLoader from "./buttonLoader/ButtonLoader";
+
 export {
     AppLink,
     Button,
@@ -62,4 +65,7 @@ export {
     BreadCrumb,
     Modal,
     Portal,
+    GoBackButton,
+    ButtonLoader,
+    AppLinkTheme,
 };

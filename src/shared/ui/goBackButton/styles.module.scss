@@ -1,0 +1,20 @@
+.go_back_btn {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--color-gray);
+
+
+
+    .back_btn_icon {
+        stroke: var(--color-gray);
+        
+    }
+
+    &:hover {
+        .back_btn_icon {
+            stroke: var(--color-orange);
+            transform: translateX(-5px);
+        }
+    }
+}

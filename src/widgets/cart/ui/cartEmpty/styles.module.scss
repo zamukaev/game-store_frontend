@@ -1,0 +1,20 @@
+.empty {
+    display: flex;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+        margin-bottom: 30px;
+    }
+
+    .title {
+        margin-bottom: 40px;
+        font-weight: 500;
+    }
+
+    .back_btn {
+        font-weight: 500;
+    }
+}

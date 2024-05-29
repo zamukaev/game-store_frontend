@@ -53,6 +53,7 @@
 
 .image {
     text-align: center;
+    margin-left: 10px;
 }
 
 .title {
@@ -62,6 +63,10 @@
 .price {
     font-size: 20px;
     font-weight: 600;
+}
+
+.item_price {
+    color: var(--color-gray);
 }
 
 .oldPrice {
