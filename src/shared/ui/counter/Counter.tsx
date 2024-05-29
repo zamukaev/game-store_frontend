@@ -27,7 +27,7 @@ const Counter: FC<CounterProps> = (props): JSX.Element => {
                 onClick={decrement}
                 kind="clear"
             >
-                <PlusIcon />
+                <MinusIcon />
             </Button>
             <span data-testid="value-title">{count}</span>
             <Button
