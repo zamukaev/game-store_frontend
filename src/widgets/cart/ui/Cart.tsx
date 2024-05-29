@@ -117,7 +117,10 @@ const Cart = () => {
     const removeCartItem = (productId: string) => {
         localStorageApi.removeDataFromLocalSt("cart", productId);
         setCarts((prev: CartInterface[]) =>
-            prev.filter((cart: Product) => cart._id !== productId)
+            prev.filter((cart: CartInterface) => cart._id !== productId)
+        );
+        setSelectedCart((prev: CartInterface[]) =>
+            prev.filter((cart: CartInterface) => cart._id !== productId)
         );
     };
 
@@ -151,6 +154,7 @@ const Cart = () => {
     return (
         <section className={cls}>
             <GoBackButton
+                href="/"
                 className={styles.back_btn}
                 text="Вернуться к покупкам"
             />

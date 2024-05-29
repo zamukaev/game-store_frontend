@@ -15,7 +15,7 @@ const CartEmpty = ({ className }: { className: string }) => {
                 fill="#FF6B00"
             />
             <Headline className={styles.title} Size={HeadlineSize.M}>
-                Вы пока не добавляли товары в избранное
+                Вы пока не добавляли товары в Корзину
             </Headline>
             <AppLink
                 className={styles.back_btn}
