@@ -4,13 +4,16 @@
     align-items: center;
     color: var(--color-gray);
 
+
+
     .back_btn_icon {
         stroke: var(--color-gray);
+        
     }
 
     &:hover {
         .back_btn_icon {
-            stroke: var(--color-red-light);
+            stroke: var(--color-orange);
             transform: translateX(-5px);
         }
     }

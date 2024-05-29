@@ -1,5 +1,5 @@
 import { AppLink, Headline, HeadlineSize, AppLinkTheme } from "@/shared/ui";
-import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
+import CartIcon from "@/shared/icons/cartIcon/CartIcon";
 
 import styles from "./styles.module.scss";
 
@@ -8,9 +8,9 @@ const CartEmpty = ({ className }: { className: string }) => {
 
     return (
         <div className={cls}>
-            <FavoritesIcon
-                width={30}
-                height={30}
+            <CartIcon
+                width={40}
+                height={40}
                 className={styles.icon}
                 fill="#FF6B00"
             />
