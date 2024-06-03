@@ -1,18 +1,21 @@
 "use client";
 
 import React, { ChangeEvent, FC, FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
 
 import styles from "./styles.module.scss";
 
-interface SearchInputProps {
-    onSearch: (query: string) => void;
+type SearchInputProps = {
     placeholder: string;
-}
+    onSearch: (term: string) => void;
+    handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+};
 
-const SearchInput: FC<SearchInputProps> = ({ onSearch, placeholder }) => {
+const SearchInput: FC<SearchInputProps> = ({ placeholder }) => {
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const router = useRouter();
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
@@ -20,7 +23,7 @@ const SearchInput: FC<SearchInputProps> = ({ onSearch, placeholder }) => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        onSearch(searchQuery);
+        router.push(`/search/${searchQuery}`);
     };
 
     return (
@@ -36,7 +39,11 @@ const SearchInput: FC<SearchInputProps> = ({ onSearch, placeholder }) => {
                 onChange={handleInputChange}
                 className={styles.input}
             />
-            <button type="submit" className={styles.iconButton}>
+            <button
+                type="submit"
+                className={styles.iconButton}
+                onClick={() => router.push(`/${searchQuery}`)}
+            >
                 <SearchIcon fill="#989898" className={styles.icon} />
             </button>
         </form>
