@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { AppLink, Headline, HeadlineSize, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
-import { FavoritesCardsLengthLoader } from "@/shared/ui/favoritesCardsLengthLoader/FavoritesCardsLengthLoader";
+import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
 import { Product } from "@/shared/types/product";
 
