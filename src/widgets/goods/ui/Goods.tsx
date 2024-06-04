@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
-import { OptionsType } from "@/configs/options";
+import { OptionsType } from "@/shared/types/options";
 import {
     BreadCrumb,
     Headline,
@@ -12,11 +12,12 @@ import {
     ProductsPageLoader,
     SubcategoriesEmpty,
 } from "@/shared/ui";
+import { Product } from "@/shared/types/product";
+
 import { Sorting } from "@/features/sorting";
 import { Filters } from "@/features/filters";
-import { Product } from "@/shared/types/product";
+
 import { getProductsBySubcategory } from "@/widgets/goods/api/getProductsBySubcategory";
-import { getMaxPrice } from "@/utils/data/getMaxPrice";
 
 import styles from "./styles.module.scss";
 

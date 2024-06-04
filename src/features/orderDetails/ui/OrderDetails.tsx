@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { Headline, Button, HeadlineSize } from "@/shared/ui";
+
 import { formatCurrency } from "@/utils/string/formatCurrency";
 import formatProductItem from "@/utils/string/formatProductItem";
 

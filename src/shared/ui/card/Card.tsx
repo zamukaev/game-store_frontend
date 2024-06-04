@@ -31,7 +31,7 @@ const Card: FC<Props> = (props) => {
             onClick();
         }
     };
-    console.log(isProductAddedToCart);
+
     return (
         <>
             {isLoadingBtn ? (

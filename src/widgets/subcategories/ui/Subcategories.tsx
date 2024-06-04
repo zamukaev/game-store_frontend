@@ -1,5 +1,4 @@
 import { FC } from "react";
-
 import { useQuery } from "@tanstack/react-query";
 
 import { Subcategory } from "@/shared/types/categories";
@@ -22,8 +21,6 @@ interface SubcategoriesProps {
 }
 
 const Subcategories: FC<SubcategoriesProps> = ({ title }) => {
-    const cls = `${styles.category}`;
-
     const { data: category, isLoading } = useQuery({
         queryKey: ["category"],
         queryFn: () => getCategoryByTitle(title),

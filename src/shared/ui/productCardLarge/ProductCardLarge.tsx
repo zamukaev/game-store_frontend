@@ -1,17 +1,14 @@
 "use client";
 import React, { FC, useState } from "react";
-
 import Image from "next/image";
 
 import { Product } from "@/shared/types/product";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
-
-import { formatCurrency } from "@/utils/string/formatCurrency";
-
 import CloseIcon from "@/shared/icons/closeIcon/CloseIcon";
-
 import Counter from "@/shared/ui/counter/Counter";
 import Checkbox from "@/shared/ui/checkbox/Checkbox";
+
+import { formatCurrency } from "@/utils/string/formatCurrency";
 
 import styles from "./styles.module.scss";
 
@@ -27,16 +24,7 @@ const ProductCardLarge: FC<ProductCardLargeProps> = (props) => {
     const { product, onCheckHandler, selectAllCart, getCount, removeCartItem } =
         props;
 
-    const {
-        hit,
-        discount,
-        urlImages,
-        title,
-        price,
-        totalPrice,
-        oldPrice,
-        _id,
-    } = product;
+    const { urlImages, title, price, totalPrice, oldPrice, _id } = product;
 
     const [count, setCount] = useState(1);
 

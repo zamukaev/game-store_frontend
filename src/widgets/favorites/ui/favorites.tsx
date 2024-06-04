@@ -2,12 +2,11 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { AppLink, ProductCard } from "@/shared/ui";
+import { AppLink, Headline, HeadlineSize, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
-import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
+import { FavoritesCardsLengthLoader } from "@/shared/ui/favoritesCardsLengthLoader/FavoritesCardsLengthLoader";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
-
 import { Product } from "@/shared/types/product";
 
 import { fetchFavoriteProducts } from "../api";
@@ -127,12 +126,15 @@ const FavoritesWidget = () => {
                                 <div className={styles.block__no_goods}>
                                     <FavoritesIcon
                                         fill={"var(--color-orange)"}
-                                        width={28}
-                                        height={28}
+                                        width={35}
+                                        height={35}
                                     />
-                                    <h1>
+                                    <Headline
+                                        Size={HeadlineSize.M}
+                                        className={styles.title}
+                                    >
                                         Вы пока не добавляли товары в избранное
-                                    </h1>
+                                    </Headline>
                                     <button>
                                         <AppLink
                                             href="/"

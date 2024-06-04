@@ -1,8 +1,8 @@
 "use client";
-import { FC, useEffect } from "react";
-import Image from "next/image";
 
-import { useParams, usePathname } from "next/navigation";
+import { FC } from "react";
+import Image from "next/image";
+import { useParams } from "next/navigation";
 
 import { AppLink, Headline, HeadlineSize } from "..";
 

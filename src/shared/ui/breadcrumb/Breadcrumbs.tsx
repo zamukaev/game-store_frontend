@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import { usePathname } from "next/navigation";
 
 import Crumb from "./crumb/Crumb";
+
 import styles from "./styles.module.scss";
 
 interface BreadcrumbsProps {

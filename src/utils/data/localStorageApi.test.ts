@@ -1,5 +1,3 @@
-import { CartInterface } from "@/shared/types/cart";
-
 import localStorageApi from "./localStorageApi";
 
 // Mock the localStorage

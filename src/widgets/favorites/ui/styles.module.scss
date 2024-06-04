@@ -79,9 +79,7 @@
 }
 
 .block__no_goods h1 {
-    font-size: 30px;
     margin-top: 15px;
-    white-space: nowrap;
 }
 
 .block__no_goods button {
@@ -92,10 +90,17 @@
     border: 1px solid var(--color-orange);
     border-radius: 22px;
     font-size: 24px;
-    margin-top: 25px;
+    margin-top: 40px;
     white-space: nowrap;
 }
 
 .block__return_back_link {
     color: var(--color-orange) !important;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.title {
+    margin-top: 40px;
+    font-weight: 500;
 }

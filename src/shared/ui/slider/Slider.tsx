@@ -5,7 +5,6 @@ import { Product } from "@/shared/types/product";
 
 import ProductCard from "../productCard/ProductCard";
 import SliderArrow from "../sliderArrow/SliderArrow";
-
 import ProductCardLoader from "../productCard/ProductCardLoader";
 
 import { Headline, HeadlineSize } from "..";
@@ -31,7 +30,7 @@ const settings = {
 const SliderBlock: FC<SliderBlockProps> = ({ title, items, loading }) => {
     return (
         <div className={styles.container}>
-            <Headline Size={HeadlineSize.M} className={styles.title}>
+            <Headline Size={HeadlineSize.L} className={styles.title}>
                 {title}
             </Headline>
             {loading ? (
