@@ -10,7 +10,7 @@ import styles from "./style.module.scss";
 const Logo = () => {
     return (
         <Link href="/" className={styles.logo}>
-            <Image src={logo} alt="logo" width={70} height={70} />
+            <Image src={logo} alt="logo" width={60} height={60} />
             <h1 className={styles.logo__title}>
                 GAME <br /> STORE
             </h1>

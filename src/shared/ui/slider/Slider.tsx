@@ -31,7 +31,7 @@ const settings = {
 const SliderBlock: FC<SliderBlockProps> = ({ title, items, loading }) => {
     return (
         <div className={styles.container}>
-            <Headline Size={HeadlineSize.L} className={styles.title}>
+            <Headline Size={HeadlineSize.M} className={styles.title}>
                 {title}
             </Headline>
             {loading ? (
