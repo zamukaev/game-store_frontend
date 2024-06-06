@@ -12,7 +12,7 @@ type SearchInputProps = {
     onSearch: (term: string) => void;
 };
 
-const SearchInput: FC<SearchInputProps> = ({ placeholder }) => {
+const SearchInput: FC<SearchInputProps> = ({ placeholder, onSearch }) => {
     const [searchQuery, setSearchQuery] = useState<string>("");
     const router = useRouter();
 
@@ -22,7 +22,7 @@ const SearchInput: FC<SearchInputProps> = ({ placeholder }) => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        router.push(`/search/${searchQuery}`);
+        onSearch(searchQuery);
     };
 
     return (

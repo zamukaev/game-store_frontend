@@ -15,12 +15,12 @@ const fetchSearchResult = async (title: string) => {
 const SearchResults = () => {
     const searchParams = useSearchParams();
     const query = searchParams.get("query");
-    console.log(searchParams);
+    console.log(query);
 
     const { data, isLoading, error } = useQuery({
         queryKey: ["searchResults"],
         queryFn: () => fetchSearchResult(query as string),
-        // enabled: !!query,
+        enabled: !!query,
     });
 
     if (isLoading) {
