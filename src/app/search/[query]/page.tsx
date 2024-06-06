@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import { useSearchParams } from "next/navigation";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const fetchSearchResult = async (title: string) => {
     const { data } = await axios.get(
@@ -14,12 +15,13 @@ const fetchSearchResult = async (title: string) => {
 const SearchResults = () => {
     const searchParams = useSearchParams();
     const query = searchParams.get("query");
+    console.log(searchParams);
 
-    const { data, error, isLoading } = useQuery(
-        ["searchResults", query],
-        () => fetchSearchResult(query as string),
-        { enabled: !!query }
-    );
+    const { data, isLoading, error } = useQuery({
+        queryKey: ["searchResults"],
+        queryFn: () => fetchSearchResult(query as string),
+        // enabled: !!query,
+    });
 
     if (isLoading) {
         return <div>Загрузка...</div>;

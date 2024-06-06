@@ -2,34 +2,18 @@
 
 import React from "react";
 
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { SearchInput } from "@/shared/ui";
 
 const Search = () => {
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
-    const { replace } = useRouter();
+    const router = useRouter();
 
-    const handleSearch = (term: string) => {
-        const params = new URLSearchParams(searchParams);
-        params.set("query", term || "");
-        replace(`${pathname}?${params.toString()}`);
+    const handleSearch = (query: string) => {
+        router.push(`/search?query=${query}`);
     };
 
-    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === "Enter") {
-            handleSearch(event.currentTarget.value);
-        }
-    };
-
-    return (
-        <SearchInput
-            placeholder="Поиск товара"
-            onSearch={handleSearch}
-            handleKeyPress={handleKeyPress}
-        />
-    );
+    return <SearchInput placeholder="Поиск товара" onSearch={handleSearch} />;
 };
 
 export default Search;

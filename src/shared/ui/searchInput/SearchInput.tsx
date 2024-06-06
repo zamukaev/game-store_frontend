@@ -10,7 +10,6 @@ import styles from "./styles.module.scss";
 type SearchInputProps = {
     placeholder: string;
     onSearch: (term: string) => void;
-    handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
 const SearchInput: FC<SearchInputProps> = ({ placeholder }) => {
