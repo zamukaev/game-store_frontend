@@ -86,3 +86,25 @@
     display: flex;
     gap: 100px;
 }
+
+.block__return_back_button {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.block__return_back {
+    color: black;
+}
+
+.link {
+    display: flex;
+    justify-content: flex-start !important;
+}
+
+.query_title {
+    font-weight: 600;
+    font-size: 32px;
+    margin-top: 20px;
+}

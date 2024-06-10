@@ -1,22 +1,19 @@
 "use client";
 import React from "react";
 import { useSearchParams } from "next/navigation";
+
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
-import { ProductCard } from "@/shared/ui";
-
+import { AppLink, ProductCard } from "@/shared/ui";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 
-import styles from "./styles.module.scss";
-import SearchEmpty from "./SearchEmpty/SearchEmpty";
+import SearchEmpty from "@/widgets/search/ui/SearchEmpty/SearchEmpty";
 
-const fetchSearchResult = async (title: string) => {
-    const { data } = await axios.get(
-        `https://gamestore-backend.vercel.app/api/search/${title}`
-    );
-    return data;
-};
+import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
+
+import { fetchSearchResult } from "../api";
+
+import styles from "./styles.module.scss";
 
 const SearchCards = () => {
     const searchParams = useSearchParams();
@@ -47,11 +44,25 @@ const SearchCards = () => {
     }
 
     return (
-        <div className={styles.product} data-testid="productCard">
-            <div className={styles.product__container}>
-                {data.map((item: any) => (
-                    <ProductCard key={item._id} product={item} />
-                ))}
+        <div>
+            <div>
+                <AppLink className={styles.link} href="/">
+                    <div className={styles.block__return_back_button}>
+                        <ArrowPrevGreyIcon />
+                        <p className={styles.block__return_back}>
+                            Вернуться к покупкам
+                        </p>
+                    </div>
+                </AppLink>
+                <h1 className={styles.query_title}>{query}</h1>
+            </div>
+
+            <div className={styles.product} data-testid="productCard">
+                <div className={styles.product__container}>
+                    {data.map((item: any) => (
+                        <ProductCard key={item._id} product={item} />
+                    ))}
+                </div>
             </div>
         </div>
     );

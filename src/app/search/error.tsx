@@ -9,10 +9,6 @@ export default function Error({
     error: Error;
     reset: () => void;
 }) {
-    useEffect(() => {
-        console.error(error);
-    }, [error]);
-
     return (
         <div>
             <h2>Произошла ошибка!</h2>

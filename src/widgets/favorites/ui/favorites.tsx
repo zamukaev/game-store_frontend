@@ -6,17 +6,17 @@ import { AppLink, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
+import { Product } from "@/shared/types/product";
 
 import { pluralize } from "@/utils/string/pularize";
-
-import { Product } from "@/shared/types/product";
 
 import { fetchFavoriteProducts } from "../api";
 
 import useFavoritesStore from "../model/favorites-store";
 
-import styles from "./styles.module.scss";
 import { FavoriteEmpty } from "./FavoriteEmpty/FavoriteEmpty";
+
+import styles from "./styles.module.scss";
 
 const FavoritesWidget = () => {
     const favorites = useFavoritesStore((state) => state.favorites);
