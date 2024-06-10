@@ -2,6 +2,7 @@ import React from "react";
 import { screen, render, fireEvent } from "@testing-library/react";
 
 import Switcher from "./Switcher";
+
 describe("Switcher Component", () => {
     test("Switcher renders correctly", () => {
         const { container } = render(<Switcher />);

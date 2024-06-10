@@ -2,12 +2,10 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { AppLink, ProductCard } from "@/shared/ui";
+import { AppLink, Headline, HeadlineSize, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
-
-import { pluralize } from "@/utils/string/pularize";
 
 import { Product } from "@/shared/types/product";
 
@@ -107,6 +105,31 @@ const FavoritesWidget = () => {
                             )
                         ) : (
                             <FavoriteEmpty />
+                            <>
+                                <div className={styles.block__no_goods}>
+                                    <FavoritesIcon
+                                        fill={"var(--color-orange)"}
+                                        width={35}
+                                        height={35}
+                                    />
+                                    <Headline
+                                        Size={HeadlineSize.M}
+                                        className={styles.title}
+                                    >
+                                        Вы пока не добавляли товары в избранное
+                                    </Headline>
+                                    <button>
+                                        <AppLink
+                                            href="/"
+                                            className={
+                                                styles.block__return_back_link
+                                            }
+                                        >
+                                            Перейти на главную
+                                        </AppLink>
+                                    </button>
+                                </div>
+                            </>
                         )}
                     </div>
                 </div>

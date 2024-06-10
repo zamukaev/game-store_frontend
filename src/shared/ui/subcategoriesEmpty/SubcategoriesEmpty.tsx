@@ -22,7 +22,7 @@ const SubcategoriesEmpty: FC<SubcategoriesEmptyProps> = ({
     return (
         <div className={cls} {...props}>
             <SearchIcon fill="#FF6B00" height={50} width={50} />
-            <Headline className={styles.subtitle} Size={HeadlineSize.M}>
+            <Headline className={styles.subtitle} Size={HeadlineSize.L}>
                 {content}
             </Headline>
             <AppLink href="/" theme={AppLinkTheme.OUTLINE}>

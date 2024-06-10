@@ -1,7 +1,6 @@
 "use client";
 
 import { FC, ReactNode, useEffect, useRef } from "react";
-
 import { createPortal } from "react-dom";
 
 import Button from "@/shared/ui/button/Button";

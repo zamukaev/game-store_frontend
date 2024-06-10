@@ -1,4 +1,4 @@
-import { OptionsType } from "@/configs/options";
+import { OptionsType } from "@/shared/types/options";
 
 import Filters from "./Filters";
 
