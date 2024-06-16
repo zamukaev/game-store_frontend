@@ -106,7 +106,9 @@ const FavoritesWidget = () => {
                                 </h1>
                             )
                         ) : (
-                            <FavoriteEmpty />
+                            <>
+                                <FavoriteEmpty />
+                            </>
                         )}
                     </div>
                 </div>

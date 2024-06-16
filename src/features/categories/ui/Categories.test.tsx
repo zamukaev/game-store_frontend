@@ -1,5 +1,3 @@
-import { Console, error } from "console";
-
 import { render, screen, waitFor } from "@testing-library/react";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -48,7 +46,6 @@ describe("Categories Component", () => {
         });
     });
     test("handles error when fetching data", async () => {
-        // Mock the API call to reject with an error
         (getCategories as jest.Mock).mockRejectedValue(new Error("API Error"));
 
         render(
@@ -57,7 +54,6 @@ describe("Categories Component", () => {
             </QueryClientProvider>
         );
 
-        // Wait for the error state to be rendered
         await waitFor(() => {
             expect(screen.getByTestId("categories-loader")).toBeInTheDocument();
         });

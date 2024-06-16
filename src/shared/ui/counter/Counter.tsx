@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import MinusIcon from "@/shared/icons/minus/MinusIcon";
 import PlusIcon from "@/shared/icons/plus/PlusIcon";

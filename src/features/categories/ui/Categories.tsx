@@ -1,6 +1,5 @@
 "use client";
 import { FC, useEffect, useState } from "react";
-
 import { useQuery } from "@tanstack/react-query";
 
 import { Headline, HeadlineSize, AppLink } from "@/shared/ui";

@@ -5,7 +5,6 @@ import { Product } from "@/shared/types/product";
 
 import ProductCard from "../productCard/ProductCard";
 import SliderArrow from "../sliderArrow/SliderArrow";
-
 import ProductCardLoader from "../productCard/ProductCardLoader";
 
 import { Headline, HeadlineSize } from "..";

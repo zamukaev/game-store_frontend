@@ -4,6 +4,7 @@ import React, { FC, useCallback, useState } from "react";
 import { Search } from "@/features/search";
 import { NavItems } from "@/features/navItems";
 import { AuthModal } from "@/features/authByNumber";
+
 import { Logo } from "@/shared/ui";
 
 import styles from "./style.module.scss";

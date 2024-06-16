@@ -3,6 +3,8 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 
+import Link from "next/link";
+
 import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
 
 import styles from "./styles.module.scss";
@@ -38,11 +40,7 @@ const SearchInput: FC<SearchInputProps> = ({ placeholder, onSearch }) => {
                 onChange={handleInputChange}
                 className={styles.input}
             />
-            <button
-                type="submit"
-                className={styles.iconButton}
-                onClick={() => router.push(`/${searchQuery}`)}
-            >
+            <button type="submit" className={styles.iconButton}>
                 <SearchIcon fill="#989898" className={styles.icon} />
             </button>
         </form>

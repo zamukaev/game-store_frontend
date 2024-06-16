@@ -2,7 +2,7 @@
 import React, { FC, useMemo } from "react";
 import ReactSlider from "react-slider";
 
-import { OptionsType } from "@/configs/options";
+import { OptionsType } from "@/shared/types/options";
 
 import styles from "./styles.module.scss";
 

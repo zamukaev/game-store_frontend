@@ -18,11 +18,12 @@ interface RatingProps
 }
 
 const Scores: FC<RatingProps> = (props): JSX.Element => {
-    const { rating, className } = props;
-    const cls = `${styles.scores} ${className}`;
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
         new Array(5).fill(<></>)
     );
+
+    const { rating, className } = props;
+    const cls = `${styles.scores} ${className}`;
 
     return (
         <ul role="list" className={cls}>

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useQuery } from "@tanstack/react-query";
 
 import SliderBlock from "@/shared/ui/slider/Slider";

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { OptionsType } from "@/configs/options";
+import { OptionsType } from "@/shared/types/options";
 
 import {
     InputPrice,
@@ -49,7 +49,7 @@ const Filters: FC<FiltersProps> = (props) => {
     return (
         <div data-testid="filters" className={cls}>
             <div className={styles.price}>
-                <Headline Size={HeadlineSize.S} className={styles.title}>
+                <Headline Size={HeadlineSize.L} className={styles.title}>
                     Цена
                 </Headline>
                 <div className={styles.inputs}>
@@ -75,7 +75,7 @@ const Filters: FC<FiltersProps> = (props) => {
             </div>
             <div className={styles.options}>
                 <div className={styles.promotion}>
-                    <Headline Size={HeadlineSize.S} className={styles.title}>
+                    <Headline Size={HeadlineSize.M} className={styles.title}>
                         Акция
                     </Headline>
                     <Switcher
@@ -84,7 +84,7 @@ const Filters: FC<FiltersProps> = (props) => {
                     />
                 </div>
                 <div className={styles.hits}>
-                    <Headline Size={HeadlineSize.S} className={styles.title}>
+                    <Headline Size={HeadlineSize.M} className={styles.title}>
                         Хиты
                     </Headline>
                     <Switcher
@@ -93,7 +93,7 @@ const Filters: FC<FiltersProps> = (props) => {
                     />
                 </div>
                 <div className={styles.InStock}>
-                    <Headline Size={HeadlineSize.S} className={styles.title}>
+                    <Headline Size={HeadlineSize.M} className={styles.title}>
                         В наличии
                     </Headline>
                     <Switcher
