@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { AppLink, ProductCard } from "@/shared/ui";
+import { AppLink, GoBackButton, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
@@ -35,14 +35,11 @@ const FavoritesWidget = () => {
 
     return (
         <div>
-            <AppLink className={styles.link} href="/">
-                <div className={styles.block__return_back_button}>
-                    <ArrowPrevGreyIcon />
-                    <p className={styles.block__return_back}>
-                        Вернуться к покупкам
-                    </p>
-                </div>
-            </AppLink>
+            <GoBackButton
+                className={styles.link}
+                href="/"
+                text="Вернуться к покупкам"
+            />
 
             <div className={styles.block__display_flex}>
                 <h1 className={styles.block__favorite_section}>Избранное</h1>

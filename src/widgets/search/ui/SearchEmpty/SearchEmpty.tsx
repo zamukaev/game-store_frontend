@@ -2,11 +2,8 @@ import React from "react";
 
 import { useSearchParams } from "next/navigation";
 
-import { AppLink, Headline } from "@/shared/ui";
-
+import { AppLink, Button, GoBackButton, Headline } from "@/shared/ui";
 import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
-
-import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 
 import styles from "./styles.module.scss";
 
@@ -17,15 +14,12 @@ const SearchEmpty = () => {
     return (
         <div>
             <div>
-                <AppLink className={styles.link} href="/">
-                    <div className={styles.block__return_back_button}>
-                        <ArrowPrevGreyIcon />
-                        <p className={styles.block__return_back}>
-                            Вернуться к покупкам
-                        </p>
-                    </div>
-                </AppLink>
-                <h1 className={styles.query_title}>{query}</h1>
+                <GoBackButton
+                    href="/"
+                    className={styles.link}
+                    text="Вернуться к покупкам"
+                />
+                <Headline className={styles.query_title}>{query}</Headline>
             </div>
             <div className={styles.empty}>
                 <div className={styles.block__no_goods}>
@@ -38,14 +32,14 @@ const SearchEmpty = () => {
                     <Headline className={styles.title}>
                         Нам не удалось найти то, что вы искали
                     </Headline>
-                    <button className={styles.back_btn}>
+                    <Button className={styles.back_btn}>
                         <AppLink
                             className={styles.block__return_back_link}
                             href="/"
                         >
                             Перейти на главную
                         </AppLink>
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>

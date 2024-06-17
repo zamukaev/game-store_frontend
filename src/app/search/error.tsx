@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Button } from "@/shared/ui";
 
 export default function Error({
     error,
@@ -13,7 +13,7 @@ export default function Error({
         <div>
             <h2>Произошла ошибка!</h2>
             <p>{error.message}</p>
-            <button onClick={() => reset()}>Попробовать снова</button>
+            <Button onClick={() => reset()}>Попробовать снова</Button>
         </div>
     );
 }

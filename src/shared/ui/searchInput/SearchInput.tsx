@@ -1,6 +1,8 @@
 "use client";
 
-import React, { ChangeEvent, FC, FormEvent, useState } from "react";
+import React, { ChangeEvent, FC, FormEvent, useState, useEffect } from "react";
+
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
 
@@ -13,6 +15,15 @@ type SearchInputProps = {
 
 const SearchInput: FC<SearchInputProps> = ({ placeholder, onSearch }) => {
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const searchParams = useSearchParams();
+    const router = useRouter();
+
+    useEffect(() => {
+        const query = searchParams.get("query");
+        if (query) {
+            setSearchQuery(query);
+        }
+    }, [searchParams]);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
@@ -21,6 +32,7 @@ const SearchInput: FC<SearchInputProps> = ({ placeholder, onSearch }) => {
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         onSearch(searchQuery);
+        router.push(`/search?query=${searchQuery}`);
     };
 
     return (

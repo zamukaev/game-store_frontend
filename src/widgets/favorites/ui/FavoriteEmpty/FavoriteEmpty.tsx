@@ -18,14 +18,10 @@ export const FavoriteEmpty = () => {
                 <h1 className={styles.title}>
                     Вы пока не добавляли товары в избранное
                 </h1>
-                <button className={styles.back_btn}>
-                    <AppLink
-                        href="/"
-                        className={styles.block__return_back_link}
-                    >
-                        Перейти на главную
-                    </AppLink>
-                </button>
+
+                <AppLink href="/" className={styles.block__return_back_link}>
+                    Перейти на главную
+                </AppLink>
             </div>
         </div>
     );

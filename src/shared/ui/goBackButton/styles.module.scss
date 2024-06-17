@@ -5,7 +5,7 @@
     color: var(--color-gray);
 
     .back_btn_icon {
-        stroke: var(--color-gray);
+        stroke: var(--color-gray-dark);
     }
 
     &:hover {
@@ -14,4 +14,8 @@
             transform: translateX(-5px);
         }
     }
+}
+
+.back_btn_text {
+    color: var(--color-gray-dark);
 }

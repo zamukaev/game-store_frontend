@@ -4,12 +4,11 @@ import { useSearchParams } from "next/navigation";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { AppLink, ProductCard } from "@/shared/ui";
+import { AppLink, GoBackButton, Headline, ProductCard } from "@/shared/ui";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
+import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 
 import SearchEmpty from "@/widgets/search/ui/SearchEmpty/SearchEmpty";
-
-import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 
 import { fetchSearchResult } from "../api";
 
@@ -27,11 +26,19 @@ const SearchCards = () => {
 
     if (isLoading) {
         return (
-            <div className={styles.loader}>
-                {Array.from({ length: 4 }).map((_, index) => (
-                    <ProductCardLoader key={index} />
-                ))}
-            </div>
+            <>
+                <GoBackButton
+                    className={styles.link}
+                    href="/"
+                    text="Вернуться к покупкам"
+                />
+                <Headline className={styles.query_title}>{query}</Headline>
+                <div className={styles.loader}>
+                    {Array.from({ length: 4 }).map((_, index) => (
+                        <ProductCardLoader key={index} />
+                    ))}
+                </div>
+            </>
         );
     }
 
@@ -46,15 +53,12 @@ const SearchCards = () => {
     return (
         <div>
             <div>
-                <AppLink className={styles.link} href="/">
-                    <div className={styles.block__return_back_button}>
-                        <ArrowPrevGreyIcon />
-                        <p className={styles.block__return_back}>
-                            Вернуться к покупкам
-                        </p>
-                    </div>
-                </AppLink>
-                <h1 className={styles.query_title}>{query}</h1>
+                <GoBackButton
+                    className={styles.link}
+                    href="/"
+                    text="Вернуться к покупкам"
+                />
+                <Headline className={styles.query_title}>{query}</Headline>
             </div>
 
             <div className={styles.product} data-testid="productCard">
