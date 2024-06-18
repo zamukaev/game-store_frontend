@@ -1,7 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { ChangeEvent } from "react";
-
 import SearchInput from "@/shared/ui/searchInput/SearchInput";
 
 describe("searchInput component", () => {
@@ -43,7 +41,7 @@ describe("searchInput component", () => {
                 handleSubmit={handleSubmit}
                 placeholder="Поиск..."
                 handleInputChange={handleInputChange}
-                searchQuery={searchQuery}
+                searchQuery={"TestValue"}
             />
         );
 
