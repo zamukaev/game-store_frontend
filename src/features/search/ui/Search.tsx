@@ -12,13 +12,8 @@ const Search = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
 
-    const handleSearch = (query: string) => {
-        router.push(`/search?query=${query}`);
-    };
-
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        handleSearch(searchQuery);
         router.push(`/search?query=${searchQuery}`);
     };
 
