@@ -4,9 +4,8 @@ import { useSearchParams } from "next/navigation";
 
 import { useQuery } from "@tanstack/react-query";
 
-import { AppLink, GoBackButton, Headline, ProductCard } from "@/shared/ui";
+import { GoBackButton, Headline, ProductCard } from "@/shared/ui";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
-import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 
 import SearchEmpty from "@/widgets/search/ui/SearchEmpty/SearchEmpty";
 

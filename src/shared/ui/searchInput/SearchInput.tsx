@@ -1,8 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, FC, FormEvent, useState, useEffect } from "react";
-
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import React, { ChangeEvent, FC } from "react";
 
 import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
 
@@ -11,30 +9,18 @@ import styles from "./styles.module.scss";
 type SearchInputProps = {
     placeholder: string;
     onSearch: (term: string) => void;
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+    handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    searchQuery: string;
 };
 
-const SearchInput: FC<SearchInputProps> = ({ placeholder, onSearch }) => {
-    const [searchQuery, setSearchQuery] = useState<string>("");
-    const searchParams = useSearchParams();
-    const router = useRouter();
-
-    useEffect(() => {
-        const query = searchParams.get("query");
-        if (query) {
-            setSearchQuery(query);
-        }
-    }, [searchParams]);
-
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(event.target.value);
-    };
-
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        onSearch(searchQuery);
-        router.push(`/search?query=${searchQuery}`);
-    };
-
+const SearchInput: FC<SearchInputProps> = ({
+    placeholder,
+    onSearch,
+    handleSubmit,
+    handleInputChange,
+    searchQuery,
+}) => {
     return (
         <form
             onSubmit={handleSubmit}
