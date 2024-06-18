@@ -1,24 +1,51 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
+import { ChangeEvent } from "react";
+
 import SearchInput from "@/shared/ui/searchInput/SearchInput";
 
 describe("searchInput component", () => {
+    const handleSubmit = jest.fn();
+    const handleInputChange = jest.fn();
+    const searchQuery = "TestQuery";
+
     it("render searchInput", () => {
-        render(<SearchInput onSearch={() => {}} placeholder="Поиск..." />);
+        render(
+            <SearchInput
+                handleSubmit={handleSubmit}
+                placeholder="Поиск..."
+                handleInputChange={handleInputChange}
+                searchQuery={searchQuery}
+            />
+        );
 
         const formSearchInput = screen.getByTestId("searchInput");
         expect(formSearchInput).toBeInTheDocument();
     });
 
     it("check placeholder", () => {
-        render(<SearchInput onSearch={() => {}} placeholder="Поиск..." />);
+        render(
+            <SearchInput
+                handleSubmit={handleSubmit}
+                placeholder="Поиск..."
+                handleInputChange={handleInputChange}
+                searchQuery={searchQuery}
+            />
+        );
 
         const input = screen.getByPlaceholderText("Поиск...");
         expect(input).toBeInTheDocument();
     });
 
     it("onChange input", () => {
-        render(<SearchInput onSearch={() => {}} placeholder="Поиск..." />);
+        render(
+            <SearchInput
+                handleSubmit={handleSubmit}
+                placeholder="Поиск..."
+                handleInputChange={handleInputChange}
+                searchQuery={searchQuery}
+            />
+        );
 
         const inputElement = screen.getByPlaceholderText("Поиск...");
         fireEvent.change(inputElement, { target: { value: "TestValue" } });
