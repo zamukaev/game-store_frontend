@@ -37,7 +37,6 @@ const Search = () => {
         <SearchInput
             handleSubmit={handleSubmit}
             placeholder="Поиск товара"
-            onSearch={handleSearch}
             handleInputChange={handleInputChange}
             searchQuery={searchQuery}
         />

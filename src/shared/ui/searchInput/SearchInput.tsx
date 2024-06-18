@@ -8,7 +8,6 @@ import styles from "./styles.module.scss";
 
 type SearchInputProps = {
     placeholder: string;
-    onSearch: (term: string) => void;
     handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
     handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
     searchQuery: string;
@@ -16,7 +15,6 @@ type SearchInputProps = {
 
 const SearchInput: FC<SearchInputProps> = ({
     placeholder,
-    onSearch,
     handleSubmit,
     handleInputChange,
     searchQuery,
