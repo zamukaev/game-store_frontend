@@ -1,0 +1,32 @@
+.review {
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 30px;
+    width: 60%;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        &_left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        &_date {
+            color: var(--color-gray);
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

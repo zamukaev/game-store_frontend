@@ -7,6 +7,7 @@ import React, {
     useState,
 } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import useFavoritesStore from "@/widgets/favorites/model/favorites-store";
 
@@ -47,6 +48,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             setIsLoadingBtn(false);
         }, 300);
     };
+
     const removeProductFromCart = () => {
         setIsLoadingBtn(true);
         localStorageApi.removeDataFromLocalSt("cart", product._id);
@@ -85,15 +87,17 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     className={styles.favoriteIcon}
                 />
             </div>
-            <div className={styles.image}>
-                <Image
-                    src={urlImages[0]}
-                    alt="product image"
-                    width={182}
-                    height={126}
-                />
-            </div>
-            <p className={styles.title}>{title}</p>
+            <Link href={`/products/${product._id}`}>
+                <div className={styles.image}>
+                    <Image
+                        src={urlImages[0]}
+                        alt="product image"
+                        width={182}
+                        height={126}
+                    />
+                </div>
+                <p className={styles.title}>{title}</p>
+            </Link>
             <div className={styles.product__footer}>
                 <div className={styles.product__footer_prices}>
                     <p className={styles.price}>{formatCurrency(price)}</p>

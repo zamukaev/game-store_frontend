@@ -31,6 +31,7 @@ import Modal from "./modal/Modal";
 import Portal from "./portal/Portal";
 import GoBackButton from "./goBackButton/GoBackButton";
 import ButtonLoader from "./buttonLoader/ButtonLoader";
+import CharacteristicItem from "./characteristicItem/CharacteristicItem";
 
 export {
     AppLink,
@@ -41,6 +42,7 @@ export {
     InputPrice,
     LinkItem,
     NavItem,
+    CharacteristicItem,
     Notification,
     ProductCard,
     ProductCardLarge,
