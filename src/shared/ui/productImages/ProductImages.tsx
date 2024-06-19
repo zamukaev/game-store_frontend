@@ -39,7 +39,7 @@ const ProductImages: FC<ProductImagesProps> = ({ images }) => {
             <div className={styles.slider}>
                 <Slider {...settings}>
                     {images.map((item) => (
-                        <div className={styles.slider__item}>
+                        <div className={styles.slider__item} key={item}>
                             <Image
                                 key={item}
                                 src={item}

@@ -1,3 +1,4 @@
+/* stylelint-disable length-zero-no-unit */
 .container {
     margin-top: 60px;
 }
@@ -17,7 +18,7 @@
         cursor: pointer;
         padding: 5px;
         width: max-content;
-        box-shadow: 0px 0px 17px -9px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 17px -9px rgb(0 0 0 / 75%);
         border-radius: 10px;
     }
 

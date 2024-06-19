@@ -10,13 +10,14 @@ import { CharacteristicItem, Headline, HeadlineSize } from "@/shared/ui";
 import ProductImages from "@/shared/ui/productImages/ProductImages";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
 import ProductReviewItem from "@/shared/ui/productReviewItem/ProductReviewItem";
-import ProductLoader from "./Product.loader";
 
 import useFavoritesStore from "@/widgets/favorites/model/favorites-store";
 
 import { ProductActions } from "@/features/productActions";
 
 import { getProduct } from "../api";
+
+import ProductLoader from "./Product.loader";
 
 import styles from "./Product.module.scss";
 
@@ -80,7 +81,7 @@ const Product: FC<ProductProps> = ({ id }) => {
             advantages: "Отлично работает",
             disadvantages: "Не обнаружил",
             comment:
-                "Топовая мамка которую я нашел в своем магазине на ddr5, MSI как всегда радуют своими дизайнерскими ходами, куча слотов под накопители М2, хорошее охлаждение. В комплекте идет фирменная фшлека MSI 16gb с драйверами на мат плату. Товаром доволен, дальше будем смотреть.",
+                "Топовая мамка которую я нашел в своем магазиномплекте идет фирменная фшлека MSI 16gb с драйверами на мат плату. Товаром доволен, дальше будем смотреть.",
         },
         {
             user: "Юрий Трифанов",

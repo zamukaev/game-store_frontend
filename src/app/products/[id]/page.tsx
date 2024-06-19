@@ -1,5 +1,6 @@
-import { Product } from "@/widgets/product";
 import React, { FC } from "react";
+
+import { Product } from "@/widgets/product";
 
 interface ProductPageParams {
     params: {
