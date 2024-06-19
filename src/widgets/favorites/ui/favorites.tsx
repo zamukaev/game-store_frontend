@@ -2,16 +2,19 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { AppLink, Headline, HeadlineSize, ProductCard } from "@/shared/ui";
+import { AppLink, GoBackButton, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
-import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
 import { Product } from "@/shared/types/product";
+
+import { pluralize } from "@/utils/string/pularize";
 
 import { fetchFavoriteProducts } from "../api";
 
 import useFavoritesStore from "../model/favorites-store";
+
+import { FavoriteEmpty } from "./FavoriteEmpty/FavoriteEmpty";
 
 import styles from "./styles.module.scss";
 
@@ -30,35 +33,13 @@ const FavoritesWidget = () => {
         },
     });
 
-    function pluralize(
-        count: number,
-        singularForm: string,
-        pluralForm: string,
-        secondPluralForm: string
-    ): string {
-        if (count % 10 === 1 && count % 100 !== 11) {
-            return `${count} ${singularForm}`;
-        } else if (
-            count % 10 >= 2 &&
-            count % 10 <= 4 &&
-            (count % 100 < 10 || count % 100 >= 20)
-        ) {
-            return `${count} ${pluralForm}`;
-        } else {
-            return `${count} ${secondPluralForm}`;
-        }
-    }
-
     return (
         <div>
-            <AppLink className={styles.link} href="/">
-                <div className={styles.block__return_back_button}>
-                    <ArrowPrevGreyIcon />
-                    <p className={styles.block__return_back}>
-                        Вернуться к покупкам
-                    </p>
-                </div>
-            </AppLink>
+            <GoBackButton
+                className={styles.link}
+                href="/"
+                text="Вернуться к покупкам"
+            />
 
             <div className={styles.block__display_flex}>
                 <h1 className={styles.block__favorite_section}>Избранное</h1>
@@ -123,29 +104,7 @@ const FavoritesWidget = () => {
                             )
                         ) : (
                             <>
-                                <div className={styles.block__no_goods}>
-                                    <FavoritesIcon
-                                        fill={"var(--color-orange)"}
-                                        width={35}
-                                        height={35}
-                                    />
-                                    <Headline
-                                        Size={HeadlineSize.M}
-                                        className={styles.title}
-                                    >
-                                        Вы пока не добавляли товары в избранное
-                                    </Headline>
-                                    <button>
-                                        <AppLink
-                                            href="/"
-                                            className={
-                                                styles.block__return_back_link
-                                            }
-                                        >
-                                            Перейти на главную
-                                        </AppLink>
-                                    </button>
-                                </div>
+                                <FavoriteEmpty />
                             </>
                         )}
                     </div>

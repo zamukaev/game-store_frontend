@@ -1,28 +1,24 @@
 "use client";
 
-import React, { ChangeEvent, FC, FormEvent, useState } from "react";
+import React, { ChangeEvent, FC } from "react";
 
 import SearchIcon from "@/shared/icons/searchIcon/SearchIcon";
 
 import styles from "./styles.module.scss";
 
-interface SearchInputProps {
-    onSearch: (query: string) => void;
+type SearchInputProps = {
     placeholder: string;
-}
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+    handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    searchQuery: string;
+};
 
-const SearchInput: FC<SearchInputProps> = ({ onSearch, placeholder }) => {
-    const [searchQuery, setSearchQuery] = useState<string>("");
-
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(event.target.value);
-    };
-
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        onSearch(searchQuery);
-    };
-
+const SearchInput: FC<SearchInputProps> = ({
+    placeholder,
+    handleSubmit,
+    handleInputChange,
+    searchQuery,
+}) => {
     return (
         <form
             onSubmit={handleSubmit}
