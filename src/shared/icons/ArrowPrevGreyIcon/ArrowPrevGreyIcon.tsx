@@ -14,7 +14,7 @@ export const ArrowPrevGreyIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
         >
             <path
                 d="M15 7L10 12L15 17"
-
+                stroke="var(--color-gray-dark)"
                 strokeWidth="1.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"

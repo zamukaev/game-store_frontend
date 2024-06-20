@@ -9,13 +9,13 @@ const CartEmpty = ({ className }: { className: string }) => {
     return (
         <div className={cls}>
             <CartIcon
-                width={40}
-                height={40}
+                width={35}
+                height={35}
                 className={styles.icon}
                 fill="#FF6B00"
             />
             <Headline className={styles.title} Size={HeadlineSize.M}>
-                Вы пока не добавляли товары в Корзину
+                Вы пока не добавляли товары в корзину
             </Headline>
             <AppLink
                 className={styles.back_btn}

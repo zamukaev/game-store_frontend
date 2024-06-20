@@ -1,4 +1,5 @@
 "use client";
+
 import NextNProgress from "nextjs-progressbar";
 
 import { Categories } from "@/features/categories";

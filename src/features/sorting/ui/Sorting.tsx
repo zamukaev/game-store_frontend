@@ -10,6 +10,7 @@ export interface OptionsType {
     option: string;
     value: string;
 }
+
 export const options: OptionsType[] = [
     { id: "12d4", value: "popular", option: "Сначала популярные" },
     { id: "df355", value: "price_asc", option: "Сначала дешевые" },

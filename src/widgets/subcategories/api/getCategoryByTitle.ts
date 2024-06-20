@@ -8,7 +8,6 @@ export const getCategoryByTitle = async (
         const response = await api.get<Category>(`/category/${title}`);
         return response.data;
     } catch (error) {
-        console.error("Ошибка при получении Категории:", error);
         return undefined;
     }
 };

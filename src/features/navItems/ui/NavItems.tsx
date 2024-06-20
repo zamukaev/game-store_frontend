@@ -9,10 +9,10 @@ interface NavItemsProps {
 }
 
 const NavItems: FC<NavItemsProps> = (props) => {
-    const { showModalHandler } = props;
+    // const { showModalHandler } = props;
     return (
         <div className={styles.container}>
-            <NavItem kind="login" text="Войти" onClick={showModalHandler} />
+            {/* <NavItem kind="login" text="Войти" onClick={showModalHandler} /> */}
             <NavItem kind="favorites" text="Избранное" href="/favorites" />
             <NavItem kind="cart" text="Корзина" href="/cart" />
         </div>

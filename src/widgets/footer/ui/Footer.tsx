@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 
-import { Headline, HeadlineSize, Kind, LinkItem } from "@/shared/ui";
+import { AppLink, Headline, HeadlineSize, Kind, LinkItem } from "@/shared/ui";
 
 import styles from "./style.module.scss";
 
@@ -39,9 +39,9 @@ const Footer: FC = () => {
                     <Headline className={styles.title} Size={HeadlineSize.L}>
                         Навигация
                     </Headline>
-                    <p>Все категории</p>
-                    <p>Акции</p>
-                    <p>Хиты</p>
+                    <AppLink href="/catalog">Все категории</AppLink>
+                    <AppLink href="/">Акции</AppLink>
+                    <AppLink href="/">Хиты</AppLink>
                 </div>
                 <div className={styles.footer__nav_items}>
                     <Headline className={styles.title} Size={HeadlineSize.L}>
