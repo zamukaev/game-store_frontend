@@ -8,6 +8,8 @@ import { getDiscounts, getHits } from "../api";
 import styles from "./styles.module.scss";
 
 const Products = () => {
+    const [isMounted, setIsMounted] = React.useState(false);
+
     const {
         data: hits,
         error: hitsError,
@@ -20,19 +22,30 @@ const Products = () => {
         isLoading: isDiscountsLoading,
     } = useQuery({ queryKey: ["discounts"], queryFn: getDiscounts });
 
+    React.useEffect(() => {
+        setIsMounted(true);
+        return () => {
+            setIsMounted(false);
+        };
+    }, []);
+
     return (
-        <div className={styles.products}>
-            <SliderBlock
-                title="Хиты продаж"
-                items={hits ?? []}
-                loading={isHitsLoading || Boolean(hitsError)}
-            />
-            <SliderBlock
-                title="Акции"
-                items={discounts ?? []}
-                loading={isDiscountsLoading || Boolean(discountsError)}
-            />
-        </div>
+        <>
+            {isMounted ? (
+                <div className={styles.products}>
+                    <SliderBlock
+                        title="Хиты продаж"
+                        items={hits ?? []}
+                        loading={isHitsLoading || Boolean(hitsError)}
+                    />
+                    <SliderBlock
+                        title="Акции"
+                        items={discounts ?? []}
+                        loading={isDiscountsLoading || Boolean(discountsError)}
+                    />
+                </div>
+            ) : null}
+        </>
     );
 };
 
