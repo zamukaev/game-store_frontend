@@ -66,6 +66,10 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
 
     useEffect(() => {
         setIsProductAddedToCart(cartIds?.includes(id));
+
+        return () => {
+            clearTimeout(timerRef.current);
+        };
     }, [cartIds, id]);
 
     return (

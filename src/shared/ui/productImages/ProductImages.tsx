@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import Image from "next/image";
 import Slider from "react-slick";
@@ -24,6 +24,10 @@ const settings = {
 
 const ProductImages: FC<ProductImagesProps> = ({ images }) => {
     const [mainImage, setMainImage] = useState(images[0]);
+
+    useEffect(() => {
+        setMainImage(images[0]);
+    }, [images]);
 
     return (
         <div>
