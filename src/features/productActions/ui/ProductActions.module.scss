@@ -1,0 +1,44 @@
+.content {
+    display: flex;
+    align-items: start;
+    gap: 200px;
+
+    &__info {
+        margin-top: 55px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        &_scoreCount {
+            font-size: 16px;
+            color: var(--color-gray);
+        }
+
+        &_addReview {
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 16px;
+            color: var(--color-orange);
+        }
+    }
+
+    &__rating {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 20px;
+
+        & p {
+            margin-bottom: 3px;
+        }
+    }
+
+    &__price {
+        &_aviable {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    }
+}

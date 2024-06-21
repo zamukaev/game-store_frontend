@@ -1,0 +1,30 @@
+.mainImage {
+    object-fit: contain;
+    margin-left: 60px;
+}
+
+.sliderImage {
+    object-fit: contain;
+    padding: 5px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.9;
+        border-bottom: 3px solid var(--color-orange-extra-light);
+    }
+}
+
+.slider {
+    width: 500px;
+    margin-top: -20px;
+    margin-left: 50px;
+
+    &__item {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.active {
+    border-bottom: 3px solid var(--color-orange);
+}

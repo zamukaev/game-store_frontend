@@ -1,6 +1,7 @@
 "use client";
 import React, { FC, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Product } from "@/shared/types/product";
 import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
@@ -47,16 +48,21 @@ const ProductCardLarge: FC<ProductCardLargeProps> = (props) => {
                     onCheckHandler={onCheckHandler}
                     value={_id}
                 />
-                <div className={styles.image}>
+                <Link
+                    href={`/products/${product._id}`}
+                    className={styles.image}
+                >
                     <Image
                         src={urlImages[0]}
                         alt="product image"
                         width={162}
                         height={106}
                     />
-                </div>
+                </Link>
                 <div className={styles.info}>
-                    <p className={styles.title}>{title}</p>
+                    <Link href={`/products/${product._id}`}>
+                        <p className={styles.title}>{title}</p>
+                    </Link>
                     <Counter
                         decrement={decrement}
                         increment={increment}
