@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import SliderBlock from "@/shared/ui/slider/Slider";
@@ -22,7 +22,7 @@ const Products = () => {
         isLoading: isDiscountsLoading,
     } = useQuery({ queryKey: ["discounts"], queryFn: getDiscounts });
 
-    React.useEffect(() => {
+    useEffect(() => {
         setIsMounted(true);
         return () => {
             setIsMounted(false);
