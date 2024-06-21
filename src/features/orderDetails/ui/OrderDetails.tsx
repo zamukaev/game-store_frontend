@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Headline, Button, HeadlineSize } from "@/shared/ui";
 
 import { formatCurrency } from "@/utils/string/formatCurrency";
-import formatProductItem from "@/utils/string/formatProductItem";
+import { pluralize } from "@/utils/string/pularize";
 
 import styles from "./styles.module.scss";
 
@@ -25,8 +25,12 @@ const OrderDetails: FC<OrderDetailsProps> = (props) => {
                         <div className={styles.order_items}>
                             <span className={styles.total}>Итого:</span>
                             <p className={styles.items}>
-                                {totalSelectedItems}{" "}
-                                {formatProductItem(totalSelectedItems, "товар")}
+                                {pluralize(
+                                    totalSelectedItems,
+                                    "товар",
+                                    "товара",
+                                    "товаров"
+                                )}
                             </p>
                         </div>
                         <p className={styles.order_price}>
