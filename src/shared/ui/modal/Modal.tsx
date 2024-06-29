@@ -59,6 +59,10 @@ const Modal: FC<ModalProps> = (props) => {
             timerRef.current = setTimeout(() => {
                 setIsOpening(true);
             }, ANIMATION_DELAY);
+        } else {
+            timerRef.current = setTimeout(() => {
+                setIsOpening(false);
+            }, ANIMATION_DELAY);
         }
     }, [isOpen]);
 
