@@ -3,27 +3,46 @@ import React, { useState } from "react";
 import useRatingStore from "@/features/productActions/model/rating-store";
 
 import UserInput from "../userInput/UserInput";
-
 import RadioButton from "../radioButton/RadioButton";
-
-import feedbackStore from "./model/feedback-store";
+import Headline from "../headline/Headline";
 
 import styles from "./styles.module.scss";
 
 export const SecondFeedback = () => {
-    const { currentStage, setCurrentStage } = useRatingStore();
-    const { feedback, setFeedback } = feedbackStore();
+    const {
+        rating,
+        currentStage,
+        setCurrentStage,
+        feedback,
+        setFeedback,
+        experience,
+        setExperienceCategory,
+    } = useRatingStore();
+
+    const summaryInformation = {
+        rating,
+        feedback,
+        experience,
+    };
+
+    React.useEffect(() => {
+        console.log(summaryInformation);
+    }, [feedback, experience, rating]);
+
     const [errors, setErrors] = useState<string>("");
 
     const goToNextStage = (e: React.FormEvent) => {
         e.preventDefault();
         if (!feedback.virtues && !feedback.defects && !feedback.commentary) {
             setErrors("Пожалуйста, заполните хотя бы одно поле");
-            alert("Пожалуйста, заполните хотя бы одно поле");
             return;
         }
         setErrors("");
         setCurrentStage(currentStage + 1);
+    };
+
+    const handleExperienceChange = (value: string) => {
+        setExperienceCategory(value);
     };
 
     return (
@@ -52,8 +71,11 @@ export const SecondFeedback = () => {
                 <div className={styles.block__flex}>
                     <div className={styles.line_choice}>
                         <RadioButton
-                            id="my-radio-button-1"
-                            value="my-value-1"
+                            id="my-radio1"
+                            name="experience"
+                            value="my-radio-button-month"
+                            checked={experience === "my-radio-button-month"}
+                            changeHandler={handleExperienceChange}
                             width={10}
                             height={10}
                         />
@@ -61,8 +83,11 @@ export const SecondFeedback = () => {
                     </div>
                     <div className={styles.line_choice}>
                         <RadioButton
-                            id="my-radio-button-2"
-                            value="my-value-2"
+                            id="my-radio2"
+                            name="experience"
+                            value="my-radio-button-months"
+                            checked={experience === "my-radio-button-months"}
+                            changeHandler={handleExperienceChange}
                             width={10}
                             height={10}
                         />
@@ -72,8 +97,11 @@ export const SecondFeedback = () => {
                     </div>
                     <div className={styles.line_choice}>
                         <RadioButton
-                            id="my-radio-button-3"
-                            value="my-value-3"
+                            id="my-radio3"
+                            name="experience"
+                            value="my-radio-button-year"
+                            checked={experience === "my-radio-button-year"}
+                            changeHandler={handleExperienceChange}
                             width={10}
                             height={10}
                         />
@@ -86,6 +114,9 @@ export const SecondFeedback = () => {
                 >
                     Отправить
                 </button>
+                {errors !== "" ? (
+                    <Headline className={styles.error_info}>{errors}</Headline>
+                ) : null}
             </form>
         </div>
     );

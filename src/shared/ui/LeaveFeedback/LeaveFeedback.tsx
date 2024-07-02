@@ -23,10 +23,6 @@ export default function LeaveFeedback() {
         setRating(newRating);
     };
 
-    React.useEffect(() => {
-        console.log(rating);
-    }, [rating]);
-
     const { data: product } = useQuery<ProductType | undefined>({
         queryKey: ["product"],
         queryFn: () => getProduct(id),

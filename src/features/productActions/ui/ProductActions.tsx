@@ -14,7 +14,6 @@ import {
     Headline,
     HeadlineSize,
     Modal,
-    Rating,
     Scores,
 } from "@/shared/ui";
 import AviableIcon from "@/shared/icons/aviableIcon/AviableIcon";
@@ -40,7 +39,7 @@ interface ProductActionsProps {
 }
 
 const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
-    const { currentStage } = useRatingStore();
+    const { currentStage, setCurrentStage, setRating } = useRatingStore();
 
     const [isProductAddedToCart, setIsProductAddedToCart] = useState<
         boolean | undefined
@@ -49,10 +48,6 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [onClose, setOnClose] = useState<boolean>(false);
     const [ratingIsOpen, setRatingIsOpen] = useState<boolean>(false);
-
-    const closeHandler = () => {
-        setOnClose(!onClose);
-    };
 
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
 
@@ -65,9 +60,7 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
             case 3:
                 return <SecondFeedback />;
             case 4:
-                return (
-                    <ThanksForFeedback closeHandler={() => setIsOpen(false)} />
-                );
+                return <ThanksForFeedback />;
             default:
                 return null;
         }
@@ -108,6 +101,27 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
         };
     }, [cartIds, id]);
 
+    useEffect(() => {
+        if (!isOpen) {
+            setCurrentStage(1);
+            setRating(0);
+        }
+    }, [isOpen]);
+
+    useEffect(() => {
+        let timer: ReturnType<typeof setTimeout>;
+
+        if (currentStage === 4) {
+            timer = setTimeout(() => {
+                setIsOpen(false);
+            }, 2000);
+        }
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [currentStage]);
+
     return (
         <div className={styles.content}>
             <div className={styles.content__info}>
@@ -121,11 +135,8 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
                     >
                         Оставить отзыв
                     </p>
-                    <Modal
-                        className={styles.modal}
-                        isOpen={isOpen}
-                        onClose={closeHandler}
-                    >
+
+                    <Modal className={styles.modal} isOpen={isOpen}>
                         {determineRankingStage()}
                     </Modal>
                 </div>

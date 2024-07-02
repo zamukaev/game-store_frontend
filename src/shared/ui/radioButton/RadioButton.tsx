@@ -11,11 +11,11 @@ interface RadioButtonProps extends InputHTMLAttributes<HTMLInputElement> {
     className?: string;
     id: string;
     text?: string;
-    name?: string;
+    name: string;
     value: string;
     checked?: boolean;
     theme?: RadioTheme;
-    changeHandler?: (value: string) => void;
+    changeHandler: (value: string) => void;
 }
 
 const RadioButton: FC<RadioButtonProps> = (props) => {
@@ -27,25 +27,25 @@ const RadioButton: FC<RadioButtonProps> = (props) => {
         theme = RadioTheme.PRIMARY,
         className,
         changeHandler,
+        checked,
         ...otherProps
     } = props;
     const cls = `${styles.radio} ${styles[theme]} ${className}`;
 
-    const optionChangeHandle = (value: string) => {
-        if (changeHandler) {
-            changeHandler(value);
-        }
+    const optionChangeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
+        changeHandler(event.target.value);
     };
 
     return (
         <label data-testid="radio" className={cls} htmlFor={id}>
             <input
                 className={styles.input}
-                onChange={() => optionChangeHandle(value)}
+                onChange={optionChangeHandle}
                 type="radio"
                 id={id}
                 name={name}
                 value={value}
+                checked={checked}
                 {...otherProps}
             />
             <span data-testid="title" className={`${styles.item}`}>

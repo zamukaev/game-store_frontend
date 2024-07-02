@@ -37,8 +37,6 @@ const UserInput: FC<UserInputProps> = ({ kind, value, onChange }) => {
     const [openedEye, setOpenedEye] = useState<boolean>(false);
     const [disabledEdit, setDisabledEdit] = useState<boolean>(true);
 
-    const { feedback } = feedbackStore();
-
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
         setSearchQuery(newValue);
