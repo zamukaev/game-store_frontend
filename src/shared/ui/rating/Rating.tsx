@@ -24,6 +24,14 @@ interface RatingProps
 
 const Rating: FC<RatingProps> = (props): JSX.Element => {
     const { rating, isEditable, setRating } = props;
+    const [currentRating, setCurrentRating] = useState<number>(rating);
+
+    const handleClick = (newRating: number) => {
+        if (isEditable && setRating) {
+            setCurrentRating(newRating);
+            setRating(newRating);
+        }
+    };
 
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
         new Array(5).fill(<></>)
@@ -69,8 +77,17 @@ const Rating: FC<RatingProps> = (props): JSX.Element => {
 
     return (
         <ul role="list" className={styles.rating}>
-            {ratingArray.map((r, i) => (
-                <li key={i}>{r}</li>
+            {Array.from({ length: 5 }, (_, i) => (
+                <li key={i}>
+                    <span
+                        className={`${styles.star} ${
+                            i < currentRating ? styles.filled : ""
+                        }`}
+                        onClick={() => handleClick(i + 1)}
+                    >
+                        <StarIcon />
+                    </span>
+                </li>
             ))}
         </ul>
     );

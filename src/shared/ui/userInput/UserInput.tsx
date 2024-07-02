@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { PatternFormat } from "react-number-format";
 
 import { Tooltip } from "react-tooltip";
@@ -10,24 +10,37 @@ import EyeOpenIcon from "@/shared/icons/eyeOpen/EyeOpen";
 import EyeClosedIcon from "@/shared/icons/eyeClosed/EyeClosed";
 import EditIcon from "@/shared/icons/editIcon/EditIcon";
 
+import feedbackStore from "../secondFeedback/model/feedback-store";
+
 import styles from "./styles.module.scss";
 
 interface UserInputProps {
-    kind: "number" | "password" | "username";
+    kind:
+        | "number"
+        | "password"
+        | "username"
+        | "virtues"
+        | "defects"
+        | "commentary";
+    value: string;
+    onChange: (value: string) => void;
 }
 
 // убрать, когда появится стор
 const username = "Dmitry";
 
-const UserInput: FC<UserInputProps> = ({ kind }) => {
+const UserInput: FC<UserInputProps> = ({ kind, value, onChange }) => {
     const [searchQuery, setSearchQuery] = useState<string>(
         kind === "username" && username ? username : ""
     );
+    const [isFilled, setIsFilled] = useState<boolean>(false);
     const [openedEye, setOpenedEye] = useState<boolean>(false);
     const [disabledEdit, setDisabledEdit] = useState<boolean>(true);
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(event.target.value);
+        const newValue = event.target.value;
+        setSearchQuery(newValue);
+        onChange(newValue);
     };
 
     const toggleEye = () => {
@@ -72,6 +85,12 @@ const UserInput: FC<UserInputProps> = ({ kind }) => {
             return "Пароль";
         case "username":
             return "Имя";
+        case "virtues":
+            return "Достоинства";
+        case "defects":
+            return "Недостатки";
+        case "commentary":
+            return "Комментарий";
         default:
             null;
         }
@@ -93,6 +112,10 @@ const UserInput: FC<UserInputProps> = ({ kind }) => {
             null;
         }
     };
+
+    useEffect(() => {
+        setIsFilled(!!searchQuery);
+    }, [searchQuery]);
 
     return (
         <div>

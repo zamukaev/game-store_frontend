@@ -1,0 +1,29 @@
+.container {
+    text-align: center;
+    padding: 1em;
+}
+
+.rating {
+    width: 382px;
+    height: 44px;
+    color: var(--color-orange);
+    background: white;
+    border: 1px solid var(--color-orange);
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.thanks_for_rating {
+    margin-bottom: 20px;
+}
+
+.rating_star {
+    margin-bottom: 40px;
+}
+
+.question_rating {
+    margin-top: 30px;
+    color: var(--color-gray);
+    margin-bottom: 10px;
+}
