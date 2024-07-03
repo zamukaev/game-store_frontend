@@ -7,6 +7,8 @@ import useRatingStore from "@/features/productActions/model/rating-store";
 
 import { getProduct } from "@/widgets/product/api";
 
+import { Product as ProductType } from "@/shared/types/product";
+
 import Headline from "../headline/Headline";
 
 import Rating from "../rating/Rating";
@@ -25,7 +27,6 @@ export default function LeaveFeedback() {
 
     const { data: product } = useQuery<ProductType | undefined>({
         queryKey: ["product"],
-        queryFn: () => getProduct(id),
     });
 
     const goToNextStage = () => {
@@ -35,7 +36,7 @@ export default function LeaveFeedback() {
     return (
         <div className={styles.container}>
             <Image
-                src={product?.urlImages[0]}
+                src={product?.urlImages[0] ?? ""}
                 alt="Product Image"
                 width={120}
                 height={120}

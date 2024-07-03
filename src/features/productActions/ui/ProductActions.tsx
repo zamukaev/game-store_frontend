@@ -46,23 +46,21 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
     >(false);
     const [isLoadingBtn, setIsLoadingBtn] = useState<boolean>(false);
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [onClose, setOnClose] = useState<boolean>(false);
-    const [ratingIsOpen, setRatingIsOpen] = useState<boolean>(false);
 
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
 
     const determineRankingStage = () => {
         switch (currentStage) {
-        case 1:
-            return <LeaveFeedback />;
-        case 2:
-            return <ThanksForRating />;
-        case 3:
-            return <SecondFeedback />;
-        case 4:
-            return <ThanksForFeedback />;
-        default:
-            return null;
+            case 1:
+                return <LeaveFeedback />;
+            case 2:
+                return <ThanksForRating />;
+            case 3:
+                return <SecondFeedback />;
+            case 4:
+                return <ThanksForFeedback />;
+            default:
+                return null;
         }
     };
 

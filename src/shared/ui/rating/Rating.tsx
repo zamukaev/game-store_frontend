@@ -12,14 +12,14 @@ import StarIcon from "@/shared/icons/starIcon/StarIcon";
 
 import styles from "./styles.module.scss";
 
-interface RatingProps
-    extends DetailedHTMLProps<
-        HTMLAttributes<HTMLUListElement>,
-        HTMLUListElement
-    > {
-    isEditable?: boolean;
+interface RatingProps {
     rating: number;
-    setRating?: (rating: number) => void;
+    onChange: (newRating: number) => void;
+    isEditable?: boolean;
+    widthIcon?: string;
+    heightIcon?: string;
+    className?: string;
+    setRating?: (newRating: number) => void;
 }
 
 const Rating: FC<RatingProps> = (props): JSX.Element => {
