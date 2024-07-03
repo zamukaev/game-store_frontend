@@ -2,9 +2,13 @@ import React from "react";
 import { fireEvent, render } from "@testing-library/react";
 
 import Rating from "./Rating";
+
 describe("Rating Component", () => {
     test("renders the component with the correct rating", () => {
-        const { container } = render(<Rating rating={3} />);
+        const rating = 3;
+        const { container } = render(
+            <Rating rating={rating} onChange={() => {}} />
+        );
         const stars = container.querySelectorAll(".star");
 
         expect(stars.length).toBe(5);
@@ -17,8 +21,15 @@ describe("Rating Component", () => {
 
     test("allows editing when isEditable is true", () => {
         const setRatingMock = jest.fn();
+        const rating = 3;
+        const isEditable = true;
         const { container } = render(
-            <Rating isEditable={true} rating={3} setRating={setRatingMock} />
+            <Rating
+                isEditable={isEditable}
+                rating={rating}
+                setRating={setRatingMock}
+                onChange={() => {}}
+            />
         );
         const stars = container.querySelectorAll(".star");
 
@@ -35,8 +46,15 @@ describe("Rating Component", () => {
 
     test("does not allow editing when isEditable is false", () => {
         const setRatingMock = jest.fn();
+        const rating = 3;
+        const isEditable = false;
         const { container } = render(
-            <Rating isEditable={false} rating={3} setRating={setRatingMock} />
+            <Rating
+                isEditable={isEditable}
+                rating={rating}
+                setRating={setRatingMock}
+                onChange={() => {}}
+            />
         );
         const stars = container.querySelectorAll(".star");
 
