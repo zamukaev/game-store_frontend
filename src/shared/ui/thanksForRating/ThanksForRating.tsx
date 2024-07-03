@@ -9,7 +9,8 @@ import Rating from "../rating/Rating";
 import styles from "./stylees.module.scss";
 
 export default function ThanksForRating() {
-    const { rating, currentStage, setCurrentStage } = useRatingStore();
+    const { rating, currentStage, setCurrentStage, setRating } =
+        useRatingStore();
 
     const [isClosing, setIsClosing] = useState(true);
 
@@ -26,7 +27,7 @@ export default function ThanksForRating() {
             <Headline className={styles.thanks_for_rating}>
                 Спасибо за оценку!
             </Headline>
-            <Rating rating={rating} />
+            <Rating rating={rating} onChange={setRating} />
             <p className={styles.question_rating}>
                 Поделитесь своими впечатлениямио товаре с другими покупателями
             </p>
