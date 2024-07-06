@@ -162,3 +162,7 @@ textarea {
         content: "" !important;
     }
 }
+
+*:focus {
+    outline: none;
+}

@@ -30,15 +30,15 @@ const Categories: FC = () => {
                 Категории
             </Headline>
             <ul className={styles.row}>
+                <li className={styles.item}>
+                    <AppLink className={styles.link} href="/catalog/">
+                        Все категории
+                    </AppLink>
+                </li>
                 {!cat ? (
                     <CategoriesLoader data-testid="categories-loader" />
                 ) : (
                     <>
-                        <li className={styles.item}>
-                            <AppLink className={styles.link} href="/catalog/">
-                                Все категории
-                            </AppLink>
-                        </li>
                         {cat.map((cat: Category) => (
                             <li key={cat._id} className={styles.item}>
                                 <AppLink

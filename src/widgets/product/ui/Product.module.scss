@@ -1,0 +1,78 @@
+/* stylelint-disable length-zero-no-unit */
+.container {
+    margin-top: 60px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    &__back {
+        display: flex;
+        cursor: pointer;
+        padding: 5px;
+        width: max-content;
+        box-shadow: 0px 0px 17px -9px rgb(0 0 0 / 75%);
+        border-radius: 10px;
+    }
+
+    &__favorite {
+        transition: all ease 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            transition: all ease 0.3s;
+            fill: var(--color-orange-light);
+        }
+    }
+}
+
+.content {
+    display: flex;
+    align-items: start;
+    gap: 200px;
+    margin-bottom: 40px;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 17px;
+    width: 90%;
+    line-height: 1.2;
+    margin-bottom: 60px;
+}
+
+.reviews {
+    margin-top: 80px;
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding-bottom: 20px;
+    }
+}
+
+.characteristic {
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}

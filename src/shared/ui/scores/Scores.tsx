@@ -15,6 +15,8 @@ interface RatingProps
     isEditable?: boolean;
     rating: number;
     setRating?: (rating: number) => void;
+    widthIcon?: string;
+    heightIcon?: string;
 }
 
 const Scores: FC<RatingProps> = (props): JSX.Element => {
@@ -22,7 +24,12 @@ const Scores: FC<RatingProps> = (props): JSX.Element => {
         new Array(5).fill(<></>)
     );
 
-    const { rating, className } = props;
+    const {
+        rating,
+        className,
+        widthIcon = "22px",
+        heightIcon = "22px",
+    } = props;
     const cls = `${styles.scores} ${className}`;
 
     return (
@@ -34,7 +41,7 @@ const Scores: FC<RatingProps> = (props): JSX.Element => {
                     }`}
                     key={i}
                 >
-                    <SmallStarIcon />
+                    <SmallStarIcon width={widthIcon} height={heightIcon} />
                 </li>
             ))}
         </ul>

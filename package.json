@@ -27,6 +27,7 @@
         "react": "^18",
         "react-content-loader": "^6.2.1",
         "react-dom": "^18",
+        "react-medium-image-zoom": "^5.2.4",
         "react-number-format": "^5.3.1",
         "react-slick": "^0.29.0",
         "react-slider": "^2.0.6",
