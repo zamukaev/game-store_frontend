@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import useRatingStore from "@/features/productActions/model/rating-store";
 
@@ -9,6 +9,8 @@ import Headline from "../headline/Headline";
 import styles from "./styles.module.scss";
 
 export const SecondFeedback = () => {
+    const [errors, setErrors] = useState<string>("");
+
     const {
         rating,
         currentStage,
@@ -19,18 +21,6 @@ export const SecondFeedback = () => {
         setExperienceCategory,
     } = useRatingStore();
 
-    const summaryInformation = {
-        rating,
-        feedback,
-        experience,
-    };
-
-    React.useEffect(() => {
-        console.log(summaryInformation);
-    }, [feedback, experience, rating]);
-
-    const [errors, setErrors] = useState<string>("");
-
     const goToNextStage = (e: React.FormEvent) => {
         e.preventDefault();
         if (!feedback.virtues && !feedback.defects && !feedback.commentary) {
@@ -40,6 +30,10 @@ export const SecondFeedback = () => {
         setErrors("");
         setCurrentStage(currentStage + 1);
     };
+
+    console.log(feedback);
+
+    console.log(rating);
 
     const handleExperienceChange = (value: string) => {
         setExperienceCategory(value);
@@ -69,7 +63,12 @@ export const SecondFeedback = () => {
                 />
                 <p className={styles.experience}>Опыт использования</p>
                 <div className={styles.block__flex}>
-                    <div className={styles.line_choice}>
+                    <div
+                        className={styles.line_choice}
+                        onClick={() =>
+                            setExperienceCategory("my-radio-button-month")
+                        }
+                    >
                         <RadioButton
                             id="my-radio1"
                             name="experience"
@@ -81,7 +80,12 @@ export const SecondFeedback = () => {
                         />
                         <p className={styles.detailed_feedback}>Менее месяца</p>
                     </div>
-                    <div className={styles.line_choice}>
+                    <div
+                        className={styles.line_choice}
+                        onClick={() =>
+                            setExperienceCategory("my-radio-button-months")
+                        }
+                    >
                         <RadioButton
                             id="my-radio2"
                             name="experience"
@@ -95,7 +99,12 @@ export const SecondFeedback = () => {
                             Несколько месяцев
                         </p>
                     </div>
-                    <div className={styles.line_choice}>
+                    <div
+                        className={styles.line_choice}
+                        onClick={() =>
+                            setExperienceCategory("my-radio-button-year")
+                        }
+                    >
                         <RadioButton
                             id="my-radio3"
                             name="experience"

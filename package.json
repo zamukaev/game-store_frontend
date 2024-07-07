@@ -20,6 +20,7 @@
         "@fontsource/inter": "^5.0.18",
         "@storybook/addon-knobs": "^7.0.2",
         "@tanstack/react-query": "^5.17.19",
+        "@testing-library/jest-dom": "^6.4.6",
         "axios": "^1.6.5",
         "eslint-plugin-react-hooks": "^5.0.0-canary-c5b937576-20231219",
         "next": "13.5.6",

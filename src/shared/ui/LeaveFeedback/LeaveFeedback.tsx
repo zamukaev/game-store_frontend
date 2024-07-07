@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-
 import { useQuery } from "@tanstack/react-query";
 
 import useRatingStore from "@/features/productActions/model/rating-store";
@@ -10,7 +9,6 @@ import { getProduct } from "@/widgets/product/api";
 import { Product as ProductType } from "@/shared/types/product";
 
 import Headline from "../headline/Headline";
-
 import Rating from "../rating/Rating";
 
 import styles from "./styles.module.scss";
@@ -18,16 +16,16 @@ import styles from "./styles.module.scss";
 export default function LeaveFeedback() {
     const [onClose, setOnClose] = useState<boolean>(false);
 
+    const { data: product } = useQuery<ProductType | undefined>({
+        queryKey: ["product"],
+    });
+
     const { rating, setRating, currentStage, setCurrentStage } =
         useRatingStore();
 
     const handleRatingChange = (newRating: number) => {
         setRating(newRating);
     };
-
-    const { data: product } = useQuery<ProductType | undefined>({
-        queryKey: ["product"],
-    });
 
     const goToNextStage = () => {
         setCurrentStage(currentStage + 1);
@@ -54,9 +52,11 @@ export default function LeaveFeedback() {
                 isEditable={true}
                 setRating={setRating}
             />
-            <button onClick={goToNextStage} className={styles.rating}>
-                Оценить
-            </button>
+            {rating !== 0 ? (
+                <button onClick={goToNextStage} className={styles.rating}>
+                    Оценить
+                </button>
+            ) : null}
         </div>
     );
 }

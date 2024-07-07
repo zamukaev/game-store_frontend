@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import SliderBlock from "@/shared/ui/slider/Slider";
@@ -8,7 +8,7 @@ import { getDiscounts, getHits } from "../api";
 import styles from "./styles.module.scss";
 
 const Products = () => {
-    const [isMounted, setIsMounted] = React.useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     const {
         data: hits,

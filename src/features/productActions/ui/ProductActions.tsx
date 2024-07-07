@@ -39,7 +39,13 @@ interface ProductActionsProps {
 }
 
 const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
-    const { currentStage, setCurrentStage, setRating } = useRatingStore();
+    const {
+        currentStage,
+        setCurrentStage,
+        setRating,
+        setExperienceCategory,
+        clearFeedback,
+    } = useRatingStore();
 
     const [isProductAddedToCart, setIsProductAddedToCart] = useState<
         boolean | undefined
@@ -48,6 +54,10 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
+
+    const changeIsOpen = () => {
+        setIsOpen(false);
+    };
 
     const determineRankingStage = () => {
         switch (currentStage) {
@@ -103,22 +113,10 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
         if (!isOpen) {
             setCurrentStage(1);
             setRating(0);
+            setExperienceCategory("");
+            clearFeedback();
         }
     }, [isOpen]);
-
-    useEffect(() => {
-        let timer: ReturnType<typeof setTimeout>;
-
-        if (currentStage === 4) {
-            timer = setTimeout(() => {
-                setIsOpen(false);
-            }, 2000);
-        }
-
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [currentStage]);
 
     return (
         <div className={styles.content}>
@@ -133,8 +131,11 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
                     >
                         Оставить отзыв
                     </p>
-
-                    <Modal className={styles.modal} isOpen={isOpen}>
+                    <Modal
+                        className={styles.modal}
+                        isOpen={isOpen}
+                        onClose={changeIsOpen}
+                    >
                         {determineRankingStage()}
                     </Modal>
                 </div>

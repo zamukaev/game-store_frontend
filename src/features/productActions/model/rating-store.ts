@@ -18,6 +18,7 @@ type CombinedStore = RatingState & {
     setFeedback: (key: keyof Feedback, value: any) => void;
     experience: string;
     setExperienceCategory: (category: string) => void;
+    clearFeedback: () => void;
 };
 
 const useRatingStore = create<CombinedStore>((set) => ({
@@ -37,6 +38,9 @@ const useRatingStore = create<CombinedStore>((set) => ({
                 [key]: value,
             },
         })),
+    clearFeedback: () =>
+        set({ feedback: { virtues: "", defects: "", commentary: "" } }),
+
     experience: "",
     setExperienceCategory: (category) => set({ experience: category }),
 }));

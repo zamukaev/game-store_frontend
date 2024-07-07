@@ -3,6 +3,8 @@ import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
 import CloseIcon from "@/shared/icons/closeIcon/CloseIcon";
 
+import useRatingStore from "@/features/productActions/model/rating-store";
+
 import { Portal } from "..";
 
 import styles from "./styles.module.scss";
@@ -18,6 +20,8 @@ export const ANIMATION_DELAY = 200;
 
 const Modal: FC<ModalProps> = (props) => {
     const { className, children, isOpen, onClose } = props;
+
+    const { currentStage } = useRatingStore();
 
     const [isOpening, setIsOpening] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
@@ -76,6 +80,18 @@ const Modal: FC<ModalProps> = (props) => {
         };
     }, [isOpen, onKeyDown]);
 
+    useEffect(() => {
+        if (currentStage === 4) {
+            timerRef.current = setTimeout(() => {
+                closeHandler();
+            }, 2000);
+        }
+
+        return () => {
+            clearTimeout(timerRef.current);
+        };
+    }, [currentStage, isOpen]);
+
     return (
         <Portal selector="body">
             <div className={cls}>
@@ -87,7 +103,10 @@ const Modal: FC<ModalProps> = (props) => {
                             aria-description="close button"
                             className={styles.close}
                         >
-                            <CloseIcon fill="#696969" />
+                            <CloseIcon
+                                fill="#696969"
+                                className={styles.close_icon}
+                            />
                         </span>
                     </div>
                 </div>

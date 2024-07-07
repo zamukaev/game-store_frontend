@@ -1,6 +1,6 @@
 .container {
     text-align: center;
-    padding: 1em;
+    padding: 1.5em;
 }
 
 .rating {
@@ -15,7 +15,10 @@
 }
 
 .thanks_for_rating {
-    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .rating_star {
@@ -23,7 +26,7 @@
 }
 
 .question_rating {
-    margin-top: 30px;
+    margin-top: 40px;
     color: var(--color-gray);
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
