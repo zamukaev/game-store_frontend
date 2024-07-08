@@ -40,7 +40,7 @@ const SliderBlock: FC<SliderBlockProps> = ({ title, items, loading }) => {
                     ))}
                 </div>
             ) : (
-                <Slider {...settings}>
+                <Slider {...settings} className={styles.priority}>
                     {items.map((item) => (
                         <ProductCard key={item._id} product={item} />
                     ))}

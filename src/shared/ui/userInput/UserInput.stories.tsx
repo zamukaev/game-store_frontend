@@ -10,13 +10,31 @@ export default meta;
 type Story = StoryObj<typeof UserInput>;
 
 export const Password: Story = {
-    render: () => <UserInput kind="password" />,
+    render: () => (
+        <UserInput
+            kind="password"
+            value="password"
+            onChange={(value) => console.log(value)}
+        />
+    ),
 };
 
 export const Number: Story = {
-    render: () => <UserInput kind="number" />,
+    render: () => (
+        <UserInput
+            kind="number"
+            value="password"
+            onChange={(value) => console.log(value)}
+        />
+    ),
 };
 
 export const Username: Story = {
-    render: () => <UserInput kind="username" />,
+    render: () => (
+        <UserInput
+            kind="username"
+            value="password"
+            onChange={(value) => console.log(value)}
+        />
+    ),
 };

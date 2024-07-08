@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    padding: 1em;
+}
+
+.rating {
+    width: 382px;
+    height: 44px;
+    color: var(--color-orange);
+    background: white;
+    border: 1px solid var(--color-orange);
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.product_image {
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.product_title {
+    margin-bottom: 40px;
+    color: #434343;
+    font-size: 18px;
+}
+
+.question_about_rating {
+    font-size: 20px;
+    margin-bottom: 15px;
+}

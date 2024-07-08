@@ -11,9 +11,16 @@ type Story = StoryObj<typeof RadioButton>;
 
 export const PrimaryRadio: Story = {
     render: () => (
-        <RadioButton id="1" name="filter" text="hello" value="hello" />
+        <RadioButton
+            id="1"
+            name="filter"
+            text="hello"
+            value="hello"
+            changeHandler={() => {}}
+        />
     ),
 };
+
 export const SecondaryRadio: Story = {
     render: () => (
         <RadioButton
@@ -22,17 +29,7 @@ export const SecondaryRadio: Story = {
             name="filter"
             text="hello"
             value="hello"
-        />
-    ),
-};
-export const CheckedRadio: Story = {
-    render: () => (
-        <RadioButton
-            id="1"
-            name="filter"
-            checked={true}
-            text="hello"
-            value="hello"
+            changeHandler={() => {}}
         />
     ),
 };
