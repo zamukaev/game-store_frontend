@@ -17,11 +17,12 @@ export interface NavItemProps {
     kind: "cart" | "login" | "favorites";
     href?: string;
     onClick?: () => void;
+    classNames?: string;
 }
 
 export const NavItem: React.FC<NavItemProps> = (props) => {
-    const { text, kind, href, onClick } = props;
-    const className = `${styles.navItem}`;
+    const { text, kind, href, onClick, classNames } = props;
+    const className = `${styles.navItem} ${classNames}`;
 
     const getIcon = () => {
         switch (kind) {
@@ -53,6 +54,7 @@ export const NavItem: React.FC<NavItemProps> = (props) => {
                     href={href}
                     theme={AppLinkTheme.DEFAULT}
                     className={className}
+                    onClick={onClick}
                 >
                     {getIcon()}
                     <p className={styles.text}>{text && text}</p>

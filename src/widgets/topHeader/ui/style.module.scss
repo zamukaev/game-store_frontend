@@ -3,3 +3,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media (width <= 1200px) {
+    .container {
+        display: none;
+    }
+}

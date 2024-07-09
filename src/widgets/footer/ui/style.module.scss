@@ -40,3 +40,22 @@
     flex-direction: column;
     gap: 15px;
 }
+
+@media (width <= 1200px) {
+    .footer {
+        padding: 20px 50px 0;
+
+        &__nav {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        &__links {
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+    }
+}
