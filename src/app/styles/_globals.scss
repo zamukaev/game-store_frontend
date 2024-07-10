@@ -166,3 +166,9 @@ textarea {
 *:focus {
     outline: none;
 }
+
+@media (width <= 1200px) {
+    .container {
+        margin: 20px;
+    }
+}

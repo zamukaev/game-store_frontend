@@ -14,6 +14,7 @@ const Logo = () => {
             <h1 className={styles.logo__title}>
                 GAME <br /> STORE
             </h1>
+            <h1 className={styles.logo__title_mobile}>GAME STORE</h1>
         </Link>
     );
 };

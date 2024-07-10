@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 
 import { TopHeader } from "@/widgets/topHeader";
 import { Header } from "@/widgets/header";
+import { HeaderMobile } from "@/widgets/headerMobile";
 import { Footer } from "@/widgets/footer";
 
 import { QueryProvider } from "./_providers/Query-provider";
@@ -32,14 +33,17 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body suppressHydrationWarning={true} className={inter.className}>
-                <section className="container">
-                    <header className="header">
-                        <TopHeader />
-                        <Header />
-                    </header>
-                    <QueryProvider>{children}</QueryProvider>
-                    <Footer />
-                </section>
+                <QueryProvider>
+                    <section className="container">
+                        <header className="header">
+                            <TopHeader />
+                            <Header />
+                            <HeaderMobile />
+                        </header>
+                        {children}
+                        <Footer />
+                    </section>
+                </QueryProvider>
             </body>
         </html>
     );

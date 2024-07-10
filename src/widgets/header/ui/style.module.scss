@@ -4,3 +4,9 @@
     align-items: center;
     margin-top: 20px;
 }
+
+@media (width <= 1200px) {
+    .container {
+        display: none;
+    }
+}
