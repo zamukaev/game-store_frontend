@@ -87,7 +87,6 @@ const Modal: FC<ModalProps> = (props) => {
                         </span>
                     </div>
                 </div>
-                =
             </div>
         </Portal>
     );
