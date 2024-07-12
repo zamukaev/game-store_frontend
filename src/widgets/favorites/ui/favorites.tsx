@@ -2,6 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 
+import { useEffect, useState } from "react";
+
 import { AppLink, GoBackButton, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
@@ -20,6 +22,8 @@ import styles from "./styles.module.scss";
 
 const FavoritesWidget = () => {
     const favorites = useFavoritesStore((state) => state.favorites);
+    const [numCards, setNumCards] = useState(4);
+    const [loading, setLoading] = useState(false);
 
     const { data, isLoading } = useQuery<Product[] | undefined>({
         queryKey: [favorites],
@@ -32,6 +36,29 @@ const FavoritesWidget = () => {
             return Promise.resolve(undefined);
         },
     });
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            if (width < 768) {
+                setNumCards(1);
+            } else if (width < 1024) {
+                setNumCards(2);
+            } else if (width < 1650) {
+                setNumCards(3);
+            } else {
+                setNumCards(4);
+            }
+            setLoading(false);
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     return (
         <div>
@@ -65,13 +92,7 @@ const FavoritesWidget = () => {
                 </p>
             </div>
 
-            {isLoading ? (
-                <div className={styles.loader}>
-                    {Array.from({ length: 4 }).map((_, index) => (
-                        <ProductCardLoader key={index} />
-                    ))}
-                </div>
-            ) : (
+            {!isLoading ? (
                 <div>
                     <div
                         className={`${
@@ -109,9 +130,30 @@ const FavoritesWidget = () => {
                         )}
                     </div>
                 </div>
+            ) : (
+                <div className={styles.loader}>
+                    {!loading && (
+                        <>
+                            {Array.from({ length: numCards }).map(
+                                (_, index) => (
+                                    <ProductCardLoader key={index} />
+                                )
+                            )}
+                        </>
+                    )}
+                </div>
             )}
         </div>
     );
 };
 
 export default FavoritesWidget;
+
+// при загрузке продуктов у меня должны отображаться
+//  скелетоны и при изменении экрана скелетонов должно
+//   быть столько сколько помещяется на одной строке,
+//   то есть в зависимости от экрана должен отображаться
+//    либо 1 либо 2 либо 3 либо 4 скелетона но проблема
+//     в том что есть функция которая должна так делать
+//      но почему то прежде чем показывать нужное количество
+//       скелетонов отображаются почему то 4 всегда вне зависимоти от экрана а только потом появляется нужное количество

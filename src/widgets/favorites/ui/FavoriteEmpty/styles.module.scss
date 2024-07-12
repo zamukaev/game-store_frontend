@@ -4,15 +4,24 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 100%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
+
+    @media (width <= 768px) {
+        font-size: 18px;
+    }
 }
 
 .block__no_goods h1 {
     font-size: 30px;
     margin-top: 15px;
-    white-space: nowrap;
+    white-space: normal;
+    word-wrap: break-word;
+
+    @media (width <= 768px) {
+        font-size: 24px;
+    }
 }
 
 .block__return_back_link {
