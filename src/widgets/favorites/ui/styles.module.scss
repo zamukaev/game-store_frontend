@@ -106,7 +106,7 @@
     font-weight: 500;
 }
 
-@media (max-width: 1200px) {
+@media (width <= 1200px) {
     .block__container {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         margin-left: auto;
@@ -128,7 +128,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .block__container {
         width: 350px;
         margin-left: auto;
@@ -144,7 +144,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .block__container {
         max-width: 99%;
         min-width: 80%;
