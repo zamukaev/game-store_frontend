@@ -5,6 +5,10 @@
     .title {
         align-self: flex-start;
         margin: 30px 0 78px;
+
+        @media (width <=480px) {
+            font-size: x-large;
+        }
     }
 
     .subcategories {
@@ -12,12 +16,23 @@
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: flex-start;
-        margin: -15px;
+        gap: 45px;
 
         .category {
-            text-align: flex-start;
+            text-align: center;
             flex: 1 0 20%;
-            margin: 15px;
+
+            @media (width <=1280px) {
+                flex: 1 1 25%;
+            }
+
+            @media (width <=769px) {
+                flex: 1 1 33.333%;
+            }
+
+            @media (width <=480px) {
+                flex: 1 1 100%;
+            }
         }
     }
 }

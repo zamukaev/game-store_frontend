@@ -43,7 +43,11 @@ const Subcategories: FC<SubcategoriesProps> = ({ title }) => {
                     </Headline>
                     <ul className={styles.subcategories} role="list">
                         {category?.subcategories.map((cat: Subcategory) => (
-                            <li data-testid="category-list" key={cat._id}>
+                            <li
+                                data-testid="category-list"
+                                className={styles.category}
+                                key={cat._id}
+                            >
                                 <SubcategoryCard
                                     title={cat.originTitle}
                                     text={cat.title}
