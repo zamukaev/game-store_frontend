@@ -22,8 +22,14 @@ import styles from "./styles.module.scss";
 
 const FavoritesWidget = () => {
     const favorites = useFavoritesStore((state) => state.favorites);
-    const [numCards, setNumCards] = useState(4);
-    const [loading, setLoading] = useState(false);
+    const [numCards, setNumCards] = useState(() => {
+        const width = window.innerWidth;
+        if (width < 768) return 1;
+        if (width < 1024) return 2;
+        if (width < 1650) return 3;
+        return 4;
+    });
+    const [loading, setLoading] = useState(true);
 
     const { data, isLoading } = useQuery<Product[] | undefined>({
         queryKey: [favorites],
@@ -92,7 +98,7 @@ const FavoritesWidget = () => {
                 </p>
             </div>
 
-            {!isLoading ? (
+            {!isLoading && !loading ? (
                 <div>
                     <div
                         className={`${
@@ -132,15 +138,9 @@ const FavoritesWidget = () => {
                 </div>
             ) : (
                 <div className={styles.loader}>
-                    {!loading && (
-                        <>
-                            {Array.from({ length: numCards }).map(
-                                (_, index) => (
-                                    <ProductCardLoader key={index} />
-                                )
-                            )}
-                        </>
-                    )}
+                    {Array.from({ length: numCards }).map((_, index) => (
+                        <ProductCardLoader key={index} />
+                    ))}
                 </div>
             )}
         </div>
@@ -148,12 +148,3 @@ const FavoritesWidget = () => {
 };
 
 export default FavoritesWidget;
-
-// при загрузке продуктов у меня должны отображаться
-//  скелетоны и при изменении экрана скелетонов должно
-//   быть столько сколько помещяется на одной строке,
-//   то есть в зависимости от экрана должен отображаться
-//    либо 1 либо 2 либо 3 либо 4 скелетона но проблема
-//     в том что есть функция которая должна так делать
-//      но почему то прежде чем показывать нужное количество
-//       скелетонов отображаются почему то 4 всегда вне зависимоти от экрана а только потом появляется нужное количество
