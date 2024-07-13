@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
     inset: 0;
-    z-index: 1;
+    z-index: 100;
     opacity: 0;
     pointer-events: none;
 }
@@ -13,6 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 100;
 }
 
 .content {
@@ -45,4 +47,8 @@
     .content {
         transform: scale(0.2);
     }
+}
+
+.close_icon {
+    cursor: pointer;
 }

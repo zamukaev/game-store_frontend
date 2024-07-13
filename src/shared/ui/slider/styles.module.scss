@@ -15,3 +15,8 @@
     display: flex;
     gap: 80px;
 }
+
+.priority {
+    position: relative;
+    z-index: 1;
+}
