@@ -1,6 +1,7 @@
 .breadcrumbs {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 61px;
 }
@@ -12,6 +13,11 @@
 }
 
 .crumb {
+
+    @media (width <=480px) {
+        margin-bottom: 5px;
+    }
+
     .link {
         color: var(--color-black);
     }

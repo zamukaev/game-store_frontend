@@ -18,8 +18,20 @@
     gap: 45px;
 
     .category {
-        text-align: flex-start;
+        text-align: center;
         flex: 1 0 20%;
+
+        @media (width <=1280px) {
+            flex: 1 0 25%;
+        }
+
+        @media (width <=769px) {
+            flex: 1 0 33.333%;
+        }
+
+        @media (width <=480px) {
+            flex: 1 0 100%;
+        }
     }
 }
 
