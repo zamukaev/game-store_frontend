@@ -3,6 +3,14 @@
     flex-direction: column;
     justify-content: flex-start;
 
+    @media (width <=1280px) {
+        margin-bottom: -270px;
+        opacity: 0;
+        visibility: hidden;
+        margin-left: 20px;
+        transition: all ease 0.3s;
+    }
+
     .price {
         margin-bottom: 20px;
 
@@ -42,5 +50,15 @@
         .hits {
             margin-bottom: 30px;
         }
+    }
+}
+
+.filters.visible {
+
+    @media (width <=1280px) {
+        opacity: 1;
+        visibility: visible;
+        margin-left: 20px;
+        margin-bottom: 50px;
     }
 }
