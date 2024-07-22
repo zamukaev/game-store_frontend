@@ -13,7 +13,6 @@ interface SubcategoriesLoaderProps {
 const SubcategoriesLoader: FC<SubcategoriesLoaderProps> = (props) => {
     const { length = 4 } = props;
 
-
     return (
         <>
             <Skeleton className={styles.title} width={200} height={20} />
