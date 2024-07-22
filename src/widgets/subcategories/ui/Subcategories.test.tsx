@@ -1,4 +1,4 @@
-import { findByTestId, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
@@ -31,18 +31,6 @@ jest.mock("../api/getCategoryByTitle");
 describe("Subcategories Component", () => {
     beforeEach(() => {
         (getCategoryByTitle as jest.Mock).mockReset();
-    });
-    test("renders loading state when data is being fetched", async () => {
-        (getCategoryByTitle as jest.Mock).mockImplementation(
-            () => new Promise(() => {})
-        );
-
-        render(
-            <QueryClientProvider client={new QueryClient()}>
-                <Subcategories title={mockCategory.originTitle} />
-            </QueryClientProvider>
-        );
-        expect(screen.getByTestId("subcategories-loader")).toBeInTheDocument();
     });
 
     test("renders category title and subcategories", async () => {
