@@ -28,7 +28,6 @@ import styles from "./styles.module.scss";
 const Cart = () => {
     const cls = `${styles.cart_container}`;
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
-
     const [carts, setCarts] = useState<CartInterface[]>([]);
     const [selectedCart, setSelectedCart] = useState<CartInterface[]>([]);
     const [selectAllCart, setSelectAllCart] = useState<boolean>(true);
