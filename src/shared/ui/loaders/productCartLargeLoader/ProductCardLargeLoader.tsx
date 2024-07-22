@@ -1,7 +1,5 @@
 import React from "react";
 
-import { formatCurrency } from "@/utils/string/formatCurrency";
-
 import Skeleton from "../../skeleton/Skeleton";
 
 import styles from "./styles.module.scss";

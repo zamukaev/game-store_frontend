@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 const ProductCardLargeLoaderMobile = () => {
     return (
-        <div className={styles.product} data-testid="productCard">
+        <div className={styles.product}>
             <div className={styles.product__icons}>
                 <Skeleton
                     width={20}
