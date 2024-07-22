@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import ContentLoader from "react-content-loader";
+import CategoryLoader from "@/shared/ui/loaders/subcategoryLoader/SubcategoryLoader";
 
-import CategoryLoader from "@/shared/ui/subcategoryCard/SubcategoryLoader";
+import Skeleton from "../../skeleton/Skeleton";
 
 import styles from "./styles.module.scss";
 interface SubcategoriesLoaderProps {
@@ -15,18 +15,7 @@ const SubcategoriesLoader: FC<SubcategoriesLoaderProps> = (props) => {
 
     return (
         <>
-            <ContentLoader
-                className={styles.title}
-                speed={0}
-                width={300}
-                height={50}
-                viewBox="0 0 300 50"
-                backgroundColor="#f3f3f3"
-                foregroundColor="#ecebeb"
-                {...otherProps}
-            >
-                <rect x="0" y="0" rx="5" ry="5" width="300" height="16" />
-            </ContentLoader>
+            <Skeleton className={styles.title} width={200} height={20} />
             <ul className={styles.subcategories}>
                 {Array.from({ length: length }).map((_, index: number) => (
                     <CategoryLoader className={styles.category} key={index} />

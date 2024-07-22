@@ -23,16 +23,18 @@ import Logo from "./logo/Logo";
 import SliderArrow from "./sliderArrow/SliderArrow";
 import Headline, { HeadlineSize } from "./headline/Headline";
 import SubcategoryCard from "./subcategoryCard/SubcategoryCard";
-import ProductsPageLoader from "./productsPageLoader/ProductsPageLoader";
+import ProductsPageLoader from "./loaders/productsPageLoader/ProductsPageLoader";
 import SubcategoriesEmpty from "./subcategoriesEmpty/SubcategoriesEmpty";
-import SubcategoriesLoader from "./subcategoriesLoader/SubcategoriesLoader";
+import SubcategoriesLoader from "./loaders/subcategoriesLoader/SubcategoriesLoader";
 import BreadCrumb from "./breadcrumb/Breadcrumbs";
 import Modal from "./modal/Modal";
 import Portal from "./portal/Portal";
 import GoBackButton from "./goBackButton/GoBackButton";
 import ButtonLoader from "./buttonLoader/ButtonLoader";
 import CharacteristicItem from "./characteristicItem/CharacteristicItem";
-
+import OrderDetailsLoader from "./loaders/orderDetailsLoader/OrderDetailsLoader";
+import ProductCardLargeMobile from "./productCardLargeMobile/ProductCardLargeMobile";
+import ProductCardLargeLoaderMobile from "./loaders/productCartLargeLoaderMobile/ProductCardLargeLoaderMobile";
 export {
     AppLink,
     Button,
@@ -46,6 +48,8 @@ export {
     Notification,
     ProductCard,
     ProductCardLarge,
+    ProductCardLargeMobile,
+    ProductCardLargeLoaderMobile,
     ProductType,
     RadioButton,
     Range,
@@ -70,4 +74,5 @@ export {
     GoBackButton,
     ButtonLoader,
     AppLinkTheme,
+    OrderDetailsLoader,
 };

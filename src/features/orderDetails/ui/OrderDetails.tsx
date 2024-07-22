@@ -51,7 +51,11 @@ const OrderDetails: FC<OrderDetailsProps> = (props) => {
                     </div>
                 )}
             </div>
-            <Button disabled={!totalSelectedItems} kind="cart">
+            <Button
+                className={styles.order__btn}
+                disabled={!totalSelectedItems}
+                kind="cart"
+            >
                 Перейти к оформлению
             </Button>
         </div>

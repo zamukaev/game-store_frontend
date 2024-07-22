@@ -17,8 +17,18 @@
         margin-top: 60px;
 
         .cart_list {
+            flex: 0 1 800px;
             display: flex;
             flex-direction: column;
+            margin-right: 60px;
+        }
+
+        @media (width<=1110px) {
+            flex-direction: column-reverse;
+
+            .cart_list {
+                margin-right: 0;
+            }
         }
 
         .cart_order_select {
@@ -32,7 +42,7 @@
                 display: flex;
                 align-items: center;
 
-                span {
+                .select_all {
                     font-weight: 600;
                     margin-left: 10px;
                 }
