@@ -32,6 +32,7 @@ import Portal from "./portal/Portal";
 import GoBackButton from "./goBackButton/GoBackButton";
 import ButtonLoader from "./buttonLoader/ButtonLoader";
 import CharacteristicItem from "./characteristicItem/CharacteristicItem";
+import { CartModal } from "./cartModal/CartModal";
 
 export {
     AppLink,
@@ -70,4 +71,5 @@ export {
     GoBackButton,
     ButtonLoader,
     AppLinkTheme,
+    CartModal,
 };

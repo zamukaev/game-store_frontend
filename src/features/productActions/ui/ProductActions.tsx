@@ -11,6 +11,7 @@ import CartIcon from "@/shared/icons/cartIcon/CartIcon";
 import {
     Button,
     ButtonLoader,
+    CartModal,
     Headline,
     HeadlineSize,
     Modal,
@@ -29,6 +30,8 @@ import ThanksForRating from "@/shared/ui/thanksForRating/ThanksForRating";
 import { SecondFeedback } from "@/shared/ui/secondFeedback/SecondFeedback";
 import { ThanksForFeedback } from "@/shared/ui/ThanksForFeedback/ThanksForFeedback";
 
+import useCartModalStore from "@/widgets/modalCartProducts/model/cartModal-store";
+
 import useRatingStore from "../model/rating-store";
 
 import styles from "./ProductActions.module.scss";
@@ -46,6 +49,8 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
         setExperienceCategory,
         clearFeedback,
     } = useRatingStore();
+
+    const { modalActive, setModalActive } = useCartModalStore();
 
     const [isProductAddedToCart, setIsProductAddedToCart] = useState<
         boolean | undefined
@@ -159,15 +164,19 @@ const ProductActions: FC<ProductActionsProps> = ({ id, price }) => {
                                     <p>Удалить из корзины</p>
                                 </>
                             ) : (
-                                <>
+                                <div
+                                    style={{ display: "flex" }}
+                                    onClick={() => setModalActive(true)}
+                                >
                                     <CartIcon />
                                     <p>Добавить в корзину</p>
-                                </>
+                                </div>
                             )}
                         </>
                     )}
                 </Button>
             </div>
+            <CartModal active={modalActive} setActive={setModalActive} />
         </div>
     );
 };
