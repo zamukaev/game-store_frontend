@@ -26,7 +26,8 @@
 
         &_prices {
             display: flex;
-            align-items: top;
+            flex-direction: column;
+            align-items: center;
         }
     }
 }
