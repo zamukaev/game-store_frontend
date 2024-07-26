@@ -23,6 +23,7 @@
         }
 
         &_prices {
+            font-weight: 600;
             display: flex;
             align-items: top;
         }
@@ -64,10 +65,6 @@
 .title {
     width: 194px;
     align-items: center;
-}
-
-.product__footer_prices {
-    font-weight: 600;
 }
 
 .item_price {
