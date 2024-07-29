@@ -23,7 +23,7 @@ import styles from "./styles.module.scss";
 const FavoritesWidget = () => {
     const favorites = useFavoritesStore((state) => state.favorites);
     const [numCards, setNumCards] = useState(() => {
-        const width = window.innerWidth;
+        const width = typeof window !== "undefined" ? window.innerWidth : 0;
         if (width < 768) return 1;
         if (width < 1024) return 2;
         if (width < 1650) return 3;
@@ -45,7 +45,7 @@ const FavoritesWidget = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            const width = window.innerWidth;
+            const width = typeof window !== "undefined" ? window.innerWidth : 0;
             if (width < 768) {
                 setNumCards(1);
             } else if (width < 1024) {
