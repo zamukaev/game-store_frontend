@@ -9,6 +9,7 @@ import {
     Headline,
     HeadlineSize,
     ProductCardLarge,
+    ProductCardLargeMobile,
 } from "@/shared/ui";
 import { Product } from "@/shared/types/product";
 import { CartInterface } from "@/shared/types/cart";
@@ -18,7 +19,8 @@ import localStorageApi from "@/utils/data/localStorageApi";
 
 import { getCart } from "../api";
 
-import CartLoader from "./cartLoader/CartLoader";
+import CartLoader from "../../../shared/ui/loaders/cartLoader/CartLoader";
+
 import CartEmpty from "./cartEmpty/CartEmpty";
 
 import styles from "./styles.module.scss";
@@ -26,12 +28,11 @@ import styles from "./styles.module.scss";
 const Cart = () => {
     const cls = `${styles.cart_container}`;
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
-
     const [carts, setCarts] = useState<CartInterface[]>([]);
     const [selectedCart, setSelectedCart] = useState<CartInterface[]>([]);
     const [selectAllCart, setSelectAllCart] = useState<boolean>(true);
     const [selectedCartIds, setSelectedCartIds] = useState<string[]>([]);
-
+    const [width, setWidth] = useState(0);
     const totalSelectedItems = useMemo(
         () => selectedCart.reduce((total, item) => total + item.count, 0),
         [selectedCart]
@@ -143,13 +144,13 @@ const Cart = () => {
         }
     }, [data]);
 
-    if (isLoading) {
-        return (
-            <section className={cls}>
-                <CartLoader />
-            </section>
-        );
-    }
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const handleResize = () => setWidth(window.innerWidth);
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }
+    }, []);
 
     return (
         <section className={cls}>
@@ -161,7 +162,9 @@ const Cart = () => {
             <Headline className={styles.cart_title} Size={HeadlineSize.L}>
                 Корзина
             </Headline>
-            {!!carts.length ? (
+            {isLoading ? (
+                <CartLoader width={width} />
+            ) : !!carts.length ? (
                 <div className={styles.cart_content}>
                     <ul className={styles.cart_list}>
                         <div className={styles.cart_order_select}>
@@ -173,7 +176,9 @@ const Cart = () => {
                                     value="checkAll"
                                     onCheckHandler={selectAllCartHandler}
                                 />
-                                <span>Выбрать все</span>
+                                <span className={styles.select_all}>
+                                    Выбрать все
+                                </span>
                             </label>
                             <Button
                                 onClick={removeSelectedCart}
@@ -185,13 +190,23 @@ const Cart = () => {
                         </div>
                         {carts.map((cart: Product) => (
                             <li className={styles.cart_item} key={cart._id}>
-                                <ProductCardLarge
-                                    getCount={getCount}
-                                    onCheckHandler={cartCheckHandler}
-                                    product={cart}
-                                    selectAllCart={cart.selected}
-                                    removeCartItem={removeCartItem}
-                                />
+                                {width > 545 ? (
+                                    <ProductCardLarge
+                                        getCount={getCount}
+                                        onCheckHandler={cartCheckHandler}
+                                        product={cart}
+                                        selectAllCart={cart.selected}
+                                        removeCartItem={removeCartItem}
+                                    />
+                                ) : (
+                                    <ProductCardLargeMobile
+                                        getCount={getCount}
+                                        onCheckHandler={cartCheckHandler}
+                                        product={cart}
+                                        selectAllCart={cart.selected}
+                                        removeCartItem={removeCartItem}
+                                    />
+                                )}
                             </li>
                         ))}
                     </ul>

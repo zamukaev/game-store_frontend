@@ -1,0 +1,29 @@
+.title {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    align-self: flex-start;
+}
+
+.sorting {
+    margin-bottom: 22px;
+    align-self: flex-start;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: -22px;
+
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 80px;
+
+        .product {
+            margin: 0 20px;
+            width: 374px;
+        }
+    }
+}

@@ -8,6 +8,7 @@
     }
 
     .sorting {
+        margin-bottom: 27px;
         align-self: flex-start;
     }
 
@@ -26,7 +27,6 @@
     }
 
     .container {
-        margin-top: 27px;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -47,6 +47,7 @@
             }
 
             .product {
+                margin: 0 20px;
                 width: 374px;
             }
         }
