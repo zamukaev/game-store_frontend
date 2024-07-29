@@ -1,12 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-
 import { useQuery } from "@tanstack/react-query";
 
 import { GoBackButton, Headline, ProductCard } from "@/shared/ui";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
-
 import SearchEmpty from "@/widgets/search/ui/SearchEmpty/SearchEmpty";
 
 import { fetchSearchResult } from "../api";
@@ -17,11 +15,41 @@ const SearchCards = () => {
     const searchParams = useSearchParams();
     const query = searchParams.get("query");
 
+    const [numCards, setNumCards] = useState(() => {
+        const width = typeof window !== "undefined" ? window.innerWidth : 0;
+        if (width < 768) return 1;
+        if (width < 1024) return 2;
+        if (width < 1650) return 3;
+        return 4;
+    });
+
     const { data, isLoading, error } = useQuery({
         queryKey: ["searchResults"],
         queryFn: () => fetchSearchResult(query as string),
         enabled: !!query,
     });
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = typeof window !== "undefined" ? window.innerWidth : 0;
+            if (width < 768) {
+                setNumCards(1);
+            } else if (width < 1024) {
+                setNumCards(2);
+            } else if (width < 1650) {
+                setNumCards(3);
+            } else {
+                setNumCards(4);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     if (isLoading) {
         return (
@@ -33,7 +61,7 @@ const SearchCards = () => {
                 />
                 <Headline className={styles.query_title}>{query}</Headline>
                 <div className={styles.loader}>
-                    {Array.from({ length: 4 }).map((_, index) => (
+                    {Array.from({ length: numCards }).map((_, index) => (
                         <ProductCardLoader key={index} />
                     ))}
                 </div>

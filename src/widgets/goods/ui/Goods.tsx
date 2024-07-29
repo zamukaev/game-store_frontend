@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { OptionsType } from "@/shared/types/options";
 import {
     BreadCrumb,
+    Button,
     Headline,
     HeadlineSize,
     ProductCard,
@@ -19,10 +20,14 @@ import { Filters } from "@/features/filters";
 
 import { getProductsBySubcategory } from "@/widgets/goods/api/getProductsBySubcategory";
 
+import FiltersIcon from "@/shared/icons/filtersIcon/FiltersIcon";
+
 import styles from "./styles.module.scss";
 
 const Goods = ({ slug, item }: { slug: string; item: string }) => {
     const [selectedValue, setSelectedValue] = useState("popular");
+    const [isFiltersVisible, setIsFiltersVisible] = useState(false);
+
     const [options, setOptions] = useState<OptionsType>({
         priceFrom: 0,
         priceTo: 100000,
@@ -75,6 +80,13 @@ const Goods = ({ slug, item }: { slug: string; item: string }) => {
                         className={styles.sorting}
                         setSelectedValue={setSelectedValue}
                     />
+                    <Button
+                        className={styles.filters}
+                        onClick={() => setIsFiltersVisible(!isFiltersVisible)}
+                        kind="clear"
+                    >
+                        <FiltersIcon /> <span>Фильтры</span>
+                    </Button>
                     <div className={styles.container}>
                         {!subcategory?.subcategories?.length ? (
                             <SubcategoriesEmpty
@@ -95,7 +107,11 @@ const Goods = ({ slug, item }: { slug: string; item: string }) => {
                                 )}
                             </ul>
                         )}
-                        <Filters options={options} setOptions={setOptions} />
+                        <Filters
+                            visible={isFiltersVisible}
+                            options={options}
+                            setOptions={setOptions}
+                        />
                     </div>
                 </>
             )}

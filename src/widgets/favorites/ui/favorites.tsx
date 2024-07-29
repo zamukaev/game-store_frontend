@@ -4,13 +4,15 @@ import { useQuery } from "@tanstack/react-query";
 
 import { useEffect, useState } from "react";
 
-import { AppLink, GoBackButton, ProductCard } from "@/shared/ui";
+import { AppLink, CartModal, GoBackButton, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
 import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
 import { Product } from "@/shared/types/product";
 
 import { pluralize } from "@/utils/string/pularize";
+
+import useCartModalStore from "@/widgets/modalCartProducts/model/cartModal-store";
 
 import { fetchFavoriteProducts } from "../api";
 
@@ -22,8 +24,9 @@ import styles from "./styles.module.scss";
 
 const FavoritesWidget = () => {
     const favorites = useFavoritesStore((state) => state.favorites);
+    const { modalActive, setModalActive } = useCartModalStore();
     const [numCards, setNumCards] = useState(() => {
-        const width = window.innerWidth;
+        const width = typeof window !== "undefined" ? window.innerWidth : 0;
         if (width < 768) return 1;
         if (width < 1024) return 2;
         if (width < 1650) return 3;
@@ -45,7 +48,7 @@ const FavoritesWidget = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            const width = window.innerWidth;
+            const width = typeof window !== "undefined" ? window.innerWidth : 0;
             if (width < 768) {
                 setNumCards(1);
             } else if (width < 1024) {
@@ -143,6 +146,7 @@ const FavoritesWidget = () => {
                     ))}
                 </div>
             )}
+            <CartModal active={modalActive} setActive={setModalActive} />
         </div>
     );
 };

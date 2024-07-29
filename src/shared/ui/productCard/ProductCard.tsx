@@ -16,8 +16,13 @@ import FavoritesIcon from "@/shared/icons/favoritesIcon/Favorites";
 import { formatCurrency } from "@/utils/string/formatCurrency";
 import localStorageApi from "@/utils/data/localStorageApi";
 
+import useCartModalStore from "@/widgets/modalCartProducts/model/cartModal-store";
+
 import ProductType from "../productType/ProductType";
 import Card from "../card/Card";
+
+import { CartModal } from "../cartModal/CartModal";
+import Modal from "../modal/Modal";
 
 import styles from "./styles.module.scss";
 
@@ -36,6 +41,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
     const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
     const favorites = useFavoritesStore((state) => state.favorites);
+    const { setModalActive } = useCartModalStore();
 
     const timerRef = useRef() as MutableRefObject<
         ReturnType<typeof setTimeout>
@@ -43,10 +49,12 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
 
     const addProductToCart = () => {
         setIsLoadingBtn(true);
+        setModalActive(true);
         localStorageApi.setItemToLocalSt(_id, "cart");
+
         timerRef.current = setTimeout(() => {
             setIsLoadingBtn(false);
-        }, 300);
+        }, 200);
     };
 
     const removeProductFromCart = () => {
