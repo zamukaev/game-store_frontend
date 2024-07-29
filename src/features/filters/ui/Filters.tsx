@@ -15,12 +15,15 @@ import styles from "./styles.module.scss";
 interface FiltersProps {
     className?: string;
     options: OptionsType;
+    visible?: boolean;
     setOptions: (prev: any) => any;
 }
 
 const Filters: FC<FiltersProps> = (props) => {
-    const { className, options, setOptions } = props;
-    const cls = `${styles.filters} ${className}`;
+    const { className, options, visible, setOptions } = props;
+    const cls = `${styles.filters} ${
+        visible ? styles.visible : " "
+    } ${className} `;
 
     const hitsToggleHandle = () => {
         setOptions(

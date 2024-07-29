@@ -40,6 +40,7 @@ const ProductsPageLoader = (props: any) => {
                     ))}
                 </ul>
                 <ContentLoader
+                    className={styles.filters}
                     speed={0}
                     width={320}
                     height={290}
@@ -48,7 +49,7 @@ const ProductsPageLoader = (props: any) => {
                     foregroundColor="#ecebeb"
                     {...props}
                 >
-                    <rect x="5" y="0" rx="5" ry="5" width="65" height="20" />
+                    <rect x="0" y="0" rx="5" ry="5" width="65" height="20" />
                     <rect
                         x="0"
                         y="40"
