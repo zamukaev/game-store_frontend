@@ -12,9 +12,9 @@ import AppLink, { AppLinkTheme } from "@/shared/ui/appLink/AppLink";
 
 import styles from "./styles.module.scss";
 
-export interface NavItemProps {
-    text?: string;
+interface NavItemProps {
     kind: "cart" | "login" | "favorites";
+    text: string;
     href?: string;
     onClick?: () => void;
     classNames?: string;

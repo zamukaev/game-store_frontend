@@ -10,6 +10,7 @@ interface NavItemsProps {
 
 const NavItems: FC<NavItemsProps> = (props) => {
     // const { showModalHandler } = props;
+
     return (
         <div className={styles.container}>
             {/* <NavItem kind="login" text="Войти" onClick={showModalHandler} /> */}
