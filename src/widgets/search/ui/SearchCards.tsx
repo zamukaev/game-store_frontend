@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 
@@ -15,11 +15,18 @@ const SearchCards = () => {
     const searchParams = useSearchParams();
     const query = searchParams.get("query");
 
+    const getNumCards = (width: any) => {
+        if (width < 910) return 1;
+        if (width < 1500) return 2;
+        if (width < 1920) return 3;
+        return 4;
+    };
+
     const [numCards, setNumCards] = useState(() => {
-        const width = typeof window !== "undefined" ? window.innerWidth : 0;
-        if (width < 768) return 1;
-        if (width < 1024) return 2;
-        if (width < 1650) return 3;
+        const width = window.innerWidth;
+        if (width < 910) return 1;
+        if (width < 1500) return 2;
+        if (width < 1920) return 3;
         return 4;
     });
 
@@ -29,22 +36,18 @@ const SearchCards = () => {
         enabled: !!query,
     });
 
+    useLayoutEffect(() => {
+        const width = typeof window !== "undefined" ? window.innerWidth : 0;
+        setNumCards(getNumCards(width));
+    }, []);
+
     useEffect(() => {
         const handleResize = () => {
             const width = typeof window !== "undefined" ? window.innerWidth : 0;
-            if (width < 768) {
-                setNumCards(1);
-            } else if (width < 1024) {
-                setNumCards(2);
-            } else if (width < 1650) {
-                setNumCards(3);
-            } else {
-                setNumCards(4);
-            }
+            setNumCards(getNumCards(width));
         };
 
         window.addEventListener("resize", handleResize);
-        handleResize();
 
         return () => {
             window.removeEventListener("resize", handleResize);
