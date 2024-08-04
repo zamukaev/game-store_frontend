@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import { AppLink, CartModal, GoBackButton, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
@@ -26,13 +26,20 @@ const FavoritesWidget = () => {
     const favorites = useFavoritesStore((state) => state.favorites);
     const { modalActive, setModalActive } = useCartModalStore();
     const [numCards, setNumCards] = useState(() => {
-        const width = typeof window !== "undefined" ? window.innerWidth : 0;
-        if (width < 768) return 1;
-        if (width < 1024) return 2;
-        if (width < 1650) return 3;
+        const width = window.innerWidth;
+        if (width < 910) return 1;
+        if (width < 1500) return 2;
+        if (width < 1920) return 3;
         return 4;
     });
     const [loading, setLoading] = useState(true);
+
+    const getNumCards = (width: any) => {
+        if (width < 910) return 1;
+        if (width < 1500) return 2;
+        if (width < 1920) return 3;
+        return 4;
+    };
 
     const { data, isLoading } = useQuery<Product[] | undefined>({
         queryKey: [favorites],
@@ -46,23 +53,20 @@ const FavoritesWidget = () => {
         },
     });
 
+    useLayoutEffect(() => {
+        const width = typeof window !== "undefined" ? window.innerWidth : 0;
+        setNumCards(getNumCards(width));
+    }, []);
+
     useEffect(() => {
         const handleResize = () => {
             const width = typeof window !== "undefined" ? window.innerWidth : 0;
-            if (width < 768) {
-                setNumCards(1);
-            } else if (width < 1024) {
-                setNumCards(2);
-            } else if (width < 1650) {
-                setNumCards(3);
-            } else {
-                setNumCards(4);
-            }
-            setLoading(false);
+            setNumCards(getNumCards(width));
         };
 
+        setLoading(false);
+
         window.addEventListener("resize", handleResize);
-        handleResize();
 
         return () => {
             window.removeEventListener("resize", handleResize);
@@ -152,3 +156,5 @@ const FavoritesWidget = () => {
 };
 
 export default FavoritesWidget;
+
+// пройдись линтерами именно в этой ветке
