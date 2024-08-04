@@ -21,8 +21,7 @@ import useCartModalStore from "@/widgets/modalCartProducts/model/cartModal-store
 import ProductType from "../productType/ProductType";
 import Card from "../card/Card";
 
-import { CartModal } from "../cartModal/CartModal";
-import Modal from "../modal/Modal";
+import CartModal from "../cartModal/CartModal";
 
 import styles from "./styles.module.scss";
 
@@ -41,7 +40,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     const cartIds = localStorageApi.getDataFromLocalSt("cart");
     const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
     const favorites = useFavoritesStore((state) => state.favorites);
-    const { setModalActive } = useCartModalStore();
+    const { modalActive, setModalActive } = useCartModalStore();
 
     const timerRef = useRef() as MutableRefObject<
         ReturnType<typeof setTimeout>
@@ -130,6 +129,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                         />
                     )}
                 </div>
+                <CartModal active={modalActive} setActive={setModalActive} />
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ interface ModalProps {
     onMouseLeave?: () => void;
 }
 
-export const CartModal = ({ active, setActive }: ModalProps) => {
+const CartModal = ({ active, setActive }: ModalProps) => {
     const [overlayActive, setOverlayActive] = useState(false);
 
     useEffect(() => {
@@ -46,3 +46,5 @@ export const CartModal = ({ active, setActive }: ModalProps) => {
         </div>
     );
 };
+
+export default CartModal;
