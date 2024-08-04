@@ -11,6 +11,8 @@ import styles from "./styles.module.scss";
 interface ModalProps {
     active: boolean;
     setActive: React.Dispatch<React.SetStateAction<boolean>>;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
 export const CartModal = ({ active, setActive }: ModalProps) => {

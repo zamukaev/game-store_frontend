@@ -32,6 +32,24 @@
     height: fit-content;
 }
 
+@media (width <= 1700px) {
+    .modal__content {
+        width: 40%;
+    }
+}
+
+@media (width <= 1200px) {
+    .modal__content {
+        width: 70%;
+    }
+}
+
+@media (width <= 700px) {
+    .modal__content {
+        display: none;
+    }
+}
+
 .modal__content.active {
     transform: scale(1);
 }
