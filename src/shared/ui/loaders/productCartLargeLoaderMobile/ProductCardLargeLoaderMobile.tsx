@@ -4,7 +4,7 @@ import Skeleton from "../../skeleton/Skeleton";
 
 import styles from "./styles.module.scss";
 
-const ProductCardLargeLoaderMobile = () => {
+const ProductCardLargeLoaderMobile = ({ width }: { width: number }) => {
     return (
         <div className={styles.product}>
             <div className={styles.product__icons}>
@@ -24,13 +24,13 @@ const ProductCardLargeLoaderMobile = () => {
                     border="25px"
                 />
                 <div className={styles.image}>
-                    <Skeleton width={110} height={110} border="3px" />
+                    <Skeleton width={110} height={90} border="3px" />
                 </div>
 
                 <div className={styles.info}>
                     <Skeleton
                         width={150}
-                        height={40}
+                        height={width <= 475 ? 36 : 18}
                         border="3px"
                         className={styles.title}
                     />

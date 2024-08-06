@@ -7,9 +7,10 @@
     .product__icons {
         position: absolute;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        bottom: 16px;
+        justify-content: center;
+        bottom: 20px;
         right: 0;
     }
 
@@ -27,7 +28,7 @@
 }
 
 .info {
-    margin-left: 32px;
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -38,7 +39,7 @@
 .favoriteIcon {
     transition: all ease 0.3s;
     cursor: pointer;
-    margin-right: 20px;
+    margin-bottom: 20px;
 
     &:hover {
         transition: all ease 0.3s;
@@ -49,6 +50,10 @@
 .image {
     text-align: center;
     margin-left: 10px;
+
+    img {
+        object-fit: contain;
+    }
 }
 
 .title {

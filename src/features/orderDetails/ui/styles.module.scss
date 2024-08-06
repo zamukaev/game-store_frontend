@@ -2,8 +2,8 @@
     width: 362px;
 
     @media (width<=1110px) {
+        margin: 50px 0;
         width: 100%;
-        margin-bottom: 50px;
 
         .order__btn {
             margin: 0 auto;
@@ -45,5 +45,11 @@
             align-self: flex-end;
             font-weight: 600;
         }
+    }
+}
+
+.order__btn {
+    @media (width<=400px) {
+        max-width: 100%;
     }
 }

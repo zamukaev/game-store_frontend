@@ -8,12 +8,12 @@
     }
 
     .sorting {
-        margin-bottom: 27px;
+        margin-bottom: 20px;
         align-self: flex-start;
     }
 
     .filters {
-        margin-top: 20px;
+        margin-bottom: 30px;
         display: none;
         align-items: center;
 
@@ -34,6 +34,7 @@
 
         @media (width <=1280px) {
             flex-direction: column-reverse;
+            margin-left: 0;
         }
 
         .products {
@@ -44,11 +45,27 @@
 
             @media (width <=1280px) {
                 justify-content: space-around;
+                gap: 20px;
             }
 
             .product {
-                margin: 0 20px;
                 width: 374px;
+
+                @media (width <=1280px) {
+                    margin-bottom: 20px;
+                }
+
+                @media (width <=810px) {
+                    margin: 0;
+                }
+
+                @media (width <=410px) {
+                    width: 330px;
+                }
+
+                @media (width <=375px) {
+                    width: 300px;
+                }
             }
         }
     }

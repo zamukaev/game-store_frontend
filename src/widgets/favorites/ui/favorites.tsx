@@ -6,7 +6,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 
 import { AppLink, CartModal, GoBackButton, ProductCard } from "@/shared/ui";
 import { ArrowPrevGreyIcon } from "@/shared/icons/ArrowPrevGreyIcon/ArrowPrevGreyIcon";
-import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
+import ProductCardLoader from "@/shared/ui/loaders/productCardLoader/ProductCardLoader";
 import { FavoritesCardsLengthLoader } from "@/shared/ui/FavoritesCardsLengthLoader/FavoritesCardsLengthLoader";
 import { Product } from "@/shared/types/product";
 
