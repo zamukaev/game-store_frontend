@@ -1,5 +1,7 @@
 .product {
     margin: 0 20px;
+    display: flex;
+    flex-direction: column;
 
     &__header {
         display: flex;
@@ -25,16 +27,6 @@
     }
 }
 
-.favoriteIcon {
-    transition: all ease 0.3s;
-    cursor: pointer;
-
-    &:hover {
-        transition: all ease 0.3s;
-        fill: var(--color-orange-light);
-    }
-}
-
 .image {
     margin-top: 30px;
     text-align: center;
@@ -42,23 +34,12 @@
     justify-content: center;
 }
 
-.title {
-    margin-top: 20px;
-    font-size: 16px;
-    height: 50px;
-    text-align: center;
-    align-items: center;
-    color: var(--color-black);
-}
+.title_loader {
+    display: flex;
+    justify-content: center;
 
-.price {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.oldPrice {
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: line-through;
-    color: var(--color-green);
+    .title {
+        margin-top: 20px;
+        height: 50px;
+    }
 }

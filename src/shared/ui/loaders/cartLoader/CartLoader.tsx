@@ -42,7 +42,7 @@ const CartLoader = ({ width }: { width: number }) => {
                         height={1}
                         border="3px"
                     />
-                    {[1, 2].map((item: number) => (
+                    {[1, 2, 3].map((item: number) => (
                         <React.Fragment key={item}>
                             <Skeleton
                                 className={styles.delete_all}
@@ -51,10 +51,12 @@ const CartLoader = ({ width }: { width: number }) => {
                                 border="3px"
                             />
                             <li className={styles.cart_item}>
-                                {width > 545 ? (
+                                {width > 645 ? (
                                     <ProductCardLargeLoader />
                                 ) : (
-                                    <ProductCardLargeLoaderMobile />
+                                    <ProductCardLargeLoaderMobile
+                                        width={width}
+                                    />
                                 )}
                             </li>
                         </React.Fragment>

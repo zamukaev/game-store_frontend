@@ -1,6 +1,6 @@
 import React from "react";
 
-import Skeleton from "../skeleton/Skeleton";
+import Skeleton from "../../skeleton/Skeleton";
 
 import styles from "./styles.module.scss";
 
@@ -23,10 +23,13 @@ const ProductCardLoader = () => {
             <div className={styles.image}>
                 <Skeleton width={182} height={126} border="3px" />
             </div>
-            <div style={{ marginBottom: "40px" }}>
+            <div
+                className={styles.title_loader}
+                style={{ marginBottom: "40px" }}
+            >
                 <Skeleton
                     className={styles.title}
-                    width={374}
+                    width={300}
                     height={20}
                     border="3px"
                 />

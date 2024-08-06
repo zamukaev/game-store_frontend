@@ -32,7 +32,7 @@ const Cart = () => {
     const [selectedCart, setSelectedCart] = useState<CartInterface[]>([]);
     const [selectAllCart, setSelectAllCart] = useState<boolean>(true);
     const [selectedCartIds, setSelectedCartIds] = useState<string[]>([]);
-    const [width, setWidth] = useState(0);
+    const [width, setWidth] = useState(window.innerWidth);
     const totalSelectedItems = useMemo(
         () => selectedCart.reduce((total, item) => total + item.count, 0),
         [selectedCart]
@@ -150,7 +150,7 @@ const Cart = () => {
             window.addEventListener("resize", handleResize);
             return () => window.removeEventListener("resize", handleResize);
         }
-    }, []);
+    }, [width]);
 
     return (
         <section className={cls}>
@@ -190,7 +190,7 @@ const Cart = () => {
                         </div>
                         {carts.map((cart: Product) => (
                             <li className={styles.cart_item} key={cart._id}>
-                                {width > 545 ? (
+                                {width > 645 ? (
                                     <ProductCardLarge
                                         getCount={getCount}
                                         onCheckHandler={cartCheckHandler}

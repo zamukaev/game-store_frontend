@@ -36,6 +36,7 @@ import OrderDetailsLoader from "./loaders/orderDetailsLoader/OrderDetailsLoader"
 import ProductCardLargeMobile from "./productCardLargeMobile/ProductCardLargeMobile";
 import ProductCardLargeLoaderMobile from "./loaders/productCartLargeLoaderMobile/ProductCardLargeLoaderMobile";
 import { CartModal } from "./cartModal/CartModal";
+import ProductCardLoader from "./loaders/productCardLoader/ProductCardLoader";
 
 export {
     AppLink,
@@ -78,4 +79,5 @@ export {
     AppLinkTheme,
     OrderDetailsLoader,
     CartModal,
+    ProductCardLoader,
 };

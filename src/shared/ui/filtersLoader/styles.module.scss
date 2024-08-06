@@ -3,6 +3,10 @@
     flex-direction: column;
     justify-content: flex-start;
 
+    @media (width <=1280px) {
+        display: none;
+    }
+
     .price {
         margin-bottom: 20px;
 

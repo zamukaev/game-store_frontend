@@ -5,9 +5,10 @@ import { Product } from "@/shared/types/product";
 
 import ProductCard from "../productCard/ProductCard";
 import SliderArrow from "../sliderArrow/SliderArrow";
-import ProductCardLoader from "../productCard/ProductCardLoader";
 
 import { Headline, HeadlineSize } from "..";
+
+import ProductCardLoader from "../loaders/productCardLoader/ProductCardLoader";
 
 import styles from "./styles.module.scss";
 

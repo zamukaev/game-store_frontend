@@ -70,7 +70,7 @@ const ProductCardLargeMobile: FC<ProductCardLargeMobileProps> = (props) => {
                         src={urlImages[0]}
                         alt="product image"
                         width={110}
-                        height={110}
+                        height={90}
                     />
                 </Link>
 

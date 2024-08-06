@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 
 import { GoBackButton, Headline, ProductCard } from "@/shared/ui";
-import ProductCardLoader from "@/shared/ui/productCard/ProductCardLoader";
+import ProductCardLoader from "@/shared/ui/loaders/productCardLoader/ProductCardLoader";
 import SearchEmpty from "@/widgets/search/ui/SearchEmpty/SearchEmpty";
 
 import { fetchSearchResult } from "../api";

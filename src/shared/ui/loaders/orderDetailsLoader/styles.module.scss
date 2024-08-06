@@ -1,5 +1,6 @@
 .cart_order {
     width: 362px;
+    max-width: 50px 0;
 
     @media (width<=1110px) {
         width: 100%;
@@ -31,5 +32,12 @@
                 margin-bottom: 10px;
             }
         }
+    }
+}
+
+.order__btn {
+
+    @media (width<=400px) {
+        max-width: 100%;
     }
 }
